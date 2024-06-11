@@ -1,12 +1,29 @@
-create table user (
-  id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null
-);
+CREATE TABLE artist (
+id INT NOT NULL AUTO_INCREMENT,
+firstname VARCHAR(100) NOT NULL,
+lastname VARCHAR(100) NOT NULL,
+description  VARCHAR(255) NOT NULL,
+photo VARCHAR(100) NOT NULL,
+PRIMARY KEY (`id`));
 
-create table item (
-  id int unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
-);
+CREATE TABLE artwork (
+id INT NOT NULL AUTO_INCREMENT,
+name VARCHAR(100) NOT NULL,
+description  VARCHAR(255) NOT NULL,
+photo VARCHAR(100) NOT NULL,
+id_artist  INT NOT NULL,
+PRIMARY KEY (`id`));
+
+CREATE TABLE gallery (
+id_user INT NOT NULL,
+id_artwork INT NOT NULL,
+PRIMARY KEY (id_user, id_artwork));
+
+CREATE TABLE users (
+id INT NOT NULL AUTO_INCREMENT,
+firstname VARCHAR(100) NOT NULL,
+lastname VARCHAR(100) NOT NULL,
+mail VARCHAR(100) NOT NULL,
+password VARCHAR(100) NOT NULL,
+is_admin TINYINT DEFAULT 0 NOT NULL,
+PRIMARY KEY (`id`));
