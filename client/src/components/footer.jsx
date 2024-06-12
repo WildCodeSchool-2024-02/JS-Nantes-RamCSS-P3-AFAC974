@@ -1,6 +1,6 @@
 import "../style/footer.css";
 
-function header() {
+function Footer() {
   return (
     <footer>
       <p>&copy; AFAC 971</p>
@@ -9,4 +9,4 @@ function header() {
   );
 }
 
-export default header;
+export default Footer;

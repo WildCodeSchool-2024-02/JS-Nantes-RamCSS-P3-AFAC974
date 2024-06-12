@@ -13,8 +13,8 @@ function Home() {
         <h1>AFAC 971</h1>
       </header>
       <section>
-        <h2>Petit poisson ne deviendra jamais grand.</h2>
-        <h3>Nom de l&apos;auteur: Marc Dutroux.</h3>
+        <h2>Petit poisson corail.</h2>
+        <h3>Nom de l&apos;auteur: Marc Jordan.</h3>
         <div className="text-img">
           <figure>
             <img src="images/photograph0/photo0.jpg" alt="" />
@@ -42,40 +42,40 @@ function Home() {
       <section className="picture-photograph">
         <article>
           <figure>
-            <NavLink to="photo0.html">
+            <NavLink to="photo0">
               <img src="images/photograph3/miniature/photograph.jpg" alt="" />
             </NavLink>
           </figure>
           <h3>Nom du photographe</h3>
           <p className="link-photo">
-            <NavLink to="photo0.html">plus d&apos;info</NavLink>
+            <NavLink to="photo0">plus d&apos;info</NavLink>
           </p>
         </article>
         <article>
           <figure>
-            <NavLink to="photo0.html">
+            <NavLink to="photo0">
               <img src="images/photograph4/miniature/photograph.jpg" alt="" />
             </NavLink>
           </figure>
           <h3>Nom du photographe</h3>
           <p className="link-photo">
-            <NavLink to="photo0.html">plus d&apos;info</NavLink>
+            <NavLink to="photo0">plus d&apos;info</NavLink>
           </p>
         </article>
         <article>
           <figure>
-            <NavLink to="photo0.html">
+            <NavLink to="photo0">
               <img src="images/photograph5/miniature/photograph.jpg" alt="" />
             </NavLink>
           </figure>
           <h3>Nom du photographe</h3>
           <p className="link-photo">
-            <NavLink to="photo0.html">plus d&apos;info</NavLink>
+            <NavLink to="photo0">plus d&apos;info</NavLink>
           </p>
         </article>
         <article>
           <figure>
-            <NavLink to="photo0.html">
+            <NavLink to="photo0">
               <img src="images/photograph6/miniature/photograph.jpg" alt="" />
             </NavLink>
           </figure>
