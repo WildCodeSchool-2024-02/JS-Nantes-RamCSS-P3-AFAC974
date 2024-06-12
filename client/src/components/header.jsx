@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import logonavbar from "../assets/images/logos/logonavbar.png";
 import "../style/header.css";
 
-function header() {
+function Header() {
   return (
     <header>
       <nav>
@@ -11,13 +11,13 @@ function header() {
         </NavLink>
         <ul>
           <li>
-            <NavLink to="gallery.html">GALLERIE</NavLink>
+            <NavLink to="gallery">GALLERIE</NavLink>
           </li>
           <li>
-            <NavLink to="artist.html">ARTISTE</NavLink>
+            <NavLink to="artist">ARTISTE</NavLink>
           </li>
           <li>
-            <NavLink to="about.html">À&nbsp;PROPOS</NavLink>
+            <NavLink to="about">À&nbsp;PROPOS</NavLink>
           </li>
         </ul>
       </nav>
@@ -25,4 +25,4 @@ function header() {
   );
 }
 
-export default header;
+export default Header;
