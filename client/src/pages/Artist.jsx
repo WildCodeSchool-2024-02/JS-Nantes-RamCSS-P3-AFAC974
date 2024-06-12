@@ -5,7 +5,7 @@ function Artist() {
   return (
     <>
       <header>
-        <h1>AFAC 971 : Gallerie</h1>
+        <h1>AFAC 974 : Gallerie</h1>
       </header>
       <section>
         <h2>Nos amis les photographes</h2>

@@ -10,7 +10,7 @@ function Home() {
         <img src={logo} alt="" />
       </figure>
       <header>
-        <h1>AFAC 971</h1>
+        <h1>AFAC 974</h1>
       </header>
       <section>
         <h2>Petit poisson corail.</h2>
