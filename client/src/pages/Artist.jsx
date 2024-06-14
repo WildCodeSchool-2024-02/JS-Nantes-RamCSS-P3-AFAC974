@@ -12,63 +12,81 @@ function Artist() {
         <div className="artist">
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph0/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer0/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph1/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer1/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph2/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer2/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph3/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer3/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph4/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer4/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph5/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
@@ -78,46 +96,58 @@ function Artist() {
           </article>
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph6/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographe6/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph7/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer7/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
           <article>
             <figure>
-              <NavLink to="photo0graph">
-                <img src="images/photograph8/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer8/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
           <article>
             <figure>
-              <NavLink to="photograph0">
-                <img src="images/photograph9/miniature/photograph.jpg" alt="" />
+              <NavLink to="photographer">
+                <img
+                  src="images/photographer9/miniature/photographer.jpg"
+                  alt=""
+                />
               </NavLink>
             </figure>
             <h3>Nom du photographe</h3>
             <p className="link-photo">
-              <NavLink to="photograph0">plus d&apos;info</NavLink>
+              <NavLink to="photographer">plus d&apos;info</NavLink>
             </p>
           </article>
         </div>

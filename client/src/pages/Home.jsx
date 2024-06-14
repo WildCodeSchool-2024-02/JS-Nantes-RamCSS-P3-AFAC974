@@ -17,7 +17,7 @@ function Home() {
         <h3>Nom de l&apos;auteur: Marc Jordan.</h3>
         <div className="text-img">
           <figure>
-            <img src="images/photograph0/photo0.jpg" alt="" />
+            <img src="../../public/images/photographer0/photo0.jpg" alt="" />
           </figure>
           <article>
             <p>
@@ -42,46 +42,52 @@ function Home() {
       <section className="picture-photograph">
         <article>
           <figure>
-            <NavLink to="photo0">
-              <img src="images/photograph3/miniature/photograph.jpg" alt="" />
+            <NavLink to="photographer">
+              <img
+                src="images/photographer3/miniature/photographer.jpg"
+                alt=""
+              />
             </NavLink>
           </figure>
           <h3>Nom du photographe</h3>
           <p className="link-photo">
-            <NavLink to="photo0">plus d&apos;info</NavLink>
+            <NavLink to="photo">plus d&apos;info</NavLink>
           </p>
         </article>
         <article>
           <figure>
-            <NavLink to="photo0">
-              <img src="images/photograph4/miniature/photograph.jpg" alt="" />
+            <NavLink to="photographer">
+              <img src="images/photographer4/miniature/photograph.jpg" alt="" />
             </NavLink>
           </figure>
           <h3>Nom du photographe</h3>
           <p className="link-photo">
-            <NavLink to="photo0">plus d&apos;info</NavLink>
+            <NavLink to="photographer">plus d&apos;info</NavLink>
           </p>
         </article>
         <article>
           <figure>
-            <NavLink to="photo0">
-              <img src="images/photograph5/miniature/photograph.jpg" alt="" />
+            <NavLink to="photographer">
+              <img
+                src="images/photographer5/miniature/photographer.jpg"
+                alt=""
+              />
             </NavLink>
           </figure>
           <h3>Nom du photographe</h3>
           <p className="link-photo">
-            <NavLink to="photo0">plus d&apos;info</NavLink>
+            <NavLink to="photographer">plus d&apos;info</NavLink>
           </p>
         </article>
         <article>
           <figure>
-            <NavLink to="photo0">
-              <img src="images/photograph6/miniature/photograph.jpg" alt="" />
+            <NavLink to="photo">
+              <img src="images/photographer6/miniature/photograph.jpg" alt="" />
             </NavLink>
           </figure>
           <h3>Nom du photographe</h3>
           <p className="link-photo">
-            <NavLink to="photo0">plus d&apos;info</NavLink>
+            <NavLink to="photographer">plus d&apos;info</NavLink>
           </p>
         </article>
       </section>

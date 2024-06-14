@@ -4,7 +4,7 @@ function About() {
   return (
     <>
       <header>
-        <h1>AFAC 974</h1>
+        <h1>AFAC 974: L&apos;association</h1>
       </header>
       <section>
         <h2>&Agrave; propos.</h2>

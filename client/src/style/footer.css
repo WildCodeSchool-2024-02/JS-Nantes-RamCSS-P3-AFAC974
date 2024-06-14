@@ -1,5 +1,5 @@
 footer {
-  background: #fff;
-  color: #6b6986;
+  background: var(--light-color);
+  color: var(--dark-color);
   height: 112px;
 }

@@ -1,5 +1,5 @@
 header > nav {
-  background: #fff;
+  background: var(--light-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,7 +25,7 @@ header > nav > ul {
 }
 
 header > nav > ul > li {
-  background: #6b6986;
+  background: var(--dark-color);
   width: 18.75%;
   height: 40px;
   list-style: none;
@@ -33,7 +33,7 @@ header > nav > ul > li {
 }
 
 header > nav > ul > li > a {
-  color: #fff;
+  color: var(--light-color);
   text-decoration: none;
   font-weight: bold;
   width: 100%;
@@ -44,8 +44,8 @@ header > nav > ul > li > a {
 }
 
 header > nav > ul > li > a:hover {
-  background: #fff;
-  color: #6b6986;
-  border: 1px solid #6b6986;
+  background: var(--light-color);
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
   border-radius: 50%;
 }
