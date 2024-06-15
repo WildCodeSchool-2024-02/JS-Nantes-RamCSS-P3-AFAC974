@@ -91,606 +91,106 @@ INSERT INTO
         photo,
         id_artist
     )
-VALUES (
-    "ll",
-    "ll",
-    "photo1.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo2.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    1
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    2
-),
-    (
-    "ll",
-    "ll",
-    "photo2.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    2
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo2.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    3
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo2.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    4
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    5
-),
-    (
-    "ll",
-    "ll",
-    "photo2.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    5
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo2.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    6
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    7
-),
-    (
-    "ll",
-    "ll",
-    "photo2.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    7
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo2.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    8
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo2.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    9
-),
-(
-    "ll",
-    "ll",
-    "photo1.jpg",
-    10
-),
-    (
-    "ll",
-    "ll",
-    "photo2.jpg",
-    10
-),
-(
-    "ll",
-    "ll",
-    "photo3.jpg",
-    10
-),
-(
-    "ll",
-    "ll",
-    "photo4.jpg",
-    10
-),
-(
-    "ll",
-    "ll",
-    "photo5.jpg",
-    10
-),
-(
-    "ll",
-    "ll",
-    "photo6.jpg",
-    10
-),
-(
-    "ll",
-    "ll",
-    "photo7.jpg",
-    10
-),
-(
-    "ll",
-    "ll",
-    "photo8.jpg",
-    10
-),
-(
-    "ll",
-    "ll",
-    "photo9.jpg",
-    10
-),
-(
-    "ll",
-    "ll",
-    "photo10.jpg",
-    10
-);
+VALUES ("ll", "ll", "photo1.jpg", 1),
+    ("ll", "ll", "photo2.jpg", 1),
+    ("ll", "ll", "photo3.jpg", 1),
+    ("ll", "ll", "photo4.jpg", 1),
+    ("ll", "ll", "photo5.jpg", 1),
+    ("ll", "ll", "photo6.jpg", 1),
+    ("ll", "ll", "photo7.jpg", 1),
+    ("ll", "ll", "photo8.jpg", 1),
+    ("ll", "ll", "photo9.jpg", 1),
+    ("ll", "ll", "photo10.jpg", 1),
+    ("ll", "ll", "photo1.jpg", 2),
+    ("ll", "ll", "photo2.jpg", 2),
+    ("ll", "ll", "photo3.jpg", 2),
+    ("ll", "ll", "photo4.jpg", 2),
+    ("ll", "ll", "photo5.jpg", 2),
+    ("ll", "ll", "photo6.jpg", 2),
+    ("ll", "ll", "photo7.jpg", 2),
+    ("ll", "ll", "photo8.jpg", 2),
+    ("ll", "ll", "photo9.jpg", 2),
+    ("ll", "ll", "photo10.jpg", 2),
+    ("ll", "ll", "photo1.jpg", 3),
+    ("ll", "ll", "photo2.jpg", 3),
+    ("ll", "ll", "photo3.jpg", 3),
+    ("ll", "ll", "photo4.jpg", 3),
+    ("ll", "ll", "photo5.jpg", 3),
+    ("ll", "ll", "photo6.jpg", 3),
+    ("ll", "ll", "photo7.jpg", 3),
+    ("ll", "ll", "photo8.jpg", 3),
+    ("ll", "ll", "photo9.jpg", 3),
+    ("ll", "ll", "photo10.jpg", 3),
+    ("ll", "ll", "photo1.jpg", 4),
+    ("ll", "ll", "photo2.jpg", 4),
+    ("ll", "ll", "photo3.jpg", 4),
+    ("ll", "ll", "photo4.jpg", 4),
+    ("ll", "ll", "photo5.jpg", 4),
+    ("ll", "ll", "photo6.jpg", 4),
+    ("ll", "ll", "photo7.jpg", 4),
+    ("ll", "ll", "photo8.jpg", 4),
+    ("ll", "ll", "photo9.jpg", 4),
+    ("ll", "ll", "photo10.jpg", 4),
+    ("ll", "ll", "photo1.jpg", 5),
+    ("ll", "ll", "photo2.jpg", 5),
+    ("ll", "ll", "photo3.jpg", 5),
+    ("ll", "ll", "photo4.jpg", 5),
+    ("ll", "ll", "photo5.jpg", 5),
+    ("ll", "ll", "photo6.jpg", 5),
+    ("ll", "ll", "photo7.jpg", 5),
+    ("ll", "ll", "photo8.jpg", 5),
+    ("ll", "ll", "photo9.jpg", 5),
+    ("ll", "ll", "photo10.jpg", 5),
+    ("ll", "ll", "photo1.jpg", 6),
+    ("ll", "ll", "photo2.jpg", 6),
+    ("ll", "ll", "photo3.jpg", 6),
+    ("ll", "ll", "photo4.jpg", 6),
+    ("ll", "ll", "photo5.jpg", 6),
+    ("ll", "ll", "photo6.jpg", 6),
+    ("ll", "ll", "photo7.jpg", 6),
+    ("ll", "ll", "photo8.jpg", 6),
+    ("ll", "ll", "photo9.jpg", 6),
+    ("ll", "ll", "photo10.jpg", 6),
+    ("ll", "ll", "photo1.jpg", 7),
+    ("ll", "ll", "photo2.jpg", 7),
+    ("ll", "ll", "photo3.jpg", 7),
+    ("ll", "ll", "photo4.jpg", 7),
+    ("ll", "ll", "photo5.jpg", 7),
+    ("ll", "ll", "photo6.jpg", 7),
+    ("ll", "ll", "photo7.jpg", 7),
+    ("ll", "ll", "photo8.jpg", 7),
+    ("ll", "ll", "photo9.jpg", 7),
+    ("ll", "ll", "photo10.jpg", 7),
+    ("ll", "ll", "photo1.jpg", 8),
+    ("ll", "ll", "photo2.jpg", 8),
+    ("ll", "ll", "photo3.jpg", 8),
+    ("ll", "ll", "photo4.jpg", 8),
+    ("ll", "ll", "photo5.jpg", 8),
+    ("ll", "ll", "photo6.jpg", 8),
+    ("ll", "ll", "photo7.jpg", 8),
+    ("ll", "ll", "photo8.jpg", 8),
+    ("ll", "ll", "photo9.jpg", 8),
+    ("ll", "ll", "photo10.jpg", 8),
+    ("ll", "ll", "photo1.jpg", 9),
+    ("ll", "ll", "photo2.jpg", 9),
+    ("ll", "ll", "photo3.jpg", 9),
+    ("ll", "ll", "photo4.jpg", 9),
+    ("ll", "ll", "photo5.jpg", 9),
+    ("ll", "ll", "photo6.jpg", 9),
+    ("ll", "ll", "photo7.jpg", 9),
+    ("ll", "ll", "photo8.jpg", 9),
+    ("ll", "ll", "photo9.jpg", 9),
+    ("ll", "ll", "photo10.jpg", 9),
+    ("ll", "ll", "photo1.jpg", 10),
+    ("ll", "ll", "photo2.jpg", 10),
+    ("ll", "ll", "photo3.jpg", 10),
+    ("ll", "ll", "photo4.jpg", 10),
+    ("ll", "ll", "photo5.jpg", 10),
+    ("ll", "ll", "photo6.jpg", 10),
+    ("ll", "ll", "photo7.jpg", 10),
+    ("ll", "ll", "photo8.jpg", 10),
+    ("ll", "ll", "photo9.jpg", 10),
+    ("ll", "ll", "photo10.jpg", 10);
 
 CREATE TABLE gallery (
     id_user INT NOT NULL,
@@ -698,7 +198,7 @@ CREATE TABLE gallery (
     PRIMARY KEY (id_user, id_artwork)
 );
 
-CREATE TABLE users (
+CREATE TABLE user (
     id INT NOT NULL AUTO_INCREMENT,
     firstname VARCHAR(100) NOT NULL,
     lastname VARCHAR(100) NOT NULL,
@@ -709,15 +209,69 @@ CREATE TABLE users (
 );
 
 INSERT INTO
-    users (
+    user (
         firstname,
         lastname,
         mail,
         password
     )
 VALUES (
-        "Emma",
+        "Jean",
+        "Dupont",
+        "jean.dupont@gmail.com",
+        "jvk-jcchgxhv656"
+    ),
+    (
+        "Marie",
         "Martin",
-        "emma-martin@hotmail.com",
-        "158jhgrù5566%ggh"
+        "marie-martin@hotmail.com",
+        "dtjdj g54f65gf5"
+    ),
+    (
+        "Pierre",
+        "Lefevre",
+        "pierre_lefevre@free.fr",
+        "fsdff-fd5"
+    ),
+    (
+        "Sophie",
+        "Dubois",
+        "sophiedubois@hotmail.fr",
+        "dfdfh+ghg5545*"
+    ),
+    (
+        "Thomas",
+        "Lambert",
+        "thomas-lambert@orange.com",
+        "g54g89+fhs"
+    ),
+    (
+        "Camille",
+        "Moreau",
+        "camille_moreau@sfr.fr",
+        "ghhggg46f46fgwxw+-"
+    ),
+    (
+        "Lucas",
+        "Girard",
+        "lucas.girard@caramail.fr",
+        "gffgf5dfsddfdfdf+fdfhrrrù"
+    ),
+    (
+        "Emma",
+        "Petit",
+        "emma_petit@me.com",
+        "hgghg5-fg65dh4fgd+d"
+    ),
+    (
+        "Hugo",
+        "Roussel",
+        "hugo-roussel@hotmail.com",
+        "g565_hdfg+cgfg265gh6g"
+    ),
+    (
+        "Léa",
+        "Caron",
+        "leacaron@gmail.fr",
+        "fdf4f6f46fgd6d6f f6546"
     );
