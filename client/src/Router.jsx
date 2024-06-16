@@ -20,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "gallery",
         element: <Gallery />,
+        loader: () =>
+          fetch(" http://localhost:3310/api/photos/ ").then(
+            (response) => response.json()
+          ),
       },
       {
         path: "photography",
