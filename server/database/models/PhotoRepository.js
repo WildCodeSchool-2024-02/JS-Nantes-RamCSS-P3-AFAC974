@@ -24,8 +24,9 @@ class PhotoRepository extends AbstractRepository {
 
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
+
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select * from ${this.table} INNER JOIN artist WHERE artwork.id_artist = artist.id_artist AND artwork.id = ?`,
       [id]
     );
 
@@ -35,7 +36,9 @@ class PhotoRepository extends AbstractRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `select * from ${this.table} INNER JOIN artist WHERE artwork.id_artist = artist.id_artist`
+    );
 
     // Return the array of items
     return rows;

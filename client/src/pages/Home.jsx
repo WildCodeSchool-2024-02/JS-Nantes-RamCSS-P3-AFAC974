@@ -1,23 +1,22 @@
 import { NavLink } from "react-router-dom";
 
-import logo from "../assets/images/logos/logo.png";
 import "../style/home.css";
 
 function Home() {
   return (
     <>
       <figure className="logo">
-        <img src={logo} alt="" />
+        <img src="images/logos/logo.png" alt="" />
       </figure>
       <header>
         <h1>AFAC 974</h1>
       </header>
       <section>
-        <h2>Petit poisson corail.</h2>
+        <h2>Tortue des profondeur.</h2>
         <h3>Nom de l&apos;auteur: Marc Jordan.</h3>
         <div className="text-img">
           <figure>
-            <img src="../../public/images/photographer0/photo0.jpg" alt="" />
+            <img src="images/photos/photographer3/photo5.jpg" alt="" />
           </figure>
           <article>
             <p>
