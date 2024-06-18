@@ -12,7 +12,7 @@ function Artist() {
         <div className="artist">
           <article>
             <figure>
-              <NavLink to="photographer">
+              <NavLink to="photographer?0">
                 <img
                   src="images/photographer0/miniature/photographer.jpg"
                   alt=""
