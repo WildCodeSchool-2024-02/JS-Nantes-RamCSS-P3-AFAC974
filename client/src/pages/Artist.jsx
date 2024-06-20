@@ -13,11 +13,11 @@ function Artist() {
         <h2>Nos amis les photographes</h2>
         <div className="artist">
           {photographer.map((value) => (
-            <article key={value.id_artist}>
+            <article key={value.id}>
               <figure>
-                <NavLink to={`../photographer?id=${value.id_artist}`}>
+                <NavLink to={`../photographer?id=${value.id}`}>
                   <img
-                    src={`images/photos/photographer${value.id_artist}/thumbnails/photographer.jpg`}
+                    src={`images/photos/photographer${value.id}/thumbnails/photographer.jpg`}
                     alt=""
                   />
                 </NavLink>
@@ -26,7 +26,7 @@ function Artist() {
                 {value.firstname} {value.lastname}
               </h3>
               <p className="link-photo">
-                <NavLink to={`../photographer?id=${value.id_artist}`}>
+                <NavLink to={`../photographer?id=${value.id}`}>
                   plus d&apos;info
                 </NavLink>
               </p>

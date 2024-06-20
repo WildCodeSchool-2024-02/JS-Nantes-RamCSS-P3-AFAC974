@@ -6,9 +6,9 @@ const router = express.Router();
 // Import And Use Routers Here
 /* ************************************************************************* */
 
-const photosRouter = require("./photos/router");
+const artworksRouter = require("./artworks/router");
 
-router.use("/photos", photosRouter);
+router.use("/artworks", artworksRouter);
 
 const artistsRouter = require("./artists/router");
 

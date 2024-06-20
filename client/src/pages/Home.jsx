@@ -1,8 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 
 import "../style/home.css";
 
 function Home() {
+  const data = useLoaderData();
+  const photographer = data.artist;
+  const photo = data.artwork;
+
+  console.info(photo)
   return (
     <>
       <figure className="logo">
@@ -12,83 +17,40 @@ function Home() {
         <h1>AFAC 974</h1>
       </header>
       <section>
-        <h2>Tortue des profondeur.</h2>
-        <h3>Nom de l&apos;auteur: Marc Jordan.</h3>
+        <h2>{photo[0].title}</h2>
+        <h3>Nom de l&apos;auteur: {photo[0].firstname} {photo[0].lastname}.</h3>
         <div className="text-img">
           <figure>
-            <img src="images/photos/photographer3/photo5.jpg" alt="" />
+            <img src={`images/photos/photographer3/${photo[0].image}`} alt="" />
           </figure>
           <article>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut harum
-              unde, ratione provident, doloruiure in vitae explicabo voluptate
-              dicta temporibus sunt tempora id adipisci dolore et laborum vero!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-              consequuntur saepe quo? Sapiente, repudiandae voluptatibus dolore
-              veritatis adipisci beatae facilis magni odio ducimus, magnam sunt
-              eius praesentium odit debitis nulla. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Nulla ipsa quis cupiditate quos quam
-              porro velit soluta et maxime totam, ex cumque vitae provident,
-              modi, vel sequi ut quia earum! Lorem ipsum dolor, sit amet
-              consectetur adipisicing elit. Ab culpa, maiores corporis odit
-              exercitationem porro ipsam hic mollitia recusandae praesentium
-              voluptatem beatae, explicabo, voluptate quisquam possimus tempore
-              repellendus. Eligendi, hic.
-            </p>
+            <p>{`${photo[0].description_artwork}`}</p>
+            <ul>
+            {photo.map((value) => (
+          <li key={value.id_artist}><img src={`images/photos/photographer${value.id_artist}/thumbnails/${value.image}`} alt='' /></li>
+
+                      ))}
+                    </ul>
           </article>
         </div>
       </section>
       <section className="picture-photograph">
-        <article>
-          <figure>
-            <NavLink to="photographer">
-              <img
-                src="images/photographer3/miniature/photographer.jpg"
-                alt=""
-              />
-            </NavLink>
-          </figure>
-          <h3>Nom du photographe</h3>
-          <p className="link-photo">
-            <NavLink to="photo">plus d&apos;info</NavLink>
-          </p>
-        </article>
-        <article>
-          <figure>
-            <NavLink to="photographer">
-              <img src="images/photographer4/miniature/photograph.jpg" alt="" />
-            </NavLink>
-          </figure>
-          <h3>Nom du photographe</h3>
-          <p className="link-photo">
-            <NavLink to="photographer">plus d&apos;info</NavLink>
-          </p>
-        </article>
-        <article>
-          <figure>
-            <NavLink to="photographer">
-              <img
-                src="images/photographer5/miniature/photographer.jpg"
-                alt=""
-              />
-            </NavLink>
-          </figure>
-          <h3>Nom du photographe</h3>
-          <p className="link-photo">
-            <NavLink to="photographer">plus d&apos;info</NavLink>
-          </p>
-        </article>
-        <article>
-          <figure>
-            <NavLink to="photo">
-              <img src="images/photographer6/miniature/photograph.jpg" alt="" />
-            </NavLink>
-          </figure>
-          <h3>Nom du photographe</h3>
-          <p className="link-photo">
-            <NavLink to="photographer">plus d&apos;info</NavLink>
-          </p>
-        </article>
+        {photographer.map((value) => (
+          <article key={value.id_artist}>
+            <figure>
+              <NavLink to="photographer">
+                <img
+                  src={`images/photos/photographer${value.id}/thumbnails/photographer.jpg`}
+                  alt=""
+                />
+              </NavLink>
+            </figure>
+            <h3>{value.firstname} {value.lastname}</h3>
+            <p className="link-photo">
+              <NavLink to="photo">plus d&apos;info</NavLink>
+            </p>
+          </article>
+        ))}
       </section>
     </>
   );

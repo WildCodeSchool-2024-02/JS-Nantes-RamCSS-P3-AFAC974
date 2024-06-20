@@ -1,10 +1,11 @@
 CREATE TABLE artist (
-    id_artist INT NOT NULL AUTO_INCREMENT,
+    id INT NOT NULL AUTO_INCREMENT,
     firstname VARCHAR(100) NOT NULL,
     lastname VARCHAR(100) NOT NULL,
     description VARCHAR(256) NOT NULL,
     photo VARCHAR(100) NOT NULL,
-    PRIMARY KEY (`id_artist`)
+    alt_artist VARCHAR(100) NULL,
+    PRIMARY KEY (`id`)
 );
 
 INSERT INTO
@@ -78,8 +79,9 @@ VALUES (
 CREATE TABLE artwork (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
-    description_artwork VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
     image VARCHAR(100) NOT NULL,
+    alt_artwork VARCHAR(100) NULL,
     id_artist INT NOT NULL,
     PRIMARY KEY (`id`)
 );
@@ -87,7 +89,7 @@ CREATE TABLE artwork (
 INSERT INTO
     artwork (
         title,
-        description_artwork,
+        description,
         image,
         id_artist
     )

@@ -25,7 +25,7 @@ class ArtistRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id_artist = ?`,
+      `select * from ${this.table} where id = ?`,
       [id]
     );
 
@@ -36,6 +36,15 @@ class ArtistRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(`select * from ${this.table}`);
+
+    // Return the array of items
+    return rows;
+  }
+
+  async read4Result() {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [rows] = await this.database.query(
+      `select * from ${this.table} ORDER BY RAND() LIMIT 4`);
 
     // Return the array of items
     return rows;

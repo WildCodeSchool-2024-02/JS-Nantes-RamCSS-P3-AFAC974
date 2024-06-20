@@ -7,10 +7,13 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import photo-related actions
-const { browse, read, add } = require("../../../controllers/artistsAction");
+const { browse, homeBrowse, read, add } = require("../../../controllers/artistsAction");
 
 // Route to get a list of items
 router.get("/", browse);
+
+// Route to get a list of items
+router.get("/home", homeBrowse);
 
 // Route to get a specific item by ID
 router.get("/:id", read);

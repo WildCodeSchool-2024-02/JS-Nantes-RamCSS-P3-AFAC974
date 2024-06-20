@@ -24,7 +24,7 @@ function Photo() {
         <article>
           Présentation de la photographie
           <br />
-          {photo.description_artwork}
+          {photo.description}
         </article>
       </section>
     </>

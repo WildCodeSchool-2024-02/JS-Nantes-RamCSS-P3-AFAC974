@@ -15,6 +15,19 @@ const browse = async (req, res, next) => {
   }
 };
 
+const homeBrowse = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const photos = await tables.artist.read4Result();
+
+    // Respond with the items in JSON format
+    res.json(photos);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
@@ -60,6 +73,7 @@ const add = async (req, res, next) => {
 // Ready to export the controller functions
 module.exports = {
   browse,
+  homeBrowse,
   read,
   // edit,
   add,

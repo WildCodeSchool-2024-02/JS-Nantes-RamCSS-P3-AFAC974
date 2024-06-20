@@ -10,6 +10,16 @@ import About from "./pages/About";
 
 const queryParameters = new URLSearchParams(window.location.search);
 const id = queryParameters.get("id");
+console.info(id);
+
+export const userLoader = async () => {
+  const [artwork, artist] = await Promise.all([
+    fetch("http://localhost:3310/api/artworks/home/").then((res) => res.json()),
+    fetch("http://localhost:3310/api/artists/home/").then((res) => res.json()),
+  ]);
+
+  return { artwork, artist };
+};
 
 const router = createBrowserRouter([
   {
@@ -19,12 +29,13 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+        loader: () => userLoader(),
       },
       {
         path: "gallery",
         element: <Gallery />,
         loader: () =>
-          fetch(" http://localhost:3310/api/photos/ ").then((response) =>
+          fetch(" http://localhost:3310/api/artworks/ ").then((response) =>
             response.json()
           ),
       },
@@ -32,7 +43,7 @@ const router = createBrowserRouter([
         path: "photo",
         element: <Photo />,
         loader: () =>
-          fetch(` http://localhost:3310/api/photos/${id} `).then((response) =>
+          fetch(` http://localhost:3310/api/artworks/${id} `).then((response) =>
             response.json()
           ),
       },
