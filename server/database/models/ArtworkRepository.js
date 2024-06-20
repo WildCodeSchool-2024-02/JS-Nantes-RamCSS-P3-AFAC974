@@ -1,19 +1,19 @@
 const AbstractRepository = require("./AbstractRepository");
 
-class ArtistRepository extends AbstractRepository {
+class ArtworkRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "item" as configuration
-    super({ table: "artist" });
+    super({ table: "artwork" });
   }
 
   // The C of CRUD - Create operation
 
-  async create(photo) {
+  async create(artwork) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [photo.title, photo.user_id]
+      [artwork.title, artwork.user_id]
     );
 
     // Return the ID of the newly inserted item
@@ -24,8 +24,9 @@ class ArtistRepository extends AbstractRepository {
 
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
+
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `select artwork.id,artwork.title,artwork.description,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname from ${this.table} INNER JOIN artist WHERE artwork.id_artist = artist.id AND artwork.id = ?`,
       [id]
     );
 
@@ -35,7 +36,9 @@ class ArtistRepository extends AbstractRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database.query(
+      `select artwork.id,artwork.title,artwork.description,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname,artist.photo from ${this.table} INNER JOIN artist WHERE artwork.id = artist.id`
+    );
 
     // Return the array of items
     return rows;
@@ -44,7 +47,8 @@ class ArtistRepository extends AbstractRepository {
   async read4Result() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `select * from ${this.table} ORDER BY RAND() LIMIT 4`);
+      `select artwork.id,artwork.title,artwork.description,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname from ${this.table} INNER JOIN artist WHERE artwork.id_artist = artist.id ORDER BY RAND() LIMIT 4`
+    );
 
     // Return the array of items
     return rows;
@@ -65,4 +69,4 @@ class ArtistRepository extends AbstractRepository {
   // }
 }
 
-module.exports = ArtistRepository;
+module.exports = ArtworkRepository;

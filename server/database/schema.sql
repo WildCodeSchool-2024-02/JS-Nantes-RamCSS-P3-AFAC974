@@ -4,6 +4,7 @@ CREATE TABLE artist (
     lastname VARCHAR(100) NOT NULL,
     description VARCHAR(256) NOT NULL,
     photo VARCHAR(100) NOT NULL,
+    alt_artist VARCHAR(100) NULL,
     PRIMARY KEY (`id`)
 );
 
@@ -79,7 +80,8 @@ CREATE TABLE artwork (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    photo VARCHAR(100) NOT NULL,
+    image VARCHAR(100) NOT NULL,
+    alt_artwork VARCHAR(100) NULL,
     id_artist INT NOT NULL,
     PRIMARY KEY (`id`)
 );
@@ -88,313 +90,313 @@ INSERT INTO
     artwork (
         title,
         description,
-        photo,
+        image,
         id_artist
     )
 VALUES (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo1.jpg",
+        "photo1.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo2.jpg",
+        "photo2.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo3.jpg",
+        "photo3.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo4.jpg",
+        "photo4.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo5.jpg",
+        "photo5.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo6.jpg",
+        "photo6.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo7.jpg",
+        "photo7.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo8.jpg",
+        "photo8.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo9.jpg",
+        "photo9.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer1/miniatures/photo10.jpg",
+        "photo10.jpg",
         1
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo1.jpg",
+        "photo1.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo2.jpg",
+        "photo2.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo3.jpg",
+        "photo3.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo4.jpg",
+        "photo4.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo5.jpg",
+        "photo5.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo6.jpg",
+        "photo6.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo7.jpg",
+        "photo7.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo8.jpg",
+        "photo8.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo9.jpg",
+        "photo9.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer2/miniatures/photo10.jpg",
+        "photo10.jpg",
         2
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo1.jpg",
+        "photo1.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo2.jpg",
+        "photo2.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo3.jpg",
+        "photo3.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo4.jpg",
+        "photo4.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo5.jpg",
+        "photo5.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniature/photo6.jpg",
+        "photo6.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo7.jpg",
+        "photo7.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo8.jpg",
+        "photo8.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo9.jpg",
+        "photo9.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer3/miniatures/photo10.jpg",
+        "photo10.jpg",
         3
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo1.jpg",
+        "photo1.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo2.jpg",
+        "photo2.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo3.jpg",
+        "photo3.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo4.jpg",
+        "photo4.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo5.jpg",
+        "photo5.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo6.jpg",
+        "photo6.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo7.jpg",
+        "photo7.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo8.jpg",
+        "photo8.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo9.jpg",
+        "photo9.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer4/miniatures/photo10.jpg",
+        "photo10.jpg",
         4
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo1.jpg",
+        "photo1.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo2.jpg",
+        "photo2.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo3.jpg",
+        "photo3.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo4.jpg",
+        "photo4.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo5.jpg",
+        "photo5.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo6.jpg",
+        "photo6.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo7.jpg",
+        "photo7.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo8.jpg",
+        "photo8.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo9.jpg",
+        "photo9.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer5/miniatures/photo10.jpg",
+        "photo10.jpg",
         5
     ),
     (
         "ll",
         "ll",
-        "images/photos/photographer6/miniatures/photo1.jpg",
+        "photo1.jpg",
         6
     ),
     ("ll", "ll", "photo2.jpg", 6),

@@ -1,30 +1,29 @@
+import { useLoaderData } from "react-router-dom";
 import "../style/photographer.css";
 
 function Photographer() {
+  const data = [useLoaderData([])];
+  const artist = data[0];
+
   return (
     <>
       <header>
         <h1>AFAC 971 : photographe</h1>
       </header>
       <section className="photographer">
-        <h2>Marie Dupond</h2>
+        <h2>
+          {artist.firstname} {artist.lastname}
+        </h2>
         <figure>
-          <img src="images/photos/photographer0/photographer.jpg" alt="" />
+          <img
+            src={`images/photos/photographer${artist.id}/thumbnails/photographer.jpg`}
+            alt=""
+          />
         </figure>
         <article>
-          Présentation de Marie Dupond
+          Présentation de {artist.firstname} {artist.lastname}
           <br />
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis
-          ipsam odit officia itaque incidunt vel, commodi reprehenderit ex, eos
-          sapiente iusto consectetur dolor, dolore reiciendis doloribus.
-          Voluptates veniam excepturi reiciendis. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Illo fugiat nisi laboriosam corporis
-          accusantium dignissimos nulla et, debitis quisquam recusandae vel, sit
-          perferendis, amet illum repudiandae modi aut ipsum excepturi. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Iure asperiores,
-          non voluptatem odio dolorum deserunt assumenda atque nostrum esse
-          excepturi provident facilis aperiam laudantium repellat ipsum!
-          Repellendus aliquam exercitationem ut?
+          {artist.description}
         </article>
       </section>
     </>

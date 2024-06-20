@@ -5,20 +5,22 @@ const tables = require("../../database/tables");
 const browse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const photos = await tables.artist.readAll();
+    const artworks = await tables.artwork.readAll();
 
     // Respond with the items in JSON format
-    res.json(photos);
+    res.json(artworks);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
   }
 };
+
+
 
 const homeBrowse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const photos = await tables.artist.read4Result();
+    const photos = await tables.artwork.read4Result();
 
     // Respond with the items in JSON format
     res.json(photos);
@@ -27,19 +29,25 @@ const homeBrowse = async (req, res, next) => {
     next(err);
   }
 };
+
+
+
+
+
+
 
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
     // Fetch a specific item from the database based on the provided ID
-    const photo = await tables.artist.read(req.params.id);
+    const artworks = await tables.artwork.read(req.params.id);
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
-    if (photo == null) {
+    if (artworks == null) {
       res.sendStatus(404);
     } else {
-      res.json(photo);
+      res.json(artworks);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -57,7 +65,7 @@ const add = async (req, res, next) => {
 
   try {
     // Insert the item into the database
-    const insertId = await tables.artist.create(photo);
+    const insertId = await tables.artwork.create(photo);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });

@@ -3,8 +3,9 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import "../style/gallery.css";
 
 function Gallery() {
-  const data = [useLoaderData()];
+  const data = [useLoaderData([])];
   const photo = data[0];
+
   // const [affichPhoto,SetAffichPhoto]=useState("");
 
   return (
@@ -18,13 +19,21 @@ function Gallery() {
           {photo.map((value) => (
             <article key={value.id}>
               <figure>
-                <NavLink to="photo">
-                  <img src={value.photo} alt="" />
+                <NavLink to={`../photo?id=${value.id}`}>
+                  <img
+                    src={`images/photos/photographer${value.id_artist}/thumbnails/${value.image}`}
+                    alt=""
+                  />
                 </NavLink>
               </figure>
-              <h3>{value.title}</h3> <p>{value.id_artist}</p>
+              <h3>{value.title}</h3>{" "}
+              <p>
+                {value.firstname} {value.lastname}
+              </p>
               <p className="link-photo">
-                <NavLink to="photo0">plus d&apos;info</NavLink>
+                <NavLink to={`../photo?id=${value.id}`}>
+                  plus d&apos;info
+                </NavLink>
               </p>
             </article>
           ))}
