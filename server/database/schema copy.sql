@@ -82,7 +82,7 @@ CREATE TABLE artwork (
     description VARCHAR(255) NOT NULL,
     image VARCHAR(100) NOT NULL,
     alt_artwork VARCHAR(100) NULL,
-    id_artist INT REFERENCES artist (id),
+    id_artist INT NOT NULL,
     PRIMARY KEY (`id`)
 );
 

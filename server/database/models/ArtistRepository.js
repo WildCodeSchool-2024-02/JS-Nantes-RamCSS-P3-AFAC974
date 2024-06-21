@@ -41,7 +41,7 @@ class ArtistRepository extends AbstractRepository {
     return rows;
   }
 
-  async read4Result() {
+  async readfourResult() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
       `select * from ${this.table} ORDER BY RAND() LIMIT 4`);
@@ -58,11 +58,33 @@ class ArtistRepository extends AbstractRepository {
   // }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
+  async delete(id) {
+    const [rows] = await this.database.query(
+      `DELETE ${this.table} from ${this.table} JOIN artwork ON artwork.id=${this.table}.id WHERE ${this.table}.id=?`,
+      [id]
+    );
 
-  // async delete(id) {
-  //   ...
-  // }
+
+
+
+/*
+DELETE table-name1
+  FROM table-name1 
+  JOIN table-name2 ON column-name3 = column-name4
+ WHERE condition
+ */
+
+
+
+
+
+
+
+
+
+    // Return the array of items
+    return rows;
+  }
 }
 
 module.exports = ArtistRepository;

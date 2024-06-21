@@ -26,7 +26,7 @@ class ArtworkRepository extends AbstractRepository {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
 
     const [rows] = await this.database.query(
-      `select artwork.id,artwork.title,artwork.description,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname from ${this.table} INNER JOIN artist WHERE artwork.id_artist = artist.id AND artwork.id = ?`,
+      `select artwork.id,artwork.title,artwork.description,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname from ${this.table} INNER JOIN artist ON artwork.id_artist = artist.id WHERE artwork.id = ?`,
       [id]
     );
 
@@ -37,17 +37,17 @@ class ArtworkRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `select artwork.id,artwork.title,artwork.description,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname,artist.photo from ${this.table} INNER JOIN artist WHERE artwork.id = artist.id`
+      `select artwork.id,artwork.title,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname from ${this.table} INNER JOIN artist ON artwork.id = artist.id`
     );
 
     // Return the array of items
     return rows;
   }
 
-  async read4Result() {
+  async readfourResult() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `select artwork.id,artwork.title,artwork.description,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname from ${this.table} INNER JOIN artist WHERE artwork.id_artist = artist.id ORDER BY RAND() LIMIT 4`
+      `select artwork.id,artwork.title,artwork.description,artwork.image,artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname from ${this.table} INNER JOIN artist ON artwork.id_artist = artist.id ORDER BY RAND() LIMIT 4`
     );
 
     // Return the array of items
@@ -64,9 +64,15 @@ class ArtworkRepository extends AbstractRepository {
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an item by its ID
 
-  // async delete(id) {
-  //   ...
-  // }
+  async delete(id) {
+    const [rows] = await this.database.query(
+      `DELETE from ${this.table} WHERE id=?`,
+      [id]
+    );
+
+    // Return the array of items
+    return rows;
+  }
 }
 
 module.exports = ArtworkRepository;

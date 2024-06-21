@@ -18,7 +18,7 @@ const browse = async (req, res, next) => {
 const homeBrowse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const photos = await tables.artist.read4Result();
+    const photos = await tables.artist.readfourResult();
 
     // Respond with the items in JSON format
     res.json(photos);
@@ -68,7 +68,22 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
+
+  try {
+    const { id } = req.params;
+
+    // Insert the item into the database
+    const deleteId = await tables.artist.delete(id);
+
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ deleteId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
@@ -77,5 +92,5 @@ module.exports = {
   read,
   // edit,
   add,
-  // destroy,
+  destroy,
 };
