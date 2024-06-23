@@ -18,10 +18,10 @@ const browse = async (req, res, next) => {
 const homeBrowse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const photos = await tables.artwork.readfourResult();
+    const artworks = await tables.artwork.readfourResult();
 
     // Respond with the items in JSON format
-    res.json(photos);
+    res.json(artworks);
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -32,14 +32,14 @@ const homeBrowse = async (req, res, next) => {
 const read = async (req, res, next) => {
   try {
     // Fetch a specific item from the database based on the provided ID
-    const artworks = await tables.artwork.read(req.params.id);
+    const artwork = await tables.artwork.read(req.params.id);
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
-    if (artworks == null) {
+    if (artwork == null) {
       res.sendStatus(404);
     } else {
-      res.json(artworks);
+      res.json(artwork);
     }
   } catch (err) {
     // Pass any errors to the error-handling middleware
@@ -53,11 +53,11 @@ const read = async (req, res, next) => {
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the item data from the request body
-  const photo = req.body;
+  const artwork = req.body;
 
   try {
     // Insert the item into the database
-    const insertId = await tables.artwork.create(photo);
+    const insertId = await tables.artwork.create(artwork);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });

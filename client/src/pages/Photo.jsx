@@ -18,7 +18,7 @@ function Photo() {
         <figure>
           <img
             src={`images/photos/photographer${photo.id_artist}/${photo.image}`}
-            alt=""
+            alt={photo.alt_artwork}
           />
         </figure>
         <article>

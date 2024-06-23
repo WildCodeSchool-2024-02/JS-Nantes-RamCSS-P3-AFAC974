@@ -13,6 +13,7 @@ const {
   read,
   add,
   destroy,
+  edit,
 } = require("../../../controllers/artistsAction");
 
 // Route to get a list of items
@@ -29,6 +30,8 @@ router.post("/", add);
 
 // Route to add a new item
 router.delete("/delete/:id", destroy);
+
+router.put("/update/:id", edit);
 /* ************************************************************************* */
 
 module.exports = router;

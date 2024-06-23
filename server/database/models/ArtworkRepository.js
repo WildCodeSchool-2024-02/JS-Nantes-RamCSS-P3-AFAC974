@@ -12,8 +12,14 @@ class ArtworkRepository extends AbstractRepository {
   async create(artwork) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `INSERT INTO ${this.table} (title, user_id) values (?, ?)`,
-      [artwork.title, artwork.user_id]
+      `INSERT INTO ${this.table} (title,description,image,id_artist,alt_artwork) values (?, ?, ?, ?, ?)`,
+      [
+        artwork.title,
+        artwork.description,
+        artwork.image,
+        artwork.id_artist,
+        artwork.alt_artwork,
+      ]
     );
 
     // Return the ID of the newly inserted item
@@ -61,7 +67,7 @@ class ArtworkRepository extends AbstractRepository {
   // }
 
   // The D of CRUD - Delete operation
- 
+
   async delete(id) {
     const [rows] = await this.database.query(
       `DELETE from ${this.table} WHERE id=?`,
