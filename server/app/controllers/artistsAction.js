@@ -18,7 +18,7 @@ const browse = async (req, res, next) => {
 const homeBrowse = async (req, res, next) => {
   try {
     // Fetch all items from the database
-    const photos = await tables.artist.read4Result();
+    const photos = await tables.artist.readfourResult();
 
     // Respond with the items in JSON format
     res.json(photos);
@@ -48,16 +48,30 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
+const edit = async (req, res, next) => {
+  // Extract the item data from the request body
+  const { id } = req.params;
+  const artist = req.body;
+  console.info(artist);
+  try {
+    // Insert the item into the database
+    const editId = await tables.artist.update(id, artist);
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ editId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
   // Extract the item data from the request body
-  const photo = req.body;
+  const artist = req.body;
 
   try {
     // Insert the item into the database
-    const insertId = await tables.artist.create(photo);
+    const insertId = await tables.artist.create(artist);
 
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ insertId });
@@ -68,14 +82,29 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
+
+  try {
+    const { id } = req.params;
+
+    // Insert the item into the database
+    const deleteId = await tables.artist.delete(id);
+
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ deleteId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
   browse,
   homeBrowse,
   read,
-  // edit,
+  edit,
   add,
-  // destroy,
+  destroy,
 };

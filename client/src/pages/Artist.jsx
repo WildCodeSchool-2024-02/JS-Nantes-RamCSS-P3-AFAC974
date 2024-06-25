@@ -18,7 +18,7 @@ function Artist() {
                 <NavLink to={`../photographer?id=${value.id}`}>
                   <img
                     src={`images/photos/photographer${value.id}/thumbnails/photographer.jpg`}
-                    alt=""
+                    alt="{value.alt_artist}"
                   />
                 </NavLink>
               </figure>

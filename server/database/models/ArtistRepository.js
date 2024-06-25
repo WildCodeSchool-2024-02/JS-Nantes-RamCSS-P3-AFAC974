@@ -9,11 +9,17 @@ class ArtistRepository extends AbstractRepository {
 
   // The C of CRUD - Create operation
 
-  async create(photo) {
+  async create(artist) {
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
-      `insert into ${this.table} (title, user_id) values (?, ?)`,
-      [photo.title, photo.user_id]
+      `insert into ${this.table} (firstname, lastname, description, photo, alt_artist) values (?, ?, ?, ?, ?)`,
+      [
+        artist.firstname,
+        artist.lastname,
+        artist.description,
+        artist.photo,
+        artist.alt_artist,
+      ]
     );
 
     // Return the ID of the newly inserted item
@@ -41,28 +47,59 @@ class ArtistRepository extends AbstractRepository {
     return rows;
   }
 
-  async read4Result() {
+  async readfourResult() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `select * from ${this.table} ORDER BY RAND() LIMIT 4`);
+      `select * from ${this.table} ORDER BY RAND() LIMIT 4`
+    );
 
     // Return the array of items
     return rows;
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
 
-  // async update(item) {
-  //   ...
-  // }
+  async update(id, artist) {
+    const [rows] = await this.database.query(
+      `UPDATE ${this.table} SET firstname, lastname, description, photo, alt_artist WHERE ${this.table}.id=?`,
+      [
+        artist.firstname,
+        artist.lastname,
+        artist.description,
+        artist.photo,
+        artist.alt_artist,
+        id,
+      ]
+    );
+
+    /*
+DELETE table-name1
+FROM table-name1 
+JOIN table-name2 ON column-name3 = column-name4
+WHERE condition
+*/
+
+    // Return the array of items
+    return rows;
+  }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
+  async delete(id) {
+    const [rows] = await this.database.query(
+      `DELETE ${this.table} from ${this.table} JOIN artwork ON artwork.id=${this.table}.id WHERE ${this.table}.id=?`,
+      [id]
+    );
 
-  // async delete(id) {
-  //   ...
-  // }
+    /*
+DELETE table-name1
+  FROM table-name1 
+  JOIN table-name2 ON column-name3 = column-name4
+ WHERE condition
+ */
+
+    // Return the array of items
+    return rows;
+  }
 }
 
 module.exports = ArtistRepository;

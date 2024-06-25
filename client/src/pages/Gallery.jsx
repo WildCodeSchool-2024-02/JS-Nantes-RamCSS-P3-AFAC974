@@ -22,7 +22,7 @@ function Gallery() {
                 <NavLink to={`../photo?id=${value.id}`}>
                   <img
                     src={`images/photos/photographer${value.id_artist}/thumbnails/${value.image}`}
-                    alt=""
+                    alt={value.alt_artwork}
                   />
                 </NavLink>
               </figure>

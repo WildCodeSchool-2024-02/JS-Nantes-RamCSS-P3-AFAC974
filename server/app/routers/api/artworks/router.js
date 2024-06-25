@@ -12,6 +12,7 @@ const {
   homeBrowse,
   read,
   add,
+  destroy,
 } = require("../../../controllers/artworksActions");
 
 // Route to get a list of items
@@ -25,6 +26,9 @@ router.get("/:id", read);
 
 // Route to add a new item
 router.post("/", add);
+
+// Route to add a new item
+router.delete("/delete/:id", destroy);
 
 /* ************************************************************************* */
 

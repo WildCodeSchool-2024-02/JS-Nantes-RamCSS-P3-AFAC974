@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import App from "./App";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
@@ -8,9 +7,9 @@ import Artist from "./pages/Artist";
 import Photographer from "./pages/Photographer";
 import About from "./pages/About";
 
-const queryParameters = new URLSearchParams(window.location.search);
-const id = queryParameters.get("id");
-console.info(id);
+// Fonction pour obtenir les paramètres de l'URL
+const getIdFromSearchParams = (searchParams) => searchParams.get("id");
+console.info(getIdFromSearchParams);
 
 export const userLoader = async () => {
   const [artwork, artist] = await Promise.all([
@@ -35,34 +34,39 @@ const router = createBrowserRouter([
         path: "gallery",
         element: <Gallery />,
         loader: () =>
-          fetch(" http://localhost:3310/api/artworks/ ").then((response) =>
+          fetch("http://localhost:3310/api/artworks/").then((response) =>
             response.json()
           ),
       },
       {
         path: "photo",
         element: <Photo />,
-        loader: () =>
-          fetch(` http://localhost:3310/api/artworks/${id} `).then((response) =>
-            response.json()
-          ),
+        loader: ({ request }) => {
+          const url = new URL(request.url);
+          const id = url.searchParams.get("id");
+          return fetch(`http://localhost:3310/api/artworks/${id}`).then(
+            (response) => response.json()
+          );
+        },
       },
-
       {
         path: "artist",
         element: <Artist />,
         loader: () =>
-          fetch(" http://localhost:3310/api/artists/ ").then((response) =>
+          fetch("http://localhost:3310/api/artists/").then((response) =>
             response.json()
           ),
       },
       {
         path: "photographer",
         element: <Photographer />,
-        loader: () =>
-          fetch(` http://localhost:3310/api/artists/${id} `).then((response) =>
-            response.json()
-          ),
+        loader: ({ request }) => {
+          const url = new URL(request.url);
+          const id = url.searchParams.get("id");
+          return fetch(`http://localhost:3310/api/artists/${id}`).then(
+            (response) => response.json()
+          );
+        },
       },
       {
         path: "about",

@@ -17,7 +17,7 @@ function Photographer() {
         <figure>
           <img
             src={`images/photos/photographer${artist.id}/thumbnails/photographer.jpg`}
-            alt=""
+            alt={artist.alt_artist}
           />
         </figure>
         <article>
