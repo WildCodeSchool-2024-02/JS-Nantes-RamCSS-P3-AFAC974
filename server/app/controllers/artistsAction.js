@@ -53,11 +53,11 @@ const edit = async (req, res, next) => {
   const { id } = req.params;
   const artist = req.body;
 
-  // for (const key in artist) {
-  //   if (artist[key] === "") {
-  //     delete artist[key];
-  //   }
-  // }
+  Object.entries(artist).forEach(([key]) => {
+    if (artist[key] === "") {
+      delete artist[key];
+    }
+  });
 
   const keys = Object.keys(artist);
   const values = Object.values(artist);

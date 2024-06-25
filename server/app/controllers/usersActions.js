@@ -35,7 +35,32 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
+// The E of BREAD - Edit (Update) operation
+const edit = async (req, res, next) => {
+  // Extract the item data from the request body
+  const { id } = req.params;
+  const user = req.body;
+
+  Object.entries(user).forEach(([key]) => {
+    if (user[key] === "") {
+      delete user[key];
+    }
+  });
+
+  const keys = Object.keys(user);
+  const values = Object.values(user);
+
+  console.info(user);
+  try {
+    // Insert the item into the database
+    const editId = await tables.artist.update(id, keys, values);
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ editId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -55,13 +80,28 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  // Extract the item data from the request body
+
+  try {
+    const { id } = req.params;
+
+    // Insert the item into the database
+    const deleteId = await tables.user.delete(id);
+
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ deleteId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
   browse,
   read,
-  // edit,
+  edit,
   add,
-  // destroy,
+  destroy,
 };
