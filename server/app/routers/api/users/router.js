@@ -5,19 +5,24 @@ const router = express.Router();
 /* ************************************************************************* */
 // Define Your API Routes Here
 /* ************************************************************************* */
+// Import userActions module for handling user-related operations
+const userActions = require("../../../controllers/usersActions");
+const { hashPassword, verifyToken } = require("../../../services/auth");
 
 // Import photo-related actions
-const { browse, read, add } = require("../../../controllers/usersActions");
+// const { browse, read, add } = require("../../../controllers/usersActions");
 
-// Route to get a list of items
-router.get("/", browse);
+router.get("/", userActions.browse);
+router.get("/:id", userActions.read);
+router.post("/", hashPassword, userActions.add);
 
-// Route to get a specific item by ID
-router.get("/:id", read);
+// Import authActions module for handling auth-related operations
+const authActions = require("../../../controllers/authActions");
 
-// Route to add a new item
-router.post("/", add);
+router.post("/login", authActions.login);
 
+// Authentication wall
+router.use(verifyToken);
 /* ************************************************************************* */
 
 module.exports = router;

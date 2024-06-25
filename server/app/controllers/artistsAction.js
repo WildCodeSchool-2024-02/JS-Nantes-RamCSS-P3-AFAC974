@@ -52,13 +52,13 @@ const edit = async (req, res, next) => {
   // Extract the item data from the request body
   const { id } = req.params;
   const artist = req.body;
-  /*
-  for (const key in artist) {
-    if (artist[key] === "") {
-      delete artist[key];
-    }
-  }
-  */
+
+  // for (const key in artist) {
+  //   if (artist[key] === "") {
+  //     delete artist[key];
+  //   }
+  // }
+
   const keys = Object.keys(artist);
   const values = Object.values(artist);
 
