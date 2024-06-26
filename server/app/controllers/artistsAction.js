@@ -52,10 +52,20 @@ const edit = async (req, res, next) => {
   // Extract the item data from the request body
   const { id } = req.params;
   const artist = req.body;
+
+  Object.entries(artist).forEach(([key]) => {
+    if (artist[key] === "") {
+      delete artist[key];
+    }
+  });
+
+  const keys = Object.keys(artist);
+  const values = Object.values(artist);
+
   console.info(artist);
   try {
     // Insert the item into the database
-    const editId = await tables.artist.update(id, artist);
+    const editId = await tables.artist.update(id, keys, values);
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ editId });
   } catch (err) {

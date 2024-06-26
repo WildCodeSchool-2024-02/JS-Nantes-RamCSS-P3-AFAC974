@@ -60,11 +60,18 @@ class ArtworkRepository extends AbstractRepository {
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
 
-  // async update(item) {
-  //   ...
-  // }
+  async update(id, keys, value) {
+    const updates = keys.map((key) => `${key} = ?`).join(", ");
+
+    const [rows] = await this.database.query(
+      `UPDATE ${this.table} SET ${updates} WHERE id=${id}`,
+      value
+    );
+
+    // Return the array of items
+    return rows;
+  }
 
   // The D of CRUD - Delete operation
 

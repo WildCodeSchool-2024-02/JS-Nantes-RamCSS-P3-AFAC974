@@ -13,7 +13,7 @@ const browse = async (req, res, next) => {
     // Pass any errors to the error-handling middleware
     next(err);
   }
-};
+}; 
 
 const homeBrowse = async (req, res, next) => {
   try {
@@ -48,7 +48,31 @@ const read = async (req, res, next) => {
 };
 
 // The E of BREAD - Edit (Update) operation
-// This operation is not yet implemented
+const edit = async (req, res, next) => {
+  // Extract the item data from the request body
+  const { id } = req.params;
+  const artwork = req.body;
+
+  Object.entries(artwork).forEach(([key]) => {
+    if (artwork[key] === "") {
+      delete artwork[key];
+    }
+  });
+
+  const keys = Object.keys(artwork);
+  const values = Object.values(artwork);
+
+  console.info(artwork);
+  try {
+    // Insert the item into the database
+    const editId = await tables.artwork.update(id, keys, values);
+    // Respond with HTTP 201 (Created) and the ID of the newly inserted item
+    res.status(201).json({ editId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
 
 // The A of BREAD - Add (Create) operation
 const add = async (req, res, next) => {
@@ -94,7 +118,7 @@ module.exports = {
   browse,
   homeBrowse,
   read,
-  // edit,
+  edit,
   add,
   destroy,
 };
