@@ -11,9 +11,10 @@ class ItemRepository extends AbstractRepository {
 
   async create(user) {
     // Execute the SQL INSERT query to add a new item to the "item" table
+    console.info("user => ", user);
     const [result] = await this.database.query(
       `insert into ${this.table} ( firstname, lastname, email, hashed_password) values (?, ?, ?, ?)`,
-      [user.firstname, user.lastname, user.email, user.password]
+      [user.firstname, user.lastname, user.email, user.hashedPassword]
     );
 
     // Return the ID of the newly inserted item
@@ -52,31 +53,31 @@ class ItemRepository extends AbstractRepository {
     return rows[0];
   }
 
-    // The U of CRUD - Update operation
+  // The U of CRUD - Update operation
 
-    async update(id, keys, value) {
-      const updates = keys.map((key) => `${key} = ?`).join(", ");
-  
-      const [rows] = await this.database.query(
-        `UPDATE ${this.table} SET ${updates} WHERE id=${id}`,
-        value
-      );
-  
-      // Return the array of items
-      return rows;
-    }
-  
-    // The D of CRUD - Delete operation
-  
-    async delete(id) {
-      const [rows] = await this.database.query(
-        `DELETE from ${this.table} WHERE id=?`,
-        [id]
-      );
-  
-      // Return the array of items
-      return rows;
-    }
+  async update(id, keys, value) {
+    const updates = keys.map((key) => `${key} = ?`).join(", ");
+
+    const [rows] = await this.database.query(
+      `UPDATE ${this.table} SET ${updates} WHERE id=${id}`,
+      value
+    );
+
+    // Return the array of items
+    return rows;
   }
+
+  // The D of CRUD - Delete operation
+
+  async delete(id) {
+    const [rows] = await this.database.query(
+      `DELETE from ${this.table} WHERE id=?`,
+      [id]
+    );
+
+    // Return the array of items
+    return rows;
+  }
+}
 
 module.exports = ItemRepository;

@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   // Référence pour le champ email
   const emailRef = useRef();
+ // Référence pour le champ firstname
+  const firstnameRef = useRef();
+
+   // Référence pour le champ firstname
+   const lastnameRef = useRef();
 
   // États pour le mot de passe et la confirmation du mot de passe
   const [password, setPassword] = useState("");
@@ -34,18 +39,20 @@ function Register() {
           method: "post",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            firstname: firstnameRef.current.value,
+            lastname: lastnameRef.current.value,
             email: emailRef.current.value,
             password,
           }),
         }
       );
-
+      console.info("response => ",response)
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         navigate("/login");
       } else {
         // Log des détails de la réponse en cas d'échec
-        console.info(response);
+        console.info("response",response);
       }
     } catch (err) {
       // Log des erreurs possibles
@@ -56,6 +63,30 @@ function Register() {
   // Rendu du composant formulaire
   return (
     <form onSubmit={handleSubmit}>
+
+
+
+
+
+
+      <div>
+        {/* Champ pour le nom */}
+        <label htmlFor="firstname">Pr&eacute;nom</label>{" "}
+        <input ref={firstnameRef}  type="text" id="firstname" name="firstname" />
+      </div>
+      <div>
+        {/* Champ pour le nom */}
+        <label htmlFor="lastname">Nom</label>{" "}
+        <input ref={lastnameRef}  type="text" id="lastname" name="lastname" />
+      </div>
+
+
+
+
+
+
+
+
       <div>
         {/* Champ pour l'email */}
         <label htmlFor="email">email</label>{" "}
