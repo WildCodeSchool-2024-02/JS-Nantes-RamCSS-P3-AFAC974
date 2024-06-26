@@ -817,8 +817,8 @@ CREATE TABLE user (
     id INT NOT NULL AUTO_INCREMENT,
     firstname VARCHAR(100) NOT NULL,
     lastname VARCHAR(100) NOT NULL,
-    mail VARCHAR(100) NOT NULL,
-    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    hashed_password VARCHAR(100) NOT NULL,
     is_admin TINYINT DEFAULT 0 NOT NULL,
     PRIMARY KEY (`id`)
 );
@@ -827,8 +827,8 @@ INSERT INTO
     user (
         firstname,
         lastname,
-        mail,
-        password
+        email,
+        hashed_password
     )
 VALUES (
         "Jean",
