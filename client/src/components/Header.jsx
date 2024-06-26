@@ -16,7 +16,13 @@ function Header() {
             <NavLink to="artist">ARTISTE</NavLink>
           </li>
           <li>
-            <NavLink to="about">À&nbsp;PROPOS</NavLink>
+            <NavLink to="about">&Agrave;&nbsp;PROPOS</NavLink>
+          </li>
+          <li>
+            <NavLink to="login">CONNECTION</NavLink>
+          </li>
+          <li>
+            <NavLink to="register">INSCRIPTION</NavLink>
           </li>
         </ul>
       </nav>
