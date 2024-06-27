@@ -46,13 +46,14 @@ function Register() {
           }),
         }
       );
-      console.info("response => ",response)
+      const res = await response.json()
+      console.info("response => ",res)
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         navigate("/login");
       } else {
         // Log des détails de la réponse en cas d'échec
-        console.info("response",response);
+        console.info("response",res);
       }
     } catch (err) {
       // Log des erreurs possibles

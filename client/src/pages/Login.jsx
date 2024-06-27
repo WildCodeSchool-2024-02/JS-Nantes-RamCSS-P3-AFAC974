@@ -1,12 +1,13 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
 function Login() {
+  const [responsevalue, setResponsevalue] = useState("");
   // Références pour les champs email et mot de passe
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const { setAuth } = useOutletContext();
+  const setAuth = useOutletContext();
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function Login() {
     try {
       // Appel à l'API pour demander une connexion
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/login`,
+        `${import.meta.env.VITE_API_URL}/api/users/login`,
         {
           method: "post",
           headers: { "Content-Type": "application/json" },
@@ -38,7 +39,9 @@ function Login() {
         navigate("/");
       } else {
         // Log des détails de la réponse en cas d'échec
-        console.info(response);
+        const res = await response.json();
+        console.info("toto", res);
+        setResponsevalue("Votre mail ou votre mot de passe est invalide");
       }
     } catch (err) {
       // Log des erreurs possibles
@@ -48,20 +51,23 @@ function Login() {
 
   // Rendu du composant formulaire
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        {/* Champ pour l'email */}
-        <label htmlFor="email">email</label>{" "}
-        <input ref={emailRef} type="email" id="email" />
-      </div>
-      <div>
-        {/* Champ pour le mot de passe */}
-        <label htmlFor="password">password</label>{" "}
-        <input type="password" id="password" ref={passwordRef} />
-      </div>
-      {/* Bouton de soumission du formulaire */}
-      <button type="submit">Send</button>
-    </form>
+    <>
+      <p>{responsevalue}</p>
+      <form onSubmit={handleSubmit}>
+        <div>
+          {/* Champ pour l'email */}
+          <label htmlFor="email">email</label>{" "}
+          <input ref={emailRef} type="email" id="email" />
+        </div>
+        <div>
+          {/* Champ pour le mot de passe */}
+          <label htmlFor="password">password</label>{" "}
+          <input type="password" id="password" ref={passwordRef} />
+        </div>
+        {/* Bouton de soumission du formulaire */}
+        <button type="submit">Send</button>
+      </form>
+    </>
   );
 }
 
