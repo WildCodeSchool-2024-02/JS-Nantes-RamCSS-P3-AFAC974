@@ -2,22 +2,18 @@ import { useRef, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
 function Login() {
+  const { user, setUser } = useOutletContext();
+  console.info(user);
   const [responsevalue, setResponsevalue] = useState("");
-  // Références pour les champs email et mot de passe
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  const setAuth = useOutletContext();
-
-  // Hook pour la navigation
   const navigate = useNavigate();
 
-  // Gestionnaire de soumission du formulaire
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      // Appel à l'API pour demander une connexion
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/users/login`,
         {
@@ -30,44 +26,43 @@ function Login() {
         }
       );
 
-      // Redirection vers la page de connexion si la création réussit
       if (response.status === 200) {
         const auth = await response.json();
 
-        setAuth(auth);
-
+        setUser({ token: auth.token, user: auth.user });
         navigate("/");
       } else {
-        // Log des détails de la réponse en cas d'échec
-        const res = await response.json();
-        console.info("toto", res);
-        setResponsevalue("Votre mail ou votre mot de passe est invalide");
+        const contentType = response.headers.get("content-type");
+        const errorMessage = "Votre mail ou votre mot de passe est invalide";
+
+        if (contentType && contentType.includes("application/json")) {
+          const res = await response.json();
+          console.info("Détails de la réponse :", res);
+        }
+
+        setResponsevalue(errorMessage);
       }
     } catch (err) {
-      // Log des erreurs possibles
       console.error(err);
+      setResponsevalue(
+        "Une erreur s'est produite. Veuillez réessayer plus tard."
+      );
     }
   };
 
-  // Rendu du composant formulaire
   return (
-    <>
-      <p>{responsevalue}</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          {/* Champ pour l'email */}
-          <label htmlFor="email">email</label>{" "}
-          <input ref={emailRef} type="email" id="email" />
-        </div>
-        <div>
-          {/* Champ pour le mot de passe */}
-          <label htmlFor="password">password</label>{" "}
-          <input type="password" id="password" ref={passwordRef} />
-        </div>
-        {/* Bouton de soumission du formulaire */}
-        <button type="submit">Send</button>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="email">email</label>{" "}
+        <input type="email" ref={emailRef} required />
+      </div>
+      <div>
+        <label htmlFor="password">password</label>{" "}
+        <input type="password" ref={passwordRef} required />
+      </div>
+      <button type="submit">Se connecter</button>
+      {responsevalue && <p className="errormessage">{responsevalue}</p>}
+    </form>
   );
 }
 

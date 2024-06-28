@@ -36,3 +36,7 @@ h3 {
 h3 {
   margin-bottom: 2rem;
 }
+
+.errormessage {
+  color: #ff0000;
+}
