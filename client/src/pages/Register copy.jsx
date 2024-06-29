@@ -71,13 +71,7 @@ function Register() {
       setResponsevalue(errorMessage);
     }
   };
-  const redColorPassword = password.length >= 8 ? "" : "errormessage";
-  let ConfirmPasswordChange = "errormessage";
 
-  if (password === confirmPassword && confirmPassword.length > 0) {
-    ConfirmPasswordChange = "";
-  }
-  // "✅" : "❌"
   // Rendu du composant formulaire
   return (
     <>
@@ -131,11 +125,14 @@ function Register() {
             onChange={handlePasswordChange}
             required
             placeholder="Mot de passe"
-            className={redColorPassword}
           />
         </div>
         {/* Indicateur de force du mot de passe */}
-        <p>{}</p>
+        <p>
+          {password.length >= 8 ? "✅" : "❌"}{" "}
+          {`length: ${password.length} >= 8`}
+        </p>
+
         <div>
           {/* Champ pour la confirmation du mot de passe */}
           <label htmlFor="confirm-password">{}</label>
@@ -146,10 +143,10 @@ function Register() {
             onChange={handleConfirmPasswordChange}
             required
             placeholder="Confirmation du mot de passe"
-            className={ConfirmPasswordChange}
           />
         </div>
         {/* Indicateur de correspondance avec le mot de passe */}
+        <p>{password === confirmPassword ? "✅" : "❌"}</p>
         {/* Bouton de soumission du formulaire */}
         <button type="submit">S&apos;inscrire</button>
         {responsevalue && <p className="errormessage">{responsevalue}</p>}

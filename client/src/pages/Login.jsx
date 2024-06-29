@@ -51,18 +51,31 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">email</label>{" "}
-        <input type="email" ref={emailRef} required />
-      </div>
-      <div>
-        <label htmlFor="password">password</label>{" "}
-        <input type="password" ref={passwordRef} required />
-      </div>
-      <button type="submit">Se connecter</button>
-      {responsevalue && <p className="errormessage">{responsevalue}</p>}
-    </form>
+    <>
+      <h1>Connexion :</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">{}</label>
+          <input
+            type="email"
+            ref={emailRef}
+            required
+            placeholder="exemple@email.com"
+          />
+        </div>
+        <div>
+          <label htmlFor="password">{}</label>
+          <input
+            type="password"
+            ref={passwordRef}
+            required
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit">Se connecter</button>
+        {responsevalue && <p className="errormessage">{responsevalue}</p>}
+      </form>
+    </>
   );
 }
 

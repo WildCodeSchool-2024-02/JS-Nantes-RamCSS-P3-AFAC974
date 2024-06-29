@@ -1,13 +1,14 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+// import { useState } from "react";
+import { NavLink, useLoaderData, useOutletContext } from "react-router-dom";
 
 import "../style/home.css";
 
 function Home() {
+  const { user } = useOutletContext;
   const data = useLoaderData();
   const photographer = data.artist;
   const photo = data.artwork;
 
-  console.info(photo);
   return (
     <>
       <figure className="logo">
@@ -16,6 +17,11 @@ function Home() {
       <header>
         <h1>AFAC 974</h1>
       </header>
+      {user && (
+        <p>
+          bonjour {user.firstname} {user.lastname}
+        </p>
+      )}
       <section>
         <h2>{photo[0].title}</h2>
         <h3>
