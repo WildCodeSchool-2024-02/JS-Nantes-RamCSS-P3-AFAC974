@@ -4,15 +4,22 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   // Référence pour le champ email
   const emailRef = useRef();
- // Référence pour le champ firstname
+  // Référence pour le champ firstname
   const firstnameRef = useRef();
 
-   // Référence pour le champ firstname
-   const lastnameRef = useRef();
+  // Référence pour le champ firstname
+  const lastnameRef = useRef();
 
   // États pour le mot de passe et la confirmation du mot de passe
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  //  États pour l'affichage de l&apos;erreur
+  const [responsevalue, setResponsevalue] = useState("");
+
+  // Messsage d'erreur
+  const errorMessage =
+    "Une erreur s'est produite. Veuillez réessayer plus tard.";
 
   // Hook pour la navigation
   const navigate = useNavigate();
@@ -46,47 +53,38 @@ function Register() {
           }),
         }
       );
-      const res = await response.json()
-      console.info("response => ",res)
+      const res = await response.json();
+      console.info("response => ", res);
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         navigate("/login");
       } else {
-        // Log des détails de la réponse en cas d'échec
-        console.info("response",res);
+        const contentType = response.headers.get("content-type");
+        setResponsevalue(errorMessage);
+
+        if (contentType && contentType.includes("application/json")) {
+          console.info("Détails de la réponse :", res);
+        }
       }
     } catch (err) {
-      // Log des erreurs possibles
       console.error(err);
+      setResponsevalue(errorMessage);
     }
   };
 
   // Rendu du composant formulaire
   return (
     <form onSubmit={handleSubmit}>
-
-
-
-
-
-
       <div>
         {/* Champ pour le nom */}
         <label htmlFor="firstname">Pr&eacute;nom</label>{" "}
-        <input ref={firstnameRef}  type="text" id="firstname" name="firstname" />
+        <input ref={firstnameRef} type="text" id="firstname" name="firstname" />
       </div>
       <div>
         {/* Champ pour le nom */}
         <label htmlFor="lastname">Nom</label>{" "}
-        <input ref={lastnameRef}  type="text" id="lastname" name="lastname" />
+        <input ref={lastnameRef} type="text" id="lastname" name="lastname" />
       </div>
-
-
-
-
-
-
-
 
       <div>
         {/* Champ pour l'email */}
@@ -119,6 +117,7 @@ function Register() {
       </div>
       {/* Bouton de soumission du formulaire */}
       <button type="submit">Send</button>
+      {responsevalue && <p className="errormessage">{responsevalue}</p>}
     </form>
   );
 }
