@@ -151,7 +151,7 @@ function Register() {
         </div>
         {/* Indicateur de correspondance avec le mot de passe */}
         {/* Bouton de soumission du formulaire */}
-        <button type="submit">S&apos;inscrire</button>
+        <button className="button-form" type="submit">S&apos;inscrire</button>
         {responsevalue && <p className="errormessage">{responsevalue}</p>}
       </form>
     </>

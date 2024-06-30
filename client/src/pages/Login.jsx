@@ -72,7 +72,7 @@ function Login() {
             placeholder="Password"
           />
         </div>
-        <button type="submit">Se connecter</button>
+        <button className="button-form" type="submit">Se connecter</button>
         {responsevalue && <p className="errormessage">{responsevalue}</p>}
       </form>
     </>

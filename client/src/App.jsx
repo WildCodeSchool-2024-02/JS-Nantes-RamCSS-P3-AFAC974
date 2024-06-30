@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({user:"user"});
 
   return (
     <>

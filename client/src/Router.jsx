@@ -15,8 +15,8 @@ console.info(getIdFromSearchParams);
 
 export const userLoader = async () => {
   const [artwork, artist] = await Promise.all([
-    fetch("http://localhost:3310/api/artworks/home/").then((res) => res.json()),
-    fetch("http://localhost:3310/api/artists/home/").then((res) => res.json()),
+    fetch(`${import.meta.env.VITE_API_URL}/api/artworks/home/`).then((res) => res.json()),
+    fetch(`${import.meta.env.VITE_API_URL}/api/artists/home/`).then((res) => res.json()),
   ]);
 
   return { artwork, artist };
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
         path: "gallery",
         element: <Gallery />,
         loader: () =>
-          fetch("http://localhost:3310/api/artworks/").then((response) =>
+          fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then((response) =>
             response.json()
           ),
       },
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
         loader: ({ request }) => {
           const url = new URL(request.url);
           const id = url.searchParams.get("id");
-          return fetch(`http://localhost:3310/api/artworks/${id}`).then(
+          return fetch(`${import.meta.env.VITE_API_URL}/api/artworks/${id}`).then(
             (response) => response.json()
           );
         },
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         path: "artist",
         element: <Artist />,
         loader: () =>
-          fetch("http://localhost:3310/api/artists/").then((response) =>
+          fetch(`${import.meta.env.VITE_API_URL}/api/artists/`).then((response) =>
             response.json()
           ),
       },
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         loader: ({ request }) => {
           const url = new URL(request.url);
           const id = url.searchParams.get("id");
-          return fetch(`http://localhost:3310/api/artists/${id}`).then(
+          return fetch(`${import.meta.env.VITE_API_URL}/api/artists/${id}`).then(
             (response) => response.json()
           );
         },
