@@ -8,6 +8,7 @@ import Photographer from "./pages/Photographer";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Admin from "./pages/Admin";
 
 // Fonction pour obtenir les paramètres de l'URL
 const getIdFromSearchParams = (searchParams) => searchParams.get("id");
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "admin",
+        element: <Admin />,
       },
     ],
   },

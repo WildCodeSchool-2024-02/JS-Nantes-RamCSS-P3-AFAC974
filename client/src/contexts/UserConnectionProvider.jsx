@@ -4,7 +4,7 @@ export const UserConnectionContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export function UserConnectionProvider({ children }) {
-  const [user, setUser] = useState({ token: "" });
+  const [user, setUser] = useState({ token: "",user:{id:"", firstname:"", lastname:"", is_admin:""} });
 
   /* const response = */ fetch(
     `${import.meta.env.VITE_API_URL}/api/users/auth`,
@@ -14,14 +14,12 @@ export function UserConnectionProvider({ children }) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${user.token}`, // Inclusion du jeton JWT
       },
-      body: "body",
     }
   )
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      return response.json();
     })
 
     .catch((error) => {

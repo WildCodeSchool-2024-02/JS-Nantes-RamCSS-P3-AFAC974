@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom";
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+
+import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 import "../style/header.css";
 
 function Header() {
+  const { user } = useContext(UserConnectionContext);
+
   const [open, setOpen] = useState(0);
+
   const openMenu = () => {
     if (open === 0) {
       setOpen(1);
@@ -42,11 +47,20 @@ function Header() {
               <NavLink to="about">&Agrave;&nbsp;PROPOS</NavLink>
             </li>
             <li>
-              <NavLink to="login">CONNECTION</NavLink>
+              <NavLink to="login">
+                {user.user.is_admin === "" ? "CONNEXION" : "DÉCONNEXION"}
+              </NavLink>
             </li>
-            <li>
-              <NavLink to="register">INSCRIPTION</NavLink>
-            </li>
+            {user.user.is_admin === "" && (
+              <li>
+                <NavLink to="register">INSCRIPTION</NavLink>
+              </li>
+            )}
+            {user.user.is_admin === 1 && (
+              <li>
+                <NavLink to="admin">ADMIN</NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </nav>
