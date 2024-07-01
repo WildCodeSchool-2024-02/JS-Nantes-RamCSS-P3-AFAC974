@@ -42,6 +42,17 @@ const verifyToken = (req, res, next) => {
     // Vérifier que l'en-tête a la forme "Bearer <token>"
     const [type, token] = authorizationHeader.split(" ");
 
+    // const {type,token}=req.body;
+
+    console.info(
+      "je suis dans verification token , type => ",
+      type,
+      " token =>",
+      token,
+      " authorizationHeader => ",
+      authorizationHeader
+    );
+
     if (type !== "Bearer") {
       throw new Error("Authorization header has not the 'Bearer' type");
     }

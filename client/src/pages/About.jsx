@@ -1,5 +1,3 @@
-import "../style/gallery.css";
-
 function About() {
   return (
     <>

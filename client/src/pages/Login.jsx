@@ -1,9 +1,10 @@
-import { useRef, useState } from "react";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useRef, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 
 function Login() {
-  const { user, setUser } = useOutletContext();
-  console.info(user);
+  const { setUser } = useContext(UserConnectionContext);
+
   const [responsevalue, setResponsevalue] = useState("");
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -72,7 +73,9 @@ function Login() {
             placeholder="Password"
           />
         </div>
-        <button className="button-form" type="submit">Se connecter</button>
+        <button className="button-form" type="submit">
+          Se connecter
+        </button>
         {responsevalue && <p className="errormessage">{responsevalue}</p>}
       </form>
     </>

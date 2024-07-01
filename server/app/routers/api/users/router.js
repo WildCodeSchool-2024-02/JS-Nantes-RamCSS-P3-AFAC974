@@ -21,6 +21,7 @@ const authActions = require("../../../controllers/authActions");
 
 router.post("/login", hashPassword, authActions.login);
 
+router.post("/auth",verifyToken, authActions.readToken)
 // Authentication wall
 router.use(verifyToken);
 /* ************************************************************************* */

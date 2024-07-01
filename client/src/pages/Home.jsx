@@ -1,11 +1,13 @@
 // import { useState } from "react";
-import { NavLink, useLoaderData, useOutletContext } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
+import { useContext } from "react";
+import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 
 import "../style/home.css";
-import "../style/gallery.css";
 
 function Home() {
-  const { user } = useOutletContext();
+  const { user } = useContext(UserConnectionContext);
+  // const { user } = UserProvider;
 
   const data = useLoaderData();
   const photographer = data.artist;
@@ -20,7 +22,8 @@ function Home() {
         <h1>AFAC 974</h1>
       </header>
       <p className="user">
-        bonjour {user.user.firstname} {user.user.lastname}
+        bonjour{" "}
+        {user.token !== "" && `${user.user.firstname} ${user.user.lastname}`}
       </p>
 
       <section>
