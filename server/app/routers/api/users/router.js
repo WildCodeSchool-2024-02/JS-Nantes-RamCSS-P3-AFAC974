@@ -19,8 +19,9 @@ router.post("/", hashPassword, userActions.add);
 // Import authActions module for handling auth-related operations
 const authActions = require("../../../controllers/authActions");
 
-router.post("/login", authActions.login);
+router.post("/login", hashPassword, authActions.login);
 
+router.post("/auth",verifyToken, authActions.readToken)
 // Authentication wall
 router.use(verifyToken);
 /* ************************************************************************* */

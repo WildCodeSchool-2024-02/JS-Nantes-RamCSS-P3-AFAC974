@@ -22,7 +22,7 @@ const hashPassword = async (req, res, next) => {
     req.body.hashedPassword = hashedPassword;
 
     // Suppression du mot de passe non haché de la requête par mesure de sécurité
-    delete req.body.password;
+    // delete req.body.password;
 
     next();
   } catch (err) {
@@ -41,6 +41,17 @@ const verifyToken = (req, res, next) => {
 
     // Vérifier que l'en-tête a la forme "Bearer <token>"
     const [type, token] = authorizationHeader.split(" ");
+
+    // const {type,token}=req.body;
+
+    console.info(
+      "je suis dans verification token , type => ",
+      type,
+      " token =>",
+      token,
+      " authorizationHeader => ",
+      authorizationHeader
+    );
 
     if (type !== "Bearer") {
       throw new Error("Authorization header has not the 'Bearer' type");

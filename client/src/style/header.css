@@ -1,38 +1,45 @@
 header > nav {
+  max-height: 120px;
+  width: 100%;
   background: var(--light-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-header > nav a {
-  width: 18.23%;
-  height: auto;
+header > nav > div {
+  position: absolute;
+  top: 10px;
+  right: 0;
 }
 
-header > nav a > img {
-  width: 100%;
-  height: auto;
+header > nav > div > button {
+  background: var(--light-color);
+  border: none;
+}
+header > nav > div > button > img {
+  position: relative;
+  margin-left: 146px;
 }
 
-header > nav > ul {
-  display: flex;
-  align-items: center;
-  justify-content: end;
+header > nav > div > ul {
+  background: var(--light-color);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
   gap: 1rem;
-  margin-right: 1rem;
-  width: 50%;
+  width: 256px;
+  padding: 1rem 0;
+  border-radius: 0 0 0 10px;
 }
 
-header > nav > ul > li {
-  background: var(--dark-color);
-  width: 18.75%;
-  height: 40px;
+header > nav > div > ul > li {
   list-style: none;
-  border-radius: 50%;
+  width: 80%;
 }
 
-header > nav > ul > li > a {
+header > nav > div > ul > li > a {
+  background: var(--dark-color);
   color: var(--light-color);
   text-decoration: none;
   font-weight: bold;
@@ -41,9 +48,13 @@ header > nav > ul > li > a {
   display: block;
   text-align: center;
   align-content: center;
+  text-align: center;
+  border-radius: 50%;
+  padding: 1rem;
+  margin: auto 5%;
 }
 
-header > nav > ul > li > a:hover {
+header > nav > div > ul > li > a:hover {
   background: var(--light-color);
   color: var(--dark-color);
   border: 1px solid var(--dark-color);

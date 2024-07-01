@@ -14,7 +14,12 @@
   display: flex;
   flex-wrap: nowrap;
   gap: 2%;
-  justify-items: stretch;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.text {
+  flex-wrap: wrap;
 }
 
 .text-img > figure {
@@ -27,16 +32,45 @@
   height: auto;
 }
 
+.text-img > section,
 .text-img > article {
   width: 49%;
-  height: 100%;
+  min-width: 256px;
   color: var(--light-color);
+  border-radius: 10px;
 }
 
+.text > section {
+  width: 47%;
+  padding: 1%;
+  margin-bottom: 2rem;
+}
+
+.text-img > section > h2 {
+  width: 100%;
+  background: var(--dark-color);
+  margin: 0;
+}
+
+.text > section > article > h3 {
+  color: var(--dark-color);
+  margin: 0;
+}
+
+.text-img > article {
+  height: 100%;
+}
+
+.text-img > section,
 .text-img > article > p {
   background: #fff;
   color: var(--dark-color);
   font-size: 16px;
+}
+
+.text-img > section > article > p,
+.text-img > article > p {
+  margin-bottom: 1rem;
 }
 
 .text-img > article > ul {

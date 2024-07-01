@@ -44,6 +44,20 @@ const login = async (req, res, next) => {
   }
 };
 
+
+const readToken = async (req, res, next) => {
+ res.sendStatus(200);
+ next();
+};
+
+
+
+
+
+
+
+
 module.exports = {
   login,
+  readToken
 };

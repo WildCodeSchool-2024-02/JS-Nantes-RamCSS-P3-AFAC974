@@ -1,6 +1,6 @@
 const AbstractRepository = require("./AbstractRepository");
 
-class ItemRepository extends AbstractRepository {
+class UserRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
     // and pass the table name "item" as configuration
@@ -11,9 +11,10 @@ class ItemRepository extends AbstractRepository {
 
   async create(user) {
     // Execute the SQL INSERT query to add a new item to the "item" table
+
     const [result] = await this.database.query(
-      `insert into ${this.table} ( firstname, lastname, mail, password) values (?, ?, ?, ?)`,
-      [user.firstname, user.lastname, user.mail, user.password]
+      `insert into ${this.table} ( firstname, lastname, email, hashed_password) values (?, ?, ?, ?)`,
+      [user.firstname, user.lastname, user.email, user.hashedPassword]
     );
 
     // Return the ID of the newly inserted item
@@ -41,31 +42,43 @@ class ItemRepository extends AbstractRepository {
     return rows;
   }
 
-    // The U of CRUD - Update operation
+  async readByEmailWithPassword(email) {
+    // Execute the SQL SELECT query to retrieve a specific user by its email
+    const [rows] = await this.database.query(
+      `select id, firstname, lastname, hashed_password, is_admin from ${this.table} where email = ?`,
+      [email]
+    );
 
-    async update(id, keys, value) {
-      const updates = keys.map((key) => `${key} = ?`).join(", ");
-  
-      const [rows] = await this.database.query(
-        `UPDATE ${this.table} SET ${updates} WHERE id=${id}`,
-        value
-      );
-  
-      // Return the array of items
-      return rows;
-    }
-  
-    // The D of CRUD - Delete operation
-  
-    async delete(id) {
-      const [rows] = await this.database.query(
-        `DELETE from ${this.table} WHERE id=?`,
-        [id]
-      );
-  
-      // Return the array of items
-      return rows;
-    }
+    // Return the first row of the result, which represents the user
+
+    return rows[0];
   }
 
-module.exports = ItemRepository;
+  // The U of CRUD - Update operation
+
+  async update(id, keys, value) {
+    const updates = keys.map((key) => `${key} = ?`).join(", ");
+
+    const [rows] = await this.database.query(
+      `UPDATE ${this.table} SET ${updates} WHERE id=${id}`,
+      value
+    );
+
+    // Return the array of items
+    return rows;
+  }
+
+  // The D of CRUD - Delete operation
+
+  async delete(id) {
+    const [rows] = await this.database.query(
+      `DELETE from ${this.table} WHERE id=?`,
+      [id]
+    );
+
+    // Return the array of items
+    return rows;
+  }
+}
+
+module.exports = UserRepository;

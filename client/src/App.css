@@ -36,3 +36,49 @@ h3 {
 h3 {
   margin-bottom: 2rem;
 }
+
+.errormessage {
+  color: #ff0000;
+}
+
+.user {
+  font-size: larger;
+  color: var(--light-color);
+  width: 95%;
+  margin: 2.5rem auto 2.5rem auto;
+}
+
+form {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+input {
+  width: 200px;
+  padding: 0 15px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  color: var(--dark-color);
+  font-weight: bold;
+}
+
+.button-form {
+  width: 200px;
+  padding: 0 15px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  background: var(--light-color);
+  color: var(--dark-color);
+  font-weight: bold;
+}
+
+.button-form:hover {
+  background: var(--dark-color);
+  color: var(--light-color);
+  border: var(--light-color) solid 1px;
+}
