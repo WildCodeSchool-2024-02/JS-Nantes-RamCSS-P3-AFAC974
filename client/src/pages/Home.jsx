@@ -13,7 +13,7 @@ function Home() {
   const photographer = data.artist;
   const photo = data.artwork;
 
-  return (
+  return ( 
     <>
       <figure className="logo">
         <img src="images/logos/logo.png" alt="" />
@@ -32,21 +32,22 @@ function Home() {
           Nom de l&apos;auteur: {photo[0].firstname} {photo[0].lastname}.
         </h3>
         <div className="text-img">
-          <figure>
+          <figure><NavLink to={`../photo?id=${photo[0].id}`}>
             <img
               src={`images/photos/photographer3/${photo[0].image}`}
               alt={photo[0].alt_artwork}
-            />
+            /></NavLink>
           </figure>
           <article>
             <p>{`${photo[0].description}`}</p>
             <ul>
               {photo.map((value) => (
                 <li key={value.id_artist}>
+                  <NavLink to={`../photo?id=${value.id}`}>
                   <img
                     src={`images/photos/photographer${value.id_artist}/thumbnails/${value.image}`}
                     alt={value.alt_artwork}
-                  />
+                  /></NavLink>
                 </li>
               ))}
             </ul>
@@ -57,7 +58,7 @@ function Home() {
         {photographer.map((value) => (
           <article key={value.id_artist}>
             <figure>
-              <NavLink to="photographer">
+              <NavLink to={`photographer?id=${value.id}`}>
                 <img
                   src={`images/photos/photographer${value.id}/thumbnails/photographer.jpg`}
                   alt={value.alt_artist}
