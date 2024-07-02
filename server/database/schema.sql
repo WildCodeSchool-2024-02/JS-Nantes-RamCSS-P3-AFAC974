@@ -211,70 +211,23 @@ CREATE TABLE user (
     CONSTRAINT UX_email UNIQUE (email)
 );
 
+
 INSERT INTO
     user (
         firstname,
         lastname,
         email,
-        hashed_password
+        hashed_password,
+        is_admin
     )
-VALUES (
-        "Jean",
-        "Dupont",
-        "jean.dupont@gmail.com",
-        "jvk-jcchgxhv656"
-    ),
-    (
-        "Marie",
-        "Martin",
-        "marie-martin@hotmail.com",
-        "dtjdj g54f65gf5"
-    ),
-    (
-        "Pierre",
-        "Lefevre",
-        "pierre_lefevre@free.fr",
-        "fsdff-fd5"
-    ),
-    (
-        "Sophie",
-        "Dubois",
-        "sophiedubois@hotmail.fr",
-        "dfdfh+ghg5545*"
-    ),
-    (
-        "Thomas",
-        "Lambert",
-        "thomas-lambert@orange.com",
-        "g54g89+fhs"
-    ),
-    (
-        "Camille",
-        "Moreau",
-        "camille_moreau@sfr.fr",
-        "ghhggg46f46fgwxw+-"
-    ),
-    (
-        "Lucas",
-        "Girard",
-        "lucas.girard@caramail.fr",
-        "gffgf5dfsddfdfdf+fdfhrrrù"
-    ),
-    (
-        "Emma",
-        "Petit",
-        "emma_petit@me.com",
-        "hgghg5-fg65dh4fgd+d"
-    ),
-    (
-        "Hugo",
-        "Roussel",
-        "hugo-roussel@hotmail.com",
-        "g565_hdfg+cgfg265gh6g"
-    ),
-    (
-        "Léa",
-        "Caron",
-        "leacaron@gmail.fr",
-        "fdf4f6f46fgd6d6f f6546"
-    );
+VALUES(
+    'Hakim',
+    'AZIZI',
+    'hakazizi@hotmail.com',
+    '$argon2id$v=19$m=19456,t=2,p=1$w6uJTyInKVc1CtIzy8XScw$3VHtmwsXu7xyxJQh6MznrB+w4yrGHRTEe0utyPOpO0Q',
+    1
+)
+
+
+
+
