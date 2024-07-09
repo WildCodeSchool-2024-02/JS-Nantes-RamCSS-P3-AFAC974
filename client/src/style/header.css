@@ -1,42 +1,28 @@
 header > nav {
   height: 100px;
-
   width: 100%;
   background: var(--light-color);
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
-.logo1 {
-  height: 1%;
-}
-
-header > nav > div {
+.hb {
   position: absolute;
-  top: 0;
   right: 0;
-}
-
-header > nav > div > button {
-  background: var(--light-color);
-
-  border: none;
-  height: 100px;
-}
-header > nav > div > button > img {
-  line-height: 100px;
-  height: auto;
-  position: relative;
+  width: 100px;
+  display: block;
+  cursor: pointer;
 }
 
 header > nav > div > ul {
+  position: relative;
+  top: 100px;
   background: var(--light-color);
   display: none;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  width: 256px;
+  width: 250px;
   padding: 1rem 0;
   border-radius: 0 0 0 10px;
 }
