@@ -15,7 +15,7 @@ function AddArtwork() {
       <h1>Ajout d&apos;une oeuvre</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour le titre de la photo */}
           <label htmlFor="title">{}</label>
           <input
             ref={titleRef}
@@ -27,7 +27,7 @@ function AddArtwork() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour la description de la photo */}
           <label htmlFor="description">{}</label>
           <textarea
             ref={descriptionRef}
@@ -39,7 +39,7 @@ function AddArtwork() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour le photo */}
           <label htmlFor="photo">{}</label>
           <input
             ref={photoRef}
@@ -51,7 +51,7 @@ function AddArtwork() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour l'attribut alt de l'image */}
           <label htmlFor="alt_artist">{}</label>
           <input
             ref={altRef}

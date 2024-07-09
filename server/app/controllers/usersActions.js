@@ -15,7 +15,6 @@ const browse = async (req, res, next) => {
   }
 };
 
-
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
   try {
@@ -35,7 +34,6 @@ const read = async (req, res, next) => {
   }
 };
 
-
 const readToken = async (req, res, next) => {
   try {
     // Fetch a specific user from the database based on the provided ID
@@ -54,21 +52,6 @@ const readToken = async (req, res, next) => {
   }
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // The E of BREAD - Edit (Update) operation
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
@@ -85,7 +68,6 @@ const edit = async (req, res, next) => {
   const keys = Object.keys(user);
   const values = Object.values(user);
 
-  console.info(user);
   try {
     // Insert the item into the database
     const editId = await tables.artist.update(id, keys, values);

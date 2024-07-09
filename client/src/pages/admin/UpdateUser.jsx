@@ -15,7 +15,7 @@ function UpdateUser() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   //  États pour l'affichage de l&apos;erreur
-  const [responsevalue, setResponsevalue] = useState("");
+  const [responseValue, setResponseValue] = useState("");
 
   // Messsage d'erreur
   const errorMessage =
@@ -54,13 +54,13 @@ function UpdateUser() {
         }
       );
       const res = await response.json();
-      console.info("response => ", res);
+
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         navigate("/admin");
       } else {
         const contentType = response.headers.get("content-type");
-        setResponsevalue(errorMessage);
+        setResponseValue(errorMessage);
 
         if (contentType && contentType.includes("application/json")) {
           console.info("Détails de la réponse :", res);
@@ -68,14 +68,14 @@ function UpdateUser() {
       }
     } catch (err) {
       console.error(err);
-      setResponsevalue(errorMessage);
+      setResponseValue(errorMessage);
     }
   };
   const redColorPassword = password.length >= 8 ? "" : "errormessage";
-  let ConfirmPasswordChange = "errormessage";
+  let confirmPasswordChange = "errormessage";
 
   if (password === confirmPassword && confirmPassword.length > 0) {
-    ConfirmPasswordChange = "";
+    confirmPasswordChange = "";
   }
   // "✅" : "❌"
   // Rendu du composant formulaire
@@ -86,7 +86,7 @@ function UpdateUser() {
       </header>
       <form onSubmit={handleSubmit}>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour le Prénom */}
           <label htmlFor="firstname">{}</label>
           <input
             ref={firstnameRef}
@@ -146,7 +146,7 @@ function UpdateUser() {
             onChange={handleConfirmPasswordChange}
             required
             placeholder="Confirmation du mot de passe"
-            className={ConfirmPasswordChange}
+            className={confirmPasswordChange}
           />
         </div>
         {/* Indicateur de correspondance avec le mot de passe */}
@@ -154,7 +154,7 @@ function UpdateUser() {
         <button className="button-form" type="submit">
           S&apos;inscrire le membre
         </button>
-        {responsevalue && <p className="errormessage">{responsevalue}</p>}
+        {responseValue && <p className="errormessage">{responseValue}</p>}
       </form>
     </>
   );

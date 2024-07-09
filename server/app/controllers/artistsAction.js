@@ -62,7 +62,6 @@ const edit = async (req, res, next) => {
   const keys = Object.keys(artist);
   const values = Object.values(artist);
 
-  console.info(artist);
   try {
     // Insert the item into the database
     const editId = await tables.artist.update(id, keys, values);

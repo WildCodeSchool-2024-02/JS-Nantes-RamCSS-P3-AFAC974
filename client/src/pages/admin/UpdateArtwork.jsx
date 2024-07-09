@@ -15,7 +15,7 @@ function UpdateArtwork() {
       <h1>Ajout d&apos;une oeuvre</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour le titre de la photo */}
           <label htmlFor="title">{}</label>
           <input
             ref={titleRef}
@@ -26,7 +26,7 @@ function UpdateArtwork() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour la description de la photo */}
           <label htmlFor="description">{}</label>
           <textarea
             ref={descriptionRef}
@@ -37,7 +37,7 @@ function UpdateArtwork() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour la photo */}
           <label htmlFor="photo">{}</label>
           <input
             ref={photoRef}
@@ -48,7 +48,7 @@ function UpdateArtwork() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour l'attribut alt de la photo' */}
           <label htmlFor="alt_artist">{}</label>
           <input
             ref={altRef}

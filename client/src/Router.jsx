@@ -10,7 +10,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Admin from "./pages/Admin";
 import HomeAdmin from "./pages/admin/HomeAdmin";
-import AddArtist from "./pages/admin/AddArtist"
+import AddArtist from "./pages/admin/AddArtist";
 import UpdateArtist from "./pages/admin/UpdateArtist";
 import RemoveArtist from "./pages/admin/RemoveArtist";
 import AddArtwork from "./pages/admin/AddArtwork";
@@ -18,7 +18,7 @@ import UpdateArtwork from "./pages/admin/UpdateArtwork";
 import AddUser from "./pages/admin/AddUser";
 import UpdateUser from "./pages/admin/UpdateUser";
 import RemoveUser from "./pages/admin/RemoveUser";
-import UpdateStatusUser from "./pages/admin/UpdateStatusUser"
+import UpdateStatusUser from "./pages/admin/UpdateStatusUser";
 
 // Fonction pour obtenir les paramètres de l'URL
 const getIdFromSearchParams = (searchParams) => searchParams.get("id");
@@ -135,45 +135,20 @@ const router = createBrowserRouter([
           },
           {
             path: "update-user",
-            element: <UpdateUser/>,
+            element: <UpdateUser />,
           },
           {
             path: "remove-user",
-            element: <RemoveUser/>,
+            element: <RemoveUser />,
           },
           {
             path: "update-status-user",
-            element: <UpdateStatusUser/>,
+            element: <UpdateStatusUser />,
           },
         ],
       },
     ],
   },
-  ]);
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+]);
 
 export default router;

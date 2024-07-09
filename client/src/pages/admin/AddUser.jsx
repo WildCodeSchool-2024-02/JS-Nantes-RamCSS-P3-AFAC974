@@ -54,7 +54,7 @@ function AddUser() {
         }
       );
       const res = await response.json();
-      console.info("response => ", res);
+
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         navigate("/admin");
@@ -86,7 +86,7 @@ function AddUser() {
       </header>
       <form onSubmit={handleSubmit}>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour le prénom */}
           <label htmlFor="firstname">{}</label>
           <input
             ref={firstnameRef}
@@ -94,7 +94,7 @@ function AddUser() {
             id="firstname"
             name="firstname"
             required
-            placeholder="Pr&eacute;nom"
+            placeholder="Prénom"
           />
         </div>
         <div>
@@ -158,6 +158,6 @@ function AddUser() {
       </form>
     </>
   );
-};
+}
 
 export default AddUser;

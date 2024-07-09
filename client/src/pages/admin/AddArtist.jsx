@@ -16,7 +16,7 @@ function AddArtist() {
       <h1>Ajout d'un artiste</h1>
               <form onSubmit={handleSubmit}>
           <div>
-            {/* Champ pour le nom */}
+            {/* Champ pour le prénom */}
             <label htmlFor="firstname">{}</label>
             <input
               ref={firstnameRef}
@@ -36,11 +36,11 @@ function AddArtist() {
               id="lastname"
               name="lastname"
               required
-              placeholder="Pr&eacute;nom"
+              placeholder="Prénom"
             />
           </div>
           <div>
-            {/* Champ pour le nom */}
+            {/* Champ pour le description */}
             <label htmlFor="description">{}</label>
             <textarea
               ref={descriptionRef}
@@ -52,7 +52,7 @@ function AddArtist() {
             />
           </div>
           <div>
-            {/* Champ pour le nom */}
+            {/* Champ pour le photo */}
             <label htmlFor="photo">{}</label>
             <input
               ref={photoRef}
@@ -64,7 +64,7 @@ function AddArtist() {
             />
           </div>
           <div>
-            {/* Champ pour le nom */}
+            {/* Champ pour l'attribut alt de l'image */}
             <label htmlFor="alt_artist">{}</label>
             <input
               ref={altRef}

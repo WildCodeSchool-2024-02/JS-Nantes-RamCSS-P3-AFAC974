@@ -54,7 +54,7 @@ function Register() {
         }
       );
       const res = await response.json();
-      console.info("response => ", res);
+
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         navigate("/login");
@@ -151,7 +151,9 @@ function Register() {
         </div>
         {/* Indicateur de correspondance avec le mot de passe */}
         {/* Bouton de soumission du formulaire */}
-        <button className="button-form" type="submit">S&apos;inscrire</button>
+        <button className="button-form" type="submit">
+          S&apos;inscrire
+        </button>
         {responsevalue && <p className="errormessage">{responsevalue}</p>}
       </form>
     </>

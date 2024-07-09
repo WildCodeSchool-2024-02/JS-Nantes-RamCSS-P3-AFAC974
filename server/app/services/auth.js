@@ -44,15 +44,6 @@ const verifyToken = (req, res, next) => {
 
     // const {type,token}=req.body;
 
-    console.info(
-      "je suis dans verification token , type => ",
-      type,
-      " token =>",
-      token,
-      " authorizationHeader => ",
-      authorizationHeader
-    );
-
     if (type !== "Bearer") {
       throw new Error("Authorization header has not the 'Bearer' type");
     }

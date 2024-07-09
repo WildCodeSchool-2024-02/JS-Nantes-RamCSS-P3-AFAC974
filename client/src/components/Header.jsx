@@ -30,11 +30,7 @@ function Header() {
       <header>
         <nav>
           <NavLink to="./">
-            <img
-              className="logo1"
-              src="../images/logos/logonavbar.png"
-              alt="Logo"
-            />
+            <img src="../images/logos/logonavbar.png" alt="Logo" />
           </NavLink>
           <div>
             <svg

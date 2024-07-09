@@ -16,14 +16,14 @@ function UpdateArtist() {
       <h1>modification d'un artiste</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour le prénom */}
           <label htmlFor="firstname">{}</label>
           <input
             ref={firstnameRef}
             type="text"
             id="firstname"
             name="firstname"
-            placeholder="Pr&eacute;nom"
+            placeholder="Prénom"
           />
         </div>
         <div>
@@ -38,7 +38,7 @@ function UpdateArtist() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour le description */}
           <label htmlFor="description">{}</label>
           <textarea
             ref={descriptionRef}
@@ -49,7 +49,7 @@ function UpdateArtist() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour le photo */}
           <label htmlFor="photo">{}</label>
           <input
             ref={photoRef}
@@ -60,7 +60,7 @@ function UpdateArtist() {
           />
         </div>
         <div>
-          {/* Champ pour le nom */}
+          {/* Champ pour l'attibut alt de la photo' */}
           <label htmlFor="alt_artist">{}</label>
           <input
             ref={altRef}
