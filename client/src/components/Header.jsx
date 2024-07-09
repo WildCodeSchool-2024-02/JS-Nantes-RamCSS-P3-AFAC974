@@ -6,61 +6,83 @@ import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 import "../style/header.css";
 
 function Header() {
-  const { user } = useContext(UserConnectionContext);
+  const { user, SetUser } = useContext(UserConnectionContext);
 
   const [open, setOpen] = useState(0);
-  const [menuBurger, setMemuBurger] = useState("images/images/menu-burger.png");
+  const [menuBurger, setMemuBurger] = useState(
+    "../images/images/menu-burger.png"
+  );
   const openMenu = () => {
     if (open === 0) {
       setOpen(1);
       document.querySelector("#vu-menu").style.display = "flex";
-      setMemuBurger("images/images/menu-burger1.png");
+      setMemuBurger("../images/images/menu-burger1.png");
     }
     if (open === 1) {
       setOpen(0);
       document.querySelector("#vu-menu").style.display = "none";
-      setMemuBurger("images/images/menu-burger.png");
+      setMemuBurger("../images/images/menu-burger.png");
     }
   };
-  // const closeMenu = () => {
-  //   setOpen(1);
-  //   openMenu();
-  // };
-
+  const disconnect = () => {
+    SetUser({
+      token: "",
+      user: { id: "", firstname: "", lastname: "", is_admin: "" },
+    });
+  };
   return (
     <>
       <header>
         <nav>
           <NavLink to="./">
-            <img src="images/logos/logonavbar.png" alt="Logo" />
+            <img
+              className="logo1"
+              src="../images/logos/logonavbar.png"
+              alt="Logo"
+            />
           </NavLink>
           <div>
             <button id="img-menu" type="submit" onClick={openMenu}>
               <img src={menuBurger} alt="ouvrir le menu" />
             </button>
-            <ul id="vu-menu" /* onClick={openMenu} */>
+            <ul id="vu-menu">
               <li>
-                <NavLink to="gallery">GALLERIE</NavLink>
+                <NavLink to="./" onClick={openMenu}>
+                  ACCUEIL
+                </NavLink>
               </li>
               <li>
-                <NavLink to="artist">ARTISTE</NavLink>
+                <NavLink to="gallery" onClick={openMenu}>
+                  GALLERIE
+                </NavLink>
               </li>
               <li>
-                <NavLink to="about">&Agrave;&nbsp;PROPOS</NavLink>
+                <NavLink to="artist" onClick={openMenu}>
+                  ARTISTE
+                </NavLink>
               </li>
               <li>
-                <NavLink to="login">
+                <NavLink to="about" onClick={openMenu}>
+                  &Agrave;&nbsp;PROPOS
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="login" onClick={`${openMenu} ${disconnect}`}>
                   {user.user.is_admin === "" ? "CONNEXION" : "DÉCONNEXION"}
                 </NavLink>
               </li>
               {user.user.is_admin === "" && (
                 <li>
-                  <NavLink to="register">INSCRIPTION</NavLink>
+                  <NavLink to="register" onClick={openMenu}>
+                    INSCRIPTION
+                  </NavLink>
                 </li>
               )}
               {user.user.is_admin === 1 && (
                 <li>
-                  <NavLink to="admin">ADMIN</NavLink>
+                  <NavLink to="admin" onClick={openMenu}>
+                    ADMIN
+                  </NavLink>
                 </li>
               )}
             </ul>

@@ -18,6 +18,10 @@ const usersRouter = require("./users/router");
 
 router.use("/users", usersRouter);
 
+const uploadRouter = require("./uploads/router");
+
+router.use("/upload", uploadRouter);
+
 /* ************************************************************************* */
 
 module.exports = router;

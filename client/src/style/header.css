@@ -1,5 +1,6 @@
 header > nav {
-  max-height: 120px;
+  height: 100px;
+
   width: 100%;
   background: var(--light-color);
   display: flex;
@@ -7,19 +8,26 @@ header > nav {
   justify-content: space-between;
 }
 
+.logo1 {
+  height: 1%;
+}
+
 header > nav > div {
   position: absolute;
-  top: 10px;
+  top: 0;
   right: 0;
 }
 
 header > nav > div > button {
   background: var(--light-color);
+
   border: none;
+  height: 100px;
 }
 header > nav > div > button > img {
+  line-height: 100px;
+  height: auto;
   position: relative;
-  margin-left: 146px;
 }
 
 header > nav > div > ul {

@@ -1,0 +1,40 @@
+.admin {
+  width: 80%;
+  min-width: 256px;
+  margin: 1rem auto;
+  background: var(--light-color);
+  color: var(--dark-color);
+  list-style-type: style;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+.link-panel {
+  margin: 1rem;
+}
+
+.link-panel a {
+  color: var(--light-color);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.admin > ol {
+  margin: 2rem 2rem;
+}
+
+.admin > ol li {
+  margin-bottom: 1rem;
+}
+
+.admin :last-child {
+  margin-bottom: 0;
+}
+
+.admin > ol > li > a {
+  color: var(--dark-color);
+  text-decoration: underline;
+}
+.admin > div > input {
+  width: 250px;
+}
