@@ -7,8 +7,7 @@ header > nav {
 }
 
 .hb {
-  position: absolute;
-  right: 0;
+  margin: 0 auto;
   width: 100px;
   display: block;
   cursor: pointer;
@@ -16,7 +15,6 @@ header > nav {
 
 header > nav > div > ul {
   position: relative;
-  top: 100px;
   background: var(--light-color);
   display: none;
   flex-direction: column;
