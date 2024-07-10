@@ -39,7 +39,7 @@ function AddArtwork() {
           />
         </div>
         <div>
-          {/* Champ pour le photo */}
+          {/* Champ pour la photo */}
           <label htmlFor="photo">{}</label>
           <input
             ref={photoRef}

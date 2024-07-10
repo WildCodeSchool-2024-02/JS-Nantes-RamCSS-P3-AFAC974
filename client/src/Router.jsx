@@ -108,6 +108,10 @@ const router = createBrowserRouter([
           {
             path: "add-artist",
             element: <AddArtist />,
+            loader: () =>
+              fetch(`${import.meta.env.VITE_API_URL}/api/artists/artistid`).then(
+                (response) => response.json()
+              ),
           },
           {
             path: "update-artist",

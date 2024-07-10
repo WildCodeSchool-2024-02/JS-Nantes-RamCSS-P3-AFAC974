@@ -38,7 +38,7 @@ function UpdateArtist() {
           />
         </div>
         <div>
-          {/* Champ pour le description */}
+          {/* Champ pour la description */}
           <label htmlFor="description">{}</label>
           <textarea
             ref={descriptionRef}
@@ -49,7 +49,7 @@ function UpdateArtist() {
           />
         </div>
         <div>
-          {/* Champ pour le photo */}
+          {/* Champ pour la photo */}
           <label htmlFor="photo">{}</label>
           <input
             ref={photoRef}
