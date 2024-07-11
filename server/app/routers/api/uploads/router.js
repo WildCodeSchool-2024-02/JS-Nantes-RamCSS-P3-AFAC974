@@ -4,44 +4,58 @@ const router = express.Router();
 
 /* const {createFolder,upload}=require("../../../services/upload"); */
 
-
 const path = require("path");
-
-const ido = 500;
 
 const fs = require("fs").promises;
 
-const createFolderPath = path.join(
-  __dirname,
-  `../../../../../client/public/images/photos/photographer${ido}`
-);
-const createSubfolderPath = path.join(
-  __dirname,
-  `../../../../../client/public/images/photos/photographer${ido}/thumbnails`
-);
+const photographerid = 59;
+// Définir les chemins des dossiers à créer
+// const createFolderPath = path.join(
+//   __dirname,
+//   `../../../../../client/public/images/photos/photographer${ido}`
+// );
+// const createSubfolderPath = path.join(
+//   __dirname,
+//   `../../../../../client/public/images/photos/photographer${ido}/thumbnails`
+// );
 
 const createFolder = async (req, res, next) => {
-  // const { photographer } = req.body;
-  // const { id } = req.body;
-  // console.log("req.body => ", id);
+  // const { photographerid } = req.body;
 
-  // try {
-  // Insert the item into the database
-  /* const createFolder1 = */ fs.mkdir(`${createFolderPath}`);
-  /* const createSubfolder = */ fs.mkdir(`${createSubfolderPath}`);
+  const createFolderPath = path.join(
+    __dirname,
+    `../../../../../client/public/images/photos/photographer${photographerid}`
+  );
+  const createSubfolderPath = path.join(
+    __dirname,
+    `../../../../../client/public/images/photos/photographer${photographerid}/thumbnails`
+  );
 
-  //   // Respond with HTTP 201 (Created) and the ID of the newly inserted item
-  //   res.status(201).json({ createFolder1, createSubfolder });
-  // } catch (err) {
-  //   // Pass any errors to the error-handling middleware
-  next();
-  // }
+  try {
+    // Vérifier si le sous-dossier existe
+    await fs.access(createSubfolderPath);
+    res.status(400);
+    console.warn("Le dossier existe déjà");
+  } catch (error) {
+    // Si le sous-dossier n'existe pas, le créer ainsi que le dossier parent
+    try {
+      await fs.mkdir(createFolderPath, { recursive: true });
+      await fs.mkdir(createSubfolderPath);
+      res.status(200);
+      console.warn("On a créé le dossier");
+      next();
+    } catch (mkdirError) {
+      res.status(400);
+      console.warn("Erreur inconnue", mkdirError);
+      next(mkdirError);
+    }
+  }
 };
 
 const uploadsFolderPath = path.join(
   __dirname,
-  `../../../../../client/public/images/photos/photographer${ido}`,
-  `../../../../../client/public/images/photos/photographer${ido}/thumbnails`
+  `../../../../../client/public/images/photos/photographer${photographerid}`,
+  `../../../../../client/public/images/photos/photographer${photographerid}/thumbnails`
 );
 
 const multer = require("multer");
@@ -73,16 +87,15 @@ const upload = multer({
     }
     return null;
   },
-}); 
-
+});
 
 router.post("/", createFolder, upload.single("file"), (req, res) => {
   try {
-    if (!req.file) {
+    if (!req.body.file) {
       return res.status(400).json({ error: "Please send file" });
     }
 
-    const { filename } = req.file;
+    const { filename } = req.body.file;
     const { id } = req.body;
 
     return res.json({ message: "File uploaded !", filename, id });

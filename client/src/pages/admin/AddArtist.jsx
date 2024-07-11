@@ -11,6 +11,7 @@ function AddArtist() {
   const descriptionRef = useRef();
   const photoRef = useRef();
   const altRef = useRef();
+  const photographerRef=useRef();
 
   // const inputRef = useRef();
 
@@ -31,8 +32,18 @@ function AddArtist() {
         `${import.meta.env.VITE_API_URL}/api/upload`,
         {
           method: "POST",
-          body: data
+          body: data,
         }
+        // {
+        //   method: "POST",
+        //   // headers: {
+        //   //   "Content-Type": "application/json",
+        //   // },
+        //   body: JSON.stringify({ 
+        //     file: data,
+        //     photographerid:photographer,
+        //   }), 
+        // }
       );
 
       const fileResponse = await addFileFetch.json();
@@ -55,10 +66,11 @@ function AddArtist() {
               firstname: firstnameRef.current.value,
               lastname: lastnameRef.current.value,
               description: descriptionRef.current.value,
-              alt_artist: altRef.current.value
+              alt_artist: altRef.current.value,
             }),
           }
         );
+
         console.warn(fetchResponse);
         return null;
       }
@@ -72,7 +84,7 @@ function AddArtist() {
     <>
       <h1>Ajout d'un artiste</h1>
       <form onSubmit={handleSubmit}>
-        <input type="hidden" value={photographer} />
+        <input type="hidden" value={photographer} ref={photographerRef} name="firstname" />
         <div>
           {/* Champ pour le prénom */}
           <label htmlFor="firstname">{}</label>
