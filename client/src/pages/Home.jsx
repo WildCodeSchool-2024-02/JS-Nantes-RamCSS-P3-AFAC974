@@ -32,7 +32,7 @@ function Home() {
           Nom de l&apos;auteur: {photo[0].firstname} {photo[0].lastname}.
         </h3>
         <div className="text-img">
-          <figure><NavLink to={`../photo?id=${photo[0].id}`}>
+          <figure className="home-artwork"><NavLink to={`../photo?id=${photo[0].id}`}>
             <img
               src={`images/photos/photographer3/${photo[0].image}`}
               alt={photo[0].alt_artwork}

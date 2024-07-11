@@ -1,34 +1,26 @@
 header > nav {
-  max-height: 120px;
+  height: 100px;
   width: 100%;
   background: var(--light-color);
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 
-header > nav > div {
-  position: absolute;
-  top: 10px;
-  right: 0;
-}
-
-header > nav > div > button {
-  background: var(--light-color);
-  border: none;
-}
-header > nav > div > button > img {
-  position: relative;
-  margin-left: 146px;
+.hb {
+  margin: 0 auto;
+  width: 100px;
+  display: block;
+  cursor: pointer;
 }
 
 header > nav > div > ul {
+  position: relative;
   background: var(--light-color);
   display: none;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
-  width: 256px;
+  width: 250px;
   padding: 1rem 0;
   border-radius: 0 0 0 10px;
 }

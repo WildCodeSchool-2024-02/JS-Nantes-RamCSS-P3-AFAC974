@@ -1,5 +1,5 @@
 footer {
   background: var(--light-color);
   color: var(--dark-color);
-  height: 112px;
+  padding: 0.5em;
 }

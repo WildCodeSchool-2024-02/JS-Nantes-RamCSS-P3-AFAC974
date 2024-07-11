@@ -57,13 +57,21 @@ form {
 }
 
 input {
-  width: 200px;
+  width: 250px;
   padding: 0 15px;
   height: 30px;
   border-radius: 20px;
   text-align: center;
   color: var(--dark-color);
   font-weight: bold;
+}
+
+textarea {
+  resize: both;
+  border-radius: 20px;
+  min-width: 250px;
+  min-height: 500px;
+  padding: 15px;
 }
 
 .button-form {

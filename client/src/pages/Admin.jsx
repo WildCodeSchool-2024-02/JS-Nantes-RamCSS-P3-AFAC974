@@ -1,18 +1,26 @@
+import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from "react";
-
-import { UserConnectionContext } from "../contexts/UserConnectionProvider";
+import {
+  UserConnectionContext,
+  UserConnectionProvider,
+} from "../contexts/UserConnectionProvider";
 
 function Admin() {
   const { user } = useContext(UserConnectionContext);
 
   return (
-    <header>
+    <UserConnectionProvider>
       {user.user.is_admin !== 1 ? (
-        <p>ERROR 401 FORDIBEN</p>
+        <h1>ERROR 401 FORDIBEN</h1>
       ) : (
-        <h1>Bienvenue dans le panneau d&apos;administration</h1>
+        <>
+          <p className="link-panel">
+            <NavLink to="./">Revenir au panneau d'administration</NavLink>
+          </p>
+          <Outlet />
+        </>
       )}
-    </header>
+    </UserConnectionProvider>
   );
 }
 export default Admin;

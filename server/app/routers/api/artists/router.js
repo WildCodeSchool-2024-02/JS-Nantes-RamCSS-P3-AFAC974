@@ -11,6 +11,7 @@ const {
   browse,
   homeBrowse,
   read,
+  readId,
   add,
   destroy,
   edit,
@@ -21,6 +22,9 @@ router.get("/", browse);
 
 // Route to get a list of items
 router.get("/home", homeBrowse);
+
+// Route to get a list of items
+router.get("/artistid", readId);
 
 // Route to get a specific item by ID
 router.get("/:id", read);

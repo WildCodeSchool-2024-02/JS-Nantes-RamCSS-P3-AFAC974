@@ -12,7 +12,7 @@
   width: 90%;
   margin: 0 auto 1rem auto;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 2%;
   align-items: stretch;
   justify-content: center;
@@ -22,12 +22,14 @@
   flex-wrap: wrap;
 }
 
-.text-img > figure {
-  width: 49%;
+.home-artwork > a > img {
+  width: 100%;
+  min-width: 256px;
   height: auto;
 }
 
-.text-img > figure > img {
+.text-img > figure > a > img {
+  min-width: 256px;
   width: 100%;
   height: auto;
 }
