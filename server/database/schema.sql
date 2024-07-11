@@ -83,7 +83,9 @@ CREATE TABLE artwork (
     image VARCHAR(100) NOT NULL,
     alt_artwork VARCHAR(100) NULL,
     id_artist INT NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`id`),
+        FOREIGN KEY (id_artist) REFERENCES artist(id)
+        ON DELETE CASCADE
 );
 
 INSERT INTO
