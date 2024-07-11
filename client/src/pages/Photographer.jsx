@@ -16,7 +16,7 @@ function Photographer() {
         </h2>
         <figure>
           <img
-            src={`images/photos/photographer${artist.id}/thumbnails/photographer.jpg`}
+            src={artist.photo}
             alt={artist.alt_artist}
           />
         </figure>

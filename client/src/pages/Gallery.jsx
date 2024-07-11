@@ -6,8 +6,6 @@ function Gallery() {
   const data = [useLoaderData([])];
   const photo = data[0];
 
-  // const [affichPhoto,SetAffichPhoto]=useState("");
-
   return (
     <>
       <header>
@@ -21,7 +19,7 @@ function Gallery() {
               <figure>
                 <NavLink to={`../photo?id=${value.id}`}>
                   <img
-                    src={`images/photos/photographer${value.id_artist}/thumbnails/${value.image}`}
+                    src={value.image}
                     alt={value.alt_artwork}
                   />
                 </NavLink>

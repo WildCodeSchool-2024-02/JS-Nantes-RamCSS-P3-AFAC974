@@ -34,7 +34,7 @@ function Home() {
         <div className="text-img">
           <figure className="home-artwork"><NavLink to={`../photo?id=${photo[0].id}`}>
             <img
-              src={`images/photos/photographer3/${photo[0].image}`}
+              src={photo[0].image}
               alt={photo[0].alt_artwork}
             /></NavLink>
           </figure>
@@ -45,7 +45,7 @@ function Home() {
                 <li key={value.id_artist}>
                   <NavLink to={`../photo?id=${value.id}`}>
                   <img
-                    src={`images/photos/photographer${value.id_artist}/thumbnails/${value.image}`}
+                    src={value.image}
                     alt={value.alt_artwork}
                   /></NavLink>
                 </li>
@@ -60,7 +60,7 @@ function Home() {
             <figure>
               <NavLink to={`photographer?id=${value.id}`}>
                 <img
-                  src={`images/photos/photographer${value.id}/thumbnails/photographer.jpg`}
+                  src={`${value.photo}`}
                   alt={value.alt_artist}
                 />
               </NavLink>
