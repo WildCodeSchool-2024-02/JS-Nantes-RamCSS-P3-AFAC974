@@ -11,12 +11,13 @@ class ArtworkRepository extends AbstractRepository {
 
   async create(artwork) {
     // Execute the SQL INSERT query to add a new item to the "item" table
+    const photo = `images/photos/${artwork.filename}`;
     const [result] = await this.database.query(
       `INSERT INTO ${this.table} (title,description,image,id_artist,alt_artwork) values (?, ?, ?, ?, ?)`,
       [
         artwork.title,
         artwork.description,
-        artwork.image,
+        photo,
         artwork.id_artist,
         artwork.alt_artwork,
       ]
@@ -43,7 +44,7 @@ class ArtworkRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `SELECT artwork.id, artwork.title, artwork.image, artwork.alt_artwork, artwork.id_artist, artist.firstname, artist.lastname FROM artwork LEFT JOIN artist ON artwork.id_artist = artist.id`
+      `SELECT artwork.id,artwork.title,artwork.description,artwork.image, artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname,artist.photo,artist.alt_artist FROM artwork LEFT JOIN artist ON artwork.id_artist = artist.id ORDER BY artwork.id_artist ASC`
     );
     // Return the array of items
     return rows;

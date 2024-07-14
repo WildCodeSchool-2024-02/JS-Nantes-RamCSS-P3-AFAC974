@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-/* const {createFolder,upload}=require("../../../services/upload"); */
+/* const {upload}=require("../../../services/upload"); */
 
 const path = require("path");
 
@@ -43,7 +43,22 @@ const upload = multer({
   },
 });
 
-router.post("/", upload.single("file"), (req, res) => {
+router.post("/artist", upload.single("file"), (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "Please send file" });
+    }
+
+    const { filename } = req.file;
+    const { id } = req.body;
+    return res.json({ message: "File uploaded !",filename, id });
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+});
+
+router.post("/artwork", upload.single("file"), (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: "Please send file" });
