@@ -5,27 +5,28 @@ import FormDelete from "./FormDelete";
 
 function FormUpdateArtist({ value }) {
   const [files, setFiles] = useState([]);
+  const [messageRequest, SetMessageRequest] = useState("");
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const descriptionRef = useRef();
   const photoRef = useRef();
   const altRef = useRef();
-
   const handleDrop = (e) => {
     e.preventDefault();
+
     setFiles(Array.from(e.dataTransfer.files));
   };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const data = new FormData();
+
     data.append("file", files[0]);
 
-    // * Ma première requête fetch va tenter d'ajouter le fichier dans le serveur.
     try {
+      // Première requête pour ajouter le fichier
       const addFileFetch = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/upload/artist`,
+        `${import.meta.env.VITE_API_URL}/api/upload/artwork`,
         {
           method: "POST",
           body: data,
@@ -34,41 +35,49 @@ function FormUpdateArtist({ value }) {
 
       const fileResponse = await addFileFetch.json();
 
-      // * Si tout s'est bien passé, on ajoute le chemin de l'image dans la base de données
-      // * (je prends le deuxième utilisateur pour l'exemple, en utilisant le chemin /api/user/avatar/2).
-      // * Dans le cas où on est connecté, on récupère notre propre id utilisateur !
+      const { filename } = fileResponse;
+      // Seconde requête pour mettre à jour les informations de l'œuvre
 
-      if (fileResponse) {
-        const { filename } = fileResponse;
-        const fetchResponse = await fetch(
-          `${import.meta.env.VITE_API_URL}/api/artists`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              filename,
-              firstname: firstnameRef.current.value,
-              lastname: lastnameRef.current.value,
-              description: descriptionRef.current.value,
-              alt_artist: altRef.current.value,
-            }),
-          }
+      const fetchResponse = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/artworks/update/1`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            filename,
+            firstname: firstnameRef.current.value,
+            lastname: lastnameRef.current.value,
+            description: descriptionRef.current.value,
+            alt_artist: altRef.current.value,
+          }),
+        }
+      );
+
+      if (!fetchResponse.ok) {
+        SetMessageRequest(
+          "Erreur lors de la mise à jour des informations de l'œuvre."
         );
-
-        console.warn(fetchResponse);
-        return null;
+        throw new Error(
+          "Erreur lors de la mise à jour des informations de l'œuvre."
+        );
+      } else {
+        SetMessageRequest(
+          "La mise à jour des informations de l'œuvre est un succès."
+        );
       }
+      const updateResponse = await fetchResponse.json();
+      console.warn(updateResponse);
     } catch (err) {
-      return err;
+      console.error("Une erreur s'est produite :", err);
     }
-    return null;
+    // return null;
   };
 
   return (
     <>
-      {}
+      <p className="errormessage">{messageRequest}</p>
       <article className="form-admin">
         <h2 className="h2-admin">
           {value.firstname} {value.lastname}
@@ -135,10 +144,7 @@ function FormUpdateArtist({ value }) {
             Modifier un artiste
           </button>
         </form>
-        <FormDelete
-        item="artist"
-        id={value.id}
-        />
+        <FormDelete item="artist" id={value.id} />
       </article>
     </>
   );

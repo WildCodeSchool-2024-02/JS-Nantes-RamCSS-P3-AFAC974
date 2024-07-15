@@ -12,24 +12,20 @@ function FormDelete({ item, id, SetMessageRequest }) {
     );
 
     if (deleteFileFetch.status) {
-      SetMessageRequest(`L'${item} à bien été supprimer de la base de donner.`);
+      SetMessageRequest(`L'${item} a bien été supprimer de la base de donner.`);
     } else {
       SetMessageRequest(
         `une erreur c'est produit lors de la sppression de l'${item}.`
       );
     }
 
-    console.warn(deleteFileFetch);
     return null;
   };
 
   return (
-    <>
-      {}
-      <button className="button-form" type="button" onClick={handleDelete}>
-        supprimer {item}
-      </button>
-    </>
+    <button className="button-form" type="button" onClick={handleDelete}>
+      supprimer {item}
+    </button>
   );
 }
 FormDelete.propTypes = {

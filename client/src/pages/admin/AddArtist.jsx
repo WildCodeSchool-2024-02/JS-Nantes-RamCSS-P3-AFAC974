@@ -126,7 +126,6 @@ function AddArtist() {
             placeholder="Description de la photo de l'artiste"
           />
         </div>
-
         <button className="button-form" type="submit">
           Ajout d&apos;un artist
         </button>

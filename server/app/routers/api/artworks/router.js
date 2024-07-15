@@ -31,8 +31,7 @@ router.post("/", add);
 // Route to add a new item
 router.delete("/delete/:id", destroy);
 
-// const conso=(req,res)=>{console.log("je suis dans la route",req.body);}
-router.put("/update/:id",/* conso, */edit);
+router.put("/update/:id", edit);
 
 /* ************************************************************************* */
 

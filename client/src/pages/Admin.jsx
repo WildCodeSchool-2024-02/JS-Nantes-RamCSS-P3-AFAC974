@@ -11,7 +11,7 @@ function Admin() {
   return (
     <UserConnectionProvider>
       {user.user.is_admin !== 1 ? (
-        <h1>ERROR 401 FORDIBEN</h1>
+        <><h1>ERROR 401 FORDIBEN</h1><Outlet /></>
       ) : (
         <>
           <p className="link-panel">

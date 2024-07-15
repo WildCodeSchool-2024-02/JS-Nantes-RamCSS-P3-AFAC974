@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import FormUpdateArtist from "../../components/FormUpdateArtist";
 
 function UpdateArtist() {
-  const dataPhotographer = [useLoaderData([])];
+  const dataPhotographer = useLoaderData();
   const photographer = dataPhotographer[0];
   return (
     <>
