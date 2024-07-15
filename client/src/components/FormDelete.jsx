@@ -12,10 +12,10 @@ function FormDelete({ item, id, SetMessageRequest }) {
     );
 
     if (deleteFileFetch.status) {
-      SetMessageRequest(`L'${item} a bien été supprimer de la base de donner.`);
+      SetMessageRequest(`L'${item} a bien été supprimé de la base de donner.`);
     } else {
       SetMessageRequest(
-        `une erreur c'est produit lors de la sppression de l'${item}.`
+        `Une erreur c'est produit lors de la suppression de l'${item}.`
       );
     }
 
