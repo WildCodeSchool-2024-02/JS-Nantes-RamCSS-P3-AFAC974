@@ -85,7 +85,7 @@ function Header() {
             </svg>
             <ul id="vu-menu">
               <li>
-                <NavLink to="./" onClick={openMenu}>
+                <NavLink to="/" onClick={openMenu}>
                   ACCUEIL
                 </NavLink>
               </li>

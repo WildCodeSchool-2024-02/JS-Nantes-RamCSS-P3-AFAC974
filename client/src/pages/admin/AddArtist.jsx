@@ -1,19 +1,14 @@
-import { useLoaderData } from "react-router-dom";
 import { useRef, useState } from "react";
 
 import DragAndDrop from "../../components/DragAndDrop";
 
 function AddArtist() {
-  const photographer = useLoaderData();
   const [files, setFiles] = useState([]);
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const descriptionRef = useRef();
   const photoRef = useRef();
   const altRef = useRef();
-  const photographerRef=useRef();
-
-  // const inputRef = useRef();
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -29,21 +24,11 @@ function AddArtist() {
     // * Ma première requête fetch va tenter d'ajouter le fichier dans le serveur.
     try {
       const addFileFetch = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/upload`,
+        `${import.meta.env.VITE_API_URL}/api/upload/artist`,
         {
           method: "POST",
           body: data,
         }
-        // {
-        //   method: "POST",
-        //   // headers: {
-        //   //   "Content-Type": "application/json",
-        //   // },
-        //   body: JSON.stringify({ 
-        //     file: data,
-        //     photographerid:photographer,
-        //   }), 
-        // }
       );
 
       const fileResponse = await addFileFetch.json();
@@ -84,7 +69,6 @@ function AddArtist() {
     <>
       <h1>Ajout d'un artiste</h1>
       <form onSubmit={handleSubmit}>
-        <input type="hidden" value={photographer} ref={photographerRef} name="firstname" />
         <div>
           {/* Champ pour le prénom */}
           <label htmlFor="firstname">{}</label>
@@ -142,7 +126,6 @@ function AddArtist() {
             placeholder="Description de la photo de l'artiste"
           />
         </div>
-
         <button className="button-form" type="submit">
           Ajout d&apos;un artist
         </button>

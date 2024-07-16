@@ -10,7 +10,7 @@
 
 .artist > article > figure img {
   width: 260px;
-  height: auto;
+  height: 260px;
   border-radius: 50%;
 }
 

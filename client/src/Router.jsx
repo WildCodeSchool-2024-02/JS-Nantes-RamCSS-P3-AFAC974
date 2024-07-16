@@ -37,6 +37,19 @@ export const userLoader = async () => {
   return { artwork, artist };
 };
 
+export const artistArtworkLoader = async () => {
+  const [artwork, artist] = await Promise.all([
+    fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then((res) =>
+      res.json()
+    ),
+    fetch(`${import.meta.env.VITE_API_URL}/api/artists/`).then((res) =>
+      res.json()
+    ),
+  ]);
+
+  return { artwork, artist };
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -108,14 +121,14 @@ const router = createBrowserRouter([
           {
             path: "add-artist",
             element: <AddArtist />,
-            loader: () =>
-              fetch(`${import.meta.env.VITE_API_URL}/api/artists/artistid`).then(
-                (response) => response.json()
-              ),
           },
           {
             path: "update-artist",
             element: <UpdateArtist />,
+            loader: () =>
+              fetch(`${import.meta.env.VITE_API_URL}/api/artists/`).then(
+                (response) => response.json()
+              ),
           },
           {
             path: "remove-artist",
@@ -124,10 +137,18 @@ const router = createBrowserRouter([
           {
             path: "add-artwork",
             element: <AddArtwork />,
+            loader: () =>
+              fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then(
+                (response) => response.json()
+              ),
           },
           {
             path: "update-artwork",
             element: <UpdateArtwork />,
+            loader: () =>
+              fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then(
+                (response) => response.json()
+              ),
           },
           {
             path: "remove-artwork",

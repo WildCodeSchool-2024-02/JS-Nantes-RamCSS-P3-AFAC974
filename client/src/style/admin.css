@@ -8,6 +8,42 @@
   padding: 1rem;
   border-radius: 20px;
 }
+.alignment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.h2-admin {
+  text-align: center !important;
+  margin: 1rem !important;
+}
+
+.picture-form {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+}
+.picture-form > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.artwork {
+  width: 250px;
+  margin: auto;
+}
+.artwork > img {
+  width: 100%;
+  height: auto;
+}
+
+.form-admin {
+  margin-bottom: 4rem;
+}
 
 .link-panel {
   margin: 1rem;

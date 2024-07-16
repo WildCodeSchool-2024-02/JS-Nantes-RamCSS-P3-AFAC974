@@ -13,7 +13,7 @@ const browse = async (req, res, next) => {
     // Pass any errors to the error-handling middleware
     next(err);
   }
-}; 
+};
 
 const homeBrowse = async (req, res, next) => {
   try {

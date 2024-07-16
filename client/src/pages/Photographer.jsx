@@ -14,9 +14,10 @@ function Photographer() {
         <h2>
           {artist.firstname} {artist.lastname}
         </h2>
+        <div>
         <figure>
           <img
-            src={`images/photos/photographer${artist.id}/thumbnails/photographer.jpg`}
+            src={artist.photo}
             alt={artist.alt_artist}
           />
         </figure>
@@ -24,7 +25,7 @@ function Photographer() {
           Présentation de {artist.firstname} {artist.lastname}
           <br />
           {artist.description}
-        </article>
+        </article></div>
       </section>
     </>
   );
