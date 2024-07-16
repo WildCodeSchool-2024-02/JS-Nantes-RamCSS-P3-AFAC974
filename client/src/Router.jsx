@@ -21,8 +21,6 @@ import RemoveUser from "./pages/admin/RemoveUser";
 import UpdateStatusUser from "./pages/admin/UpdateStatusUser";
 
 // Fonction pour obtenir les paramètres de l'URL
-const getIdFromSearchParams = (searchParams) => searchParams.get("id");
-console.info(getIdFromSearchParams);
 
 export const userLoader = async () => {
   const [artwork, artist] = await Promise.all([

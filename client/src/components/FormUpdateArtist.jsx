@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
+import { useRevalidator } from "react-router-dom";
 import PropTypes from "prop-types";
+
 import DragAndDrop from "./DragAndDrop";
 import FormDelete from "./FormDelete";
 
 function FormUpdateArtist({ value }) {
+  const revalidator = useRevalidator();
   const [files, setFiles] = useState([]);
   const [messageRequest, setMessageRequest] = useState("");
   const firstnameRef = useRef();
@@ -16,6 +19,7 @@ function FormUpdateArtist({ value }) {
 
     setFiles(Array.from(e.dataTransfer.files));
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -39,7 +43,7 @@ function FormUpdateArtist({ value }) {
       // Seconde requête pour mettre à jour les informations de l'œuvre
 
       const fetchResponse = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/artist/update/${value.id}`,
+        `${import.meta.env.VITE_API_URL}/api/artists/update/${value.id}`,
         {
           method: "PUT",
           headers: {
@@ -57,14 +61,15 @@ function FormUpdateArtist({ value }) {
 
       if (!fetchResponse.ok) {
         setMessageRequest(
-          "Erreur lors de la mise à jour des informations de l'œuvre."
+          "Erreur lors de la mise à jour des informations de l'artiste."
         );
         throw new Error(
-          "Erreur lors de la mise à jour des informations de l'œuvre."
+          "Erreur lors de la mise à jour des informations de l'artiste."
         );
       } else {
+        revalidator.revalidate();
         setMessageRequest(
-          "La mise à jour des informations de l'œuvre est un succès."
+          "La mise à jour des informations de l'artiste est un succès."
         );
       }
       const updateResponse = await fetchResponse.json();

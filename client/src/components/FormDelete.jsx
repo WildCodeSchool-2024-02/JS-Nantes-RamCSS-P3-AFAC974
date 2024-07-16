@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
+import { useRevalidator } from "react-router-dom";
 
 function FormDelete({ item, id, setMessageRequest }) {
+  const revalidator = useRevalidator();
   const handleDelete = async (event) => {
     event.preventDefault();
 
@@ -11,8 +13,9 @@ function FormDelete({ item, id, setMessageRequest }) {
       }
     );
 
-    if (deleteFileFetch.status) {
+    if (deleteFileFetch.ok) {
       setMessageRequest(`L'${item} a bien été supprimé de la base de donnée.`);
+      revalidator.revalidate();
     } else {
       setMessageRequest(
         `Une erreur c'est produite lors de la suppression de l'${item}.`
