@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function FormDelete({ item, id, SetMessageRequest }) {
+function FormDelete({ item, id, setMessageRequest }) {
   const handleDelete = async (event) => {
     event.preventDefault();
 
@@ -12,9 +12,9 @@ function FormDelete({ item, id, SetMessageRequest }) {
     );
 
     if (deleteFileFetch.status) {
-      SetMessageRequest(`L'${item} a bien été supprimé de la base de donnée.`);
+      setMessageRequest(`L'${item} a bien été supprimé de la base de donnée.`);
     } else {
-      SetMessageRequest(
+      setMessageRequest(
         `Une erreur c'est produite lors de la suppression de l'${item}.`
       );
     }
@@ -31,7 +31,7 @@ function FormDelete({ item, id, SetMessageRequest }) {
 FormDelete.propTypes = {
   item: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  SetMessageRequest: PropTypes.string.isRequired,
+  setMessageRequest: PropTypes.string.isRequired,
 };
 
 export default FormDelete;

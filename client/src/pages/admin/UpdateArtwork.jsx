@@ -6,7 +6,7 @@ function UpdateArtwork() {
 
   return (
     <>
-      <h1>Ajout d&apos;une oeuvre</h1>
+      <h1>Modification d&apos;une oeuvre</h1>
       <section className="alignment">
         {dataPhotographer.map((value) => (
           <FormUpdateArtwork key={value.id} value={value} />

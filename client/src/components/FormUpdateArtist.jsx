@@ -5,7 +5,7 @@ import FormDelete from "./FormDelete";
 
 function FormUpdateArtist({ value }) {
   const [files, setFiles] = useState([]);
-  const [messageRequest, SetMessageRequest] = useState("");
+  const [messageRequest, setMessageRequest] = useState("");
   const firstnameRef = useRef();
   const lastnameRef = useRef();
   const descriptionRef = useRef();
@@ -39,7 +39,7 @@ function FormUpdateArtist({ value }) {
       // Seconde requête pour mettre à jour les informations de l'œuvre
 
       const fetchResponse = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/artworks/update/1`,
+        `${import.meta.env.VITE_API_URL}/api/artist/update/${value.id}`,
         {
           method: "PUT",
           headers: {
@@ -56,14 +56,14 @@ function FormUpdateArtist({ value }) {
       );
 
       if (!fetchResponse.ok) {
-        SetMessageRequest(
+        setMessageRequest(
           "Erreur lors de la mise à jour des informations de l'œuvre."
         );
         throw new Error(
           "Erreur lors de la mise à jour des informations de l'œuvre."
         );
       } else {
-        SetMessageRequest(
+        setMessageRequest(
           "La mise à jour des informations de l'œuvre est un succès."
         );
       }
@@ -144,7 +144,11 @@ function FormUpdateArtist({ value }) {
             Modifier un artiste
           </button>
         </form>
-        <FormDelete item="artist" id={value.id} />
+        <FormDelete
+          item="artist"
+          id={value.id}
+          setMessageRequest={setMessageRequest}
+        />
       </article>
     </>
   );
