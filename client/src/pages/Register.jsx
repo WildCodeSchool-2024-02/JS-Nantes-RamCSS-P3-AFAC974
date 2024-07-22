@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   // Référence pour le champ email
   const emailRef = useRef();
+
+  // Référence pour le champ password et confirm-password
+  const confirmPasswordRef = useRef();
+  const passwordRef = useRef();
   // Référence pour le champ firstname
+
   const firstnameRef = useRef();
 
   // Référence pour le champ firstname
@@ -23,6 +28,28 @@ function Register() {
 
   // Hook pour la navigation
   const navigate = useNavigate();
+
+  const generatePassword = () => {
+    const characters =
+      "azertyupqsdfghjkmwxcvbn23456789AZERTYUPQSDFGHJKMWXCVBN&|@#§!_-€*$%£µ?:+=°";
+    let pass = "";
+    for (let i; pass.length < 16; i += i) {
+      const randCharacters = Math.round(Math.random() * characters.length);
+      pass += characters.substring(randCharacters, randCharacters + 1);
+    }
+
+    passwordRef.current.value = pass;
+    confirmPasswordRef.current.value = pass;
+  };
+
+  const show = () => {
+    const attribute = passwordRef.current.getAttribute("type");
+    if (attribute === "password") {
+      passwordRef.current.type = "text";
+    } else {
+      passwordRef.current.type = "password";
+    }
+  };
 
   // Gestionnaire de changement du mot de passe
   const handlePasswordChange = (event) => {
@@ -125,6 +152,7 @@ function Register() {
           {/* Champ pour le mot de passe */}
           <label htmlFor="password">{}</label>
           <input
+            ref={passwordRef}
             type="password"
             id="password"
             value={password}
@@ -133,6 +161,12 @@ function Register() {
             placeholder="Mot de passe"
             className={redColorPassword}
           />
+          <button type="button" onClick={show}>
+            show / hide
+          </button>
+          <button type="button" onClick={generatePassword}>
+            Genérer un mot de passe
+          </button>
         </div>
         {/* Indicateur de force du mot de passe */}
         <p>{}</p>
@@ -140,6 +174,7 @@ function Register() {
           {/* Champ pour la confirmation du mot de passe */}
           <label htmlFor="confirm-password">{}</label>
           <input
+            ref={confirmPasswordRef}
             type="password"
             id="confirm-password"
             value={confirmPassword}

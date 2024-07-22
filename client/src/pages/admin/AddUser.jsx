@@ -1,10 +1,12 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddUser() {
+function Register() {
   // Référence pour le champ email
   const emailRef = useRef();
+
   // Référence pour le champ firstname
+
   const firstnameRef = useRef();
 
   // Référence pour le champ firstname
@@ -12,7 +14,6 @@ function AddUser() {
 
   // États pour le mot de passe et la confirmation du mot de passe
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   //  États pour l'affichage de l&apos;erreur
   const [responsevalue, setResponsevalue] = useState("");
@@ -24,16 +25,18 @@ function AddUser() {
   // Hook pour la navigation
   const navigate = useNavigate();
 
-  // Gestionnaire de changement du mot de passe
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  const generatePassword = () => {
+    const characters =
+      "azertyupqsdfghjkmwxcvbn23456789AZERTYUPQSDFGHJKMWXCVBN&|@#§!_-€*$%£µ?:+=°";
+    let pass = "";
+    for (let i; pass.length < 16; i += i) {
+      const randCharacters = Math.round(Math.random() * characters.length);
+      pass += characters.substring(randCharacters, randCharacters + 1);
+    }
 
-  // Gestionnaire de changement de la confirmation du mot de passe
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
+    setPassword(pass);
   };
-
+  generatePassword();
   // Gestionnaire de soumission du formulaire
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -57,7 +60,7 @@ function AddUser() {
 
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
-        navigate("/admin");
+        navigate("/login");
       } else {
         const contentType = response.headers.get("content-type");
         setResponsevalue(errorMessage);
@@ -71,14 +74,7 @@ function AddUser() {
       setResponsevalue(errorMessage);
     }
   };
-  const redColorPassword = password.length >= 8 ? "" : "errormessage";
-  let ConfirmPasswordChange = "errormessage";
 
-  if (password === confirmPassword && confirmPassword.length > 0) {
-    ConfirmPasswordChange = "";
-  }
-  // "✅" : "❌"
-  // Rendu du composant formulaire
   return (
     <>
       <header>
@@ -86,7 +82,7 @@ function AddUser() {
       </header>
       <form onSubmit={handleSubmit}>
         <div>
-          {/* Champ pour le prénom */}
+          {/* Champ pour le nom */}
           <label htmlFor="firstname">{}</label>
           <input
             ref={firstnameRef}
@@ -94,7 +90,7 @@ function AddUser() {
             id="firstname"
             name="firstname"
             required
-            placeholder="Prénom"
+            placeholder="Pr&eacute;nom"
           />
         </div>
         <div>
@@ -121,38 +117,9 @@ function AddUser() {
             placeholder="exemple@email.com"
           />
         </div>
-        <div>
-          {/* Champ pour le mot de passe */}
-          <label htmlFor="password">{}</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={handlePasswordChange}
-            required
-            placeholder="Mot de passe"
-            className={redColorPassword}
-          />
-        </div>
-        {/* Indicateur de force du mot de passe */}
-        <p>{}</p>
-        <div>
-          {/* Champ pour la confirmation du mot de passe */}
-          <label htmlFor="confirm-password">{}</label>
-          <input
-            type="password"
-            id="confirm-password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-            required
-            placeholder="Confirmation du mot de passe"
-            className={ConfirmPasswordChange}
-          />
-        </div>
-        {/* Indicateur de correspondance avec le mot de passe */}
         {/* Bouton de soumission du formulaire */}
         <button className="button-form" type="submit">
-          S&apos;inscrire le membre
+          S&apos;inscrire
         </button>
         {responsevalue && <p className="errormessage">{responsevalue}</p>}
       </form>
@@ -160,4 +127,4 @@ function AddUser() {
   );
 }
 
-export default AddUser;
+export default Register;
