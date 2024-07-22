@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
+import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 
 import "../style/home.css";
 
 function Home() {
+  const { connect } = useContext(UserConnectionContext);
   const firstname = localStorage.getItem("firstname");
   const lastname = localStorage.getItem("lastname");
 
@@ -18,10 +21,7 @@ function Home() {
       <header>
         <h1>AFAC 974</h1>
       </header>
-      <p className="user">
-        bonjour{" "}
-        {firstname !== null && `${firstname} ${lastname}`}
-      </p>
+      <p className="user">bonjour {connect && `${firstname} ${lastname}`}</p>
 
       <section>
         <h2>{photo[0].title}</h2>
