@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import "../style/drag-and-drop.css"
+
 function DragAndDrop({ files, setFiles, handleDrop, photoRef }) {
   if (files.length)
     return (
@@ -18,23 +20,24 @@ function DragAndDrop({ files, setFiles, handleDrop, photoRef }) {
   if (!files.length)
     return (
       <section>
-        <div
-          className="drop-zone"
-          onDrop={handleDrop}
-          onDragOver={(e) => e.preventDefault()}
-        >
-          <p>Drag and Drop Area</p>
-          <p>Or</p>
-          <input
-            type="file"
-            onChange={(e) => setFiles(e.target.files)}
-            hidden
-            ref={photoRef}
-          />
-          <button type="button" onClick={() => photoRef.current.click()}>
-            Select a file
-          </button>
-        </div>
+        <article>
+          <div
+            className="drop-zone"
+            onDrop={handleDrop}
+            onDragOver={(e) => e.preventDefault()}
+          >
+            <p>Faite glisser ou sélectionner votre photo</p>
+            <input
+              type="file"
+              onChange={(e) => setFiles(e.target.files)}
+              hidden
+              ref={photoRef}
+            />
+            <button type="button" onClick={() => photoRef.current.click()}>
+              Select a file
+            </button>
+          </div>
+        </article>
       </section>
     );
 }

@@ -80,6 +80,7 @@ textarea {
   padding: 15px;
 }
 
+.drop-zone > button,
 .button-form {
   width: 200px;
   padding: 0 15px;
