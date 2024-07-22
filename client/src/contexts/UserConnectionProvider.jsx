@@ -6,12 +6,15 @@ export const UserConnectionContext = createContext();
 // eslint-disable-next-line react/prop-types
 export function UserConnectionProvider({ children }) {
   const [responsevalue, setResponsevalue] = useState("");
+  const [connect, setConnect] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(null);
   const emailRef = useRef();
   const passwordRef = useRef();
 
   const navigate = useNavigate();
   const disconnect = () => {
     localStorage.clear();
+    setConnect(false);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,8 +37,10 @@ export function UserConnectionProvider({ children }) {
         localStorage.setItem("is_admin", `${auth.user.is_admin}`);
         localStorage.setItem("lastname", `${auth.user.lastname}`);
         localStorage.setItem("firstname", `${auth.user.firstname}`);
+        setIsAdmin(localStorage.getItem("is_admin"));
+        setConnect(true);
 
-        navigate("/");
+        navigate("/admin");
       } else {
         const contentType = response.headers.get("content-type");
         const errorMessage = "Votre mail ou votre mot de passe est invalide";
@@ -71,11 +76,15 @@ export function UserConnectionProvider({ children }) {
       .then((response) => {
         if (!response.ok) {
           localStorage.clear();
+          setConnect(false);
+          setIsAdmin(null);
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         // if (!response.ok) {
         //   localStorage.clear();
+        //   setConnect(false);
+        //   navigate("/login");
         // }
       })
 
@@ -93,6 +102,8 @@ export function UserConnectionProvider({ children }) {
         passwordRef,
         handleSubmit,
         disconnect,
+        connect,
+        isAdmin,
       }}
     >
       {children}
