@@ -61,7 +61,7 @@ form {
   gap: 0.5rem;
   align-items: center;
 }
-
+select,
 input {
   width: 250px;
   padding: 0 15px;

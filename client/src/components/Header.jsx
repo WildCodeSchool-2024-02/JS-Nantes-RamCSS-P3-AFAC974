@@ -7,6 +7,7 @@ function Header() {
   const isAdmin = localStorage.getItem("is_admin");
   const { disconnect, connect } = useContext(UserConnectionContext);
   const [value, setValue] = useState(1);
+  const [image, Setimage] = useState("../images/images/menu-burger.png");
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
   const measureHeight = () => {
@@ -25,10 +26,12 @@ function Header() {
     const menu = document.querySelector(".open-menu");
     if (value === 1) {
       setValue(0);
+      Setimage("../images/images/menu-burger1.png");
       menu.style.visibility = "visible";
       menu.style.height = `${height}px`;
     } else {
       setValue(1);
+      Setimage("../images/images/menu-burger.png");
       menu.style.height = "0px";
       setTimeout(() => {
         menu.style.visibility = "hidden";
@@ -43,7 +46,7 @@ function Header() {
           <img src="../images/logos/logonavbar.png" alt="Logo" />
         </NavLink>
         <button type="button" onClick={openMenu}>
-          <img src="../images/images/menu-burger.png" alt="Ouverture du menu" />
+          <img src={image} alt="Ouverture du menu" />
         </button>
         <ul
           className="open-menu"
