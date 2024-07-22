@@ -1,9 +1,12 @@
 import { useRef, useState } from "react";
+import { useRevalidator } from "react-router-dom";
 import PropTypes from "prop-types";
+
 import DragAndDrop from "./DragAndDrop";
 import FormDelete from "./FormDelete";
 
 function FormUpdateArtwork({ value }) {
+  const revalidator = useRevalidator();
   const [files, setFiles] = useState([]);
   const [messageRequest, setMessageRequest] = useState("");
   const titleRef = useRef();
@@ -63,6 +66,7 @@ function FormUpdateArtwork({ value }) {
           "Erreur lors de la mise à jour des informations de l'œuvre."
         );
       } else {
+        revalidator.revalidate();
         setMessageRequest(
           "La mise à jour des informations de l'œuvre est un succès."
         );

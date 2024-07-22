@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
-
-import { useState, useContext } from "react";
-
+import { useContext, useState } from "react";
 import { UserConnectionContext } from "../contexts/UserConnectionProvider";
+
 import "../style/header.css";
 
 function Header() {
-  const { user, SetUser } = useContext(UserConnectionContext);
-
+  const { disconnect } = useContext(UserConnectionContext);
+  const isAdmin = localStorage.getItem("is_admin");
+  const firstname = localStorage.getItem("firstname");
   const [open, setOpen] = useState(0);
   const openMenu = () => {
     if (open === 0) {
@@ -19,12 +19,7 @@ function Header() {
       document.querySelector("#vu-menu").style.display = "none";
     }
   };
-  const disconnect = () => {
-    SetUser({
-      token: "",
-      user: { id: "", firstname: "", lastname: "", is_admin: "" },
-    });
-  };
+
   return (
     <>
       <header>
@@ -105,18 +100,24 @@ function Header() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="login" onClick={`${openMenu} ${disconnect}`}>
-                  {user.user.is_admin === "" ? "CONNEXION" : "DÉCONNEXION"}
-                </NavLink>
+                {firstname === null ? (
+                  <NavLink to="login" onClick={openMenu}>
+                    CONNEXION
+                  </NavLink>
+                ) : (
+                  <NavLink to="login" onClick={disconnect}>
+                    DÉCONNEXION
+                  </NavLink>
+                )}
               </li>
-              {user.user.is_admin === "" && (
+              {firstname === null && (
                 <li>
                   <NavLink to="register" onClick={openMenu}>
                     INSCRIPTION
                   </NavLink>
                 </li>
               )}
-              {user.user.is_admin === 1 && (
+              {isAdmin === "1" && (
                 <li>
                   <NavLink to="admin" onClick={openMenu}>
                     ADMIN

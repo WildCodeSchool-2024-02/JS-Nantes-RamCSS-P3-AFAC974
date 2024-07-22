@@ -1,17 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { useContext } from "react";
-import {
-  UserConnectionContext,
-  UserConnectionProvider,
-} from "../contexts/UserConnectionProvider";
+import { UserConnectionProvider } from "../contexts/UserConnectionProvider";
 
 function Admin() {
-  const { user } = useContext(UserConnectionContext);
+  const isAdmin = localStorage.getItem("is_admin");
 
   return (
     <UserConnectionProvider>
-      {user.user.is_admin !== 1 ? (
-        <><h1>ERROR 401 FORDIBEN</h1><Outlet /></>
+      {isAdmin !== "1" ? (
+        <h1>ERROR 401 FORDIBEN</h1>
       ) : (
         <>
           <p className="link-panel">
