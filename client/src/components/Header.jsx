@@ -93,7 +93,7 @@ function Header() {
             </>
           ) : (
             <li>
-              <NavLink to="login" onClick={`${disconnect} ${openMenu}`}>
+              <NavLink to="login" onClick={disconnect}>
                 DÉCONNEXION
               </NavLink>
             </li>

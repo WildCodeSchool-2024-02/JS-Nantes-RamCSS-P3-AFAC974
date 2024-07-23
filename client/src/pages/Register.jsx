@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import "../style/register.css";
+
 function Register() {
   // Référence pour le champ email
   const emailRef = useRef();
@@ -148,7 +150,7 @@ function Register() {
             placeholder="exemple@email.com"
           />
         </div>
-        <div>
+        <div className="column">
           {/* Champ pour le mot de passe */}
           <label htmlFor="password">{}</label>
           <input
@@ -161,10 +163,14 @@ function Register() {
             placeholder="Mot de passe"
             className={redColorPassword}
           />
-          <button type="button" onClick={show}>
+          <button className="button-form" type="button" onClick={show}>
             show / hide
           </button>
-          <button type="button" onClick={generatePassword}>
+          <button
+            className="button-form"
+            type="button"
+            onClick={generatePassword}
+          >
             Genérer un mot de passe
           </button>
         </div>
