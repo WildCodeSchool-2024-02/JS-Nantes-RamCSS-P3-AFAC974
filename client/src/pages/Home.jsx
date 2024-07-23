@@ -23,7 +23,7 @@ function Home() {
       </header>
       <p className="user">bonjour {connect && `${firstname} ${lastname}`}</p>
 
-      <section>
+      <section className="photo">
         <h2>{photo[0].title}</h2>
         <h3>
           Nom de l&apos;auteur: {photo[0].firstname} {photo[0].lastname}.
@@ -35,7 +35,11 @@ function Home() {
             </NavLink>
           </figure>
           <article>
-            <p className="description-picture">{`${photo[0].description}`}</p>
+            <p className="description-picture">
+              Présentation de la photographie
+              <br />
+              {`${photo[0].description}`}
+            </p>
             <ul>
               {photo.map((value) => (
                 <li key={value.id_artist}>

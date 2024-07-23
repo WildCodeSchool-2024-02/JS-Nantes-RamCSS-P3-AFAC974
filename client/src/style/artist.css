@@ -5,10 +5,19 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
-  gap: 130px;
+  gap: 2rem;
 }
 
-.artist > article > figure img {
+.artist > article {
+  margin-bottom: 3rem;
+}
+
+.artist > article > a > h3 {
+  color: var(--light-color);
+  text-align: center;
+}
+
+.artist > article > a > figure img {
   width: 260px;
   height: 260px;
   border-radius: 50%;
@@ -17,7 +26,7 @@
 .link-photo {
   width: 130px;
   height: 40px;
-  margin: 2rem auto 0 auto;
+  margin: 1rem auto 0 auto;
 }
 
 .link-photo > a {

@@ -12,27 +12,24 @@ function Gallery() {
         <h1>AFAC 974 : Gallerie</h1>
       </header>
       <section>
-        <h2>Nos potos des fonds marin d&apos;outre-mer</h2>
+        <h2>Nos photos des fonds marin d&apos;outre-mer</h2>
         <div className="gallery">
           {photo.map((value) => (
             <article key={value.id}>
-              <figure>
-                <NavLink to={`../photo?id=${value.id}`}>
-                  <img
-                    src={value.image}
-                    alt={value.alt_artwork}
-                  />
-                </NavLink>
-              </figure>
-              <h3>{value.title}</h3>{" "}
+              <NavLink to={`../photo?id=${value.id}`}>
+                <h3>{value.title}</h3>
+                <figure>
+                  <img src={value.image} alt={value.alt_artwork} />
+                </figure>
+              </NavLink>
               <p>
-                {value.firstname} {value.lastname}
-              </p>
-              <p className="link-photo">
-                <NavLink to={`../photo?id=${value.id}`}>
-                  plus d&apos;info
+                <NavLink to={`../photographer?id=${value.id_artist}`}>
+                  {value.firstname} {value.lastname}
                 </NavLink>
               </p>
+              <NavLink to={`../photo?id=${value.id}`} className="link-photo">
+                plus d&apos;info
+              </NavLink>
             </article>
           ))}
         </div>

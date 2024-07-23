@@ -39,6 +39,7 @@
 }
 
 .text-img > section {
+  min-width: 260px;
   width: 49%;
 }
 
@@ -73,11 +74,11 @@
   border-radius: 20px;
 }
 
-.description-picture {
+/* .description-picture {
   padding: 20px;
   height: 256px;
-  /* width: 900px; */
-}
+  width: 900px; 
+} */
 
 .text-img > section > article > p,
 .text-img > article > p {

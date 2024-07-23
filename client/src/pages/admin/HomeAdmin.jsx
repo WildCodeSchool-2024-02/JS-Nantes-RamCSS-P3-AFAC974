@@ -16,7 +16,9 @@ function HomeAdmin() {
               <NavLink to="add-artist">Ajouter un artiste</NavLink>
             </li>
             <li>
-              <NavLink to="update-artist">Modifier un artiste ou supprimer un artiste</NavLink>
+              <NavLink to="update-artist">
+                Modifier un artiste ou supprimer un artiste
+              </NavLink>
             </li>
           </ol>
           <ol>
@@ -24,7 +26,9 @@ function HomeAdmin() {
               <NavLink to="add-artwork">Ajouter une oeuvre</NavLink>
             </li>
             <li>
-              <NavLink to="update-artwork">Modifier une oeuvre ou supprimer une oeuvre</NavLink>
+              <NavLink to="update-artwork">
+                Modifier une oeuvre ou supprimer une oeuvre
+              </NavLink>
             </li>
           </ol>
           <ol>
@@ -32,7 +36,9 @@ function HomeAdmin() {
               <NavLink to="add-user">Ajouter un membre</NavLink>
             </li>
             <li>
-              <NavLink to="update-user">Modifier un membre ou supprimer un membre</NavLink>
+              <NavLink to="update-user">
+                Modifier un membre ou supprimer un membre
+              </NavLink>
             </li>
           </ol>
           <ol>

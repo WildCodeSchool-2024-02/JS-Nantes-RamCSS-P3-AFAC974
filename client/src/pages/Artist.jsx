@@ -4,6 +4,7 @@ import "../style/artist.css";
 function Artist() {
   const data = [useLoaderData([])];
   const photographer = data[0];
+
   return (
     <>
       <header>
@@ -14,17 +15,14 @@ function Artist() {
         <div className="artist">
           {photographer.map((value) => (
             <article key={value.id}>
-              <figure>
-                <NavLink to={`../photographer?id=${value.id}`}>
-                  <img
-                    src={value.photo}
-                    alt={value.alt_artist}
-                  />
-                </NavLink>
-              </figure>
-              <h3>
-                {value.firstname} {value.lastname}
-              </h3>
+              <NavLink to={`../photographer?id=${value.id}`}>
+                <h3>
+                  {value.firstname} {value.lastname}
+                </h3>
+                <figure>
+                  <img src={value.photo} alt={value.alt_artist} />
+                </figure>
+              </NavLink>
               <p className="link-photo">
                 <NavLink to={`../photographer?id=${value.id}`}>
                   plus d&apos;info
