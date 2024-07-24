@@ -8,6 +8,10 @@
   height: auto;
 }
 
+.title {
+  margin: 4rem 0;
+}
+
 .text-img {
   width: 90%;
   margin: 0 auto 1rem auto;
@@ -28,12 +32,12 @@
 
 .home-artwork > a > img {
   width: 100%;
-  min-width: 256px;
+  min-width: 260px;
   height: auto;
 }
 
 .text-img > article {
-  min-width: 256px;
+  min-width: 260px;
   color: var(--light-color);
   border-radius: 10px;
 }
@@ -44,15 +48,18 @@
 }
 
 .text > section {
+  min-width: 260px;
   width: 47%;
   padding: 1%;
   margin-bottom: 2rem;
 }
 
 .text-img > section > h2 {
-  width: 100%;
+  width: 94%;
   background: var(--dark-color);
   margin: 0;
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .text > section > article > h3 {
@@ -74,12 +81,6 @@
   border-radius: 20px;
 }
 
-/* .description-picture {
-  padding: 20px;
-  height: 256px;
-  width: 900px; 
-} */
-
 .text-img > section > article > p,
 .text-img > article > p {
   margin: 1rem auto 1rem 0;
@@ -91,7 +92,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2%;
+  /* gap: 10rem; */
 }
 
 .text-img > article > ul > li {
@@ -104,6 +105,18 @@
   height: 144;
 }
 
+.link-artwork {
+  width: 130px;
+  height: 40px;
+  display: block;
+  background: var(--light-color);
+  color: var(--dark-color);
+  text-align: center;
+  margin: 1rem auto;
+  align-content: center;
+  border-radius: 50%;
+}
+
 .picture-photograph {
   width: 80%;
   margin: 2rem auto;
@@ -111,7 +124,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
-  gap: 130px;
+  gap: 10rem;
 }
 
 .picture-photograph > article > figure img {
@@ -141,4 +154,21 @@
   background: var(--dark-color);
   color: var(--light-color);
   border: 1px solid var(--light-color);
+}
+
+.gallery > li {
+  width: 260px;
+}
+
+.gallery > li > h3 > a {
+  color: var(--light-color);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.gallery > li > a > img {
+  width: 100%;
+  height: auto;
+  /* margin: 1rem 0; */
 }

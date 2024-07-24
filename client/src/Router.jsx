@@ -136,7 +136,7 @@ const router = createBrowserRouter([
             path: "add-artwork",
             element: <AddArtwork />,
             loader: () =>
-              fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then(
+              fetch(`${import.meta.env.VITE_API_URL}/api/artists/`).then(
                 (response) => response.json()
               ),
           },

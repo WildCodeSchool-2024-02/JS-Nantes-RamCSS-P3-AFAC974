@@ -18,7 +18,7 @@ function Home() {
       <figure className="logo">
         <img src="images/logos/logo.png" alt="" />
       </figure>
-      <header>
+      <header className="title">
         <h1>AFAC 974</h1>
       </header>
       <p className="user">bonjour {connect && `${firstname} ${lastname}`}</p>
@@ -40,15 +40,22 @@ function Home() {
               <br />
               {`${photo[0].description}`}
             </p>
-            <ul>
+            <ul className="gallery">
               {photo.map((value) => (
                 <li key={value.id_artist}>
                   <NavLink to={`../photo?id=${value.id}`}>
+                    <h3>{value.title}</h3>
                     <img
                       className="picture-artwork"
                       src={value.image}
                       alt={value.alt_artwork}
                     />
+                  </NavLink>
+                  <NavLink
+                    to={`../photo?id=${value.id}`}
+                    className="link-artwork"
+                  >
+                    plus d&apos;info
                   </NavLink>
                 </li>
               ))}
