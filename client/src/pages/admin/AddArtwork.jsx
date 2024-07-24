@@ -14,7 +14,7 @@ function AddArtwork() {
 
   return (
     <>
-      <h1>Ajout d&apos;une oeuvre</h1>
+      <h1>Ajout d&apos;une œuvre</h1>
 
       <section className="alignment">
         <select ref={artistRef} onChange={showartist}>

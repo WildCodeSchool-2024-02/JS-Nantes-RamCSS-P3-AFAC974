@@ -13,7 +13,7 @@ function UpdateArtwork() {
 
   return (
     <>
-      <h1>modification d'un artiste </h1>
+      <h1>modification d'une œuvre</h1>
       <section className="alignment">
         <select ref={artworkRef} onChange={showartwork}>
           {dataArtworks.map((value, index) => (
