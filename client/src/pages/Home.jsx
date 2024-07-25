@@ -4,6 +4,7 @@ import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 import PictureGallery from "../components/PictureGallery";
 
 import "../style/home.css";
+import PictureArtist from "../components/PictureArtist";
 
 function Home() {
   const { connect } = useContext(UserConnectionContext);
@@ -49,21 +50,9 @@ function Home() {
           </article>
         </div>
       </section>
-      <section className="picture-photograph">
+      <section className="artist">
         {photographer.map((value) => (
-          <article key={value.id_artist}>
-            <figure>
-              <NavLink to={`photographer?id=${value.id}`}>
-                <img src={`${value.photo}`} alt={value.alt_artist} />
-              </NavLink>
-            </figure>
-            <h3>
-              {value.firstname} {value.lastname}
-            </h3>
-            <p className="link-photo">
-              <NavLink to="photo">plus d&apos;info</NavLink>
-            </p>
-          </article>
+          <PictureArtist key={value.id} value={value} />
         ))}
       </section>
       <main className="text-img text">
