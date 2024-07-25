@@ -6,7 +6,6 @@ const router = express.Router();
 
 const path = require("path");
 
-
 const uploadsFolderPath = path.join(
   __dirname,
   `../../../../../client/public/images/photos/`
@@ -51,7 +50,7 @@ router.post("/artist", upload.single("file"), (req, res) => {
 
     const { filename } = req.file;
     const { id } = req.body;
-    return res.json({ message: "File uploaded !",filename, id });
+    return res.json({ message: "File uploaded !", filename, id });
   } catch (err) {
     console.error(err);
     return null;
@@ -66,7 +65,7 @@ router.post("/artwork", upload.single("file"), (req, res) => {
 
     const { filename } = req.file;
     const { id } = req.body;
-    return res.json({ message: "File uploaded !",filename, id });
+    return res.json({ message: "File uploaded !", filename, id });
   } catch (err) {
     console.error(err);
     return null;

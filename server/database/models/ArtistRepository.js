@@ -10,7 +10,7 @@ class ArtistRepository extends AbstractRepository {
   // The C of CRUD - Create operation
 
   async create(artist) {
-    const photo=`images/photos/${artist.filename}`;
+    const photo = `images/photos/${artist.filename}`;
     // Execute the SQL INSERT query to add a new item to the "item" table
     const [result] = await this.database.query(
       `insert into ${this.table} (firstname, lastname, description, photo, alt_artist) values (?, ?, ?, ?, ?)`,
@@ -29,7 +29,6 @@ class ArtistRepository extends AbstractRepository {
 
   // The Rs of CRUD - Read operations
 
-
   async readId() {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
@@ -37,7 +36,7 @@ class ArtistRepository extends AbstractRepository {
     );
 
     // Return the first row of the result, which represents the item
-    return rows[0].Auto_increment+1;
+    return rows[0].Auto_increment + 1;
   }
 
   async read(id) {
