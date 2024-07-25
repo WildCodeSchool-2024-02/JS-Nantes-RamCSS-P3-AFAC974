@@ -41,14 +41,6 @@ function HomeAdmin() {
               </NavLink>
             </li>
           </ol>
-          <ol>
-            <li>
-              <NavLink to="update-status-user">
-                Modifier le status d'un membre pour le faire passser
-                administrateur
-              </NavLink>
-            </li>
-          </ol>
         </section>
       </main>
     </>

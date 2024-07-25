@@ -156,18 +156,18 @@
   border: 1px solid var(--light-color);
 }
 
-.gallery > li {
+.gallery-home > li {
   width: 260px;
 }
 
-.gallery > li > h3 > a {
+.gallery-home > li > h3 > a {
   color: var(--light-color);
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.gallery > li > a > img {
+.gallery-home > li > a > img {
   width: 100%;
   height: auto;
   /* margin: 1rem 0; */

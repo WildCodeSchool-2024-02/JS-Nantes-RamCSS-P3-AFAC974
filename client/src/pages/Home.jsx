@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import { UserConnectionContext } from "../contexts/UserConnectionProvider";
+import PictureGallery from "../components/PictureGallery";
 
 import "../style/home.css";
 
@@ -40,26 +41,11 @@ function Home() {
               <br />
               {`${photo[0].description}`}
             </p>
-            <ul className="gallery">
+            <div className="gallery">
               {photo.map((value) => (
-                <li key={value.id_artist}>
-                  <NavLink to={`../photo?id=${value.id}`}>
-                    <h3>{value.title}</h3>
-                    <img
-                      className="picture-artwork"
-                      src={value.image}
-                      alt={value.alt_artwork}
-                    />
-                  </NavLink>
-                  <NavLink
-                    to={`../photo?id=${value.id}`}
-                    className="link-artwork"
-                  >
-                    plus d&apos;info
-                  </NavLink>
-                </li>
+                <PictureGallery key={value.id} value={value} />
               ))}
-            </ul>
+            </div>
           </article>
         </div>
       </section>
