@@ -86,20 +86,6 @@
   margin: 1rem auto 1rem 0;
 }
 
-.text-img > article > ul {
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  /* gap: 10rem; */
-}
-
-.text-img > article > ul > li {
-  list-style: none;
-  margin: 1rem 0;
-}
-
 .picture-artwork {
   width: 193px;
   height: 144;
@@ -154,21 +140,4 @@
   background: var(--dark-color);
   color: var(--light-color);
   border: 1px solid var(--light-color);
-}
-
-.gallery-home > li {
-  width: 260px;
-}
-
-.gallery-home > li > h3 > a {
-  color: var(--light-color);
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.gallery-home > li > a > img {
-  width: 100%;
-  height: auto;
-  /* margin: 1rem 0; */
 }
