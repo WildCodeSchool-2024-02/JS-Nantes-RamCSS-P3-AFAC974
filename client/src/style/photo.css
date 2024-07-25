@@ -13,6 +13,7 @@
   height: auto;
 }
 
+.description-picture,
 .photo > article {
   margin-top: 2rem;
   width: 98%;

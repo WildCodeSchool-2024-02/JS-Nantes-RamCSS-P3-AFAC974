@@ -1,9 +1,11 @@
-import { NavLink, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import "../style/artist.css";
+import PictureArtist from "../components/PictureArtist";
 
 function Artist() {
   const data = [useLoaderData([])];
   const photographer = data[0];
+
   return (
     <>
       <header>
@@ -13,24 +15,7 @@ function Artist() {
         <h2>Nos amis les photographes</h2>
         <div className="artist">
           {photographer.map((value) => (
-            <article key={value.id}>
-              <figure>
-                <NavLink to={`../photographer?id=${value.id}`}>
-                  <img
-                    src={value.photo}
-                    alt={value.alt_artist}
-                  />
-                </NavLink>
-              </figure>
-              <h3>
-                {value.firstname} {value.lastname}
-              </h3>
-              <p className="link-photo">
-                <NavLink to={`../photographer?id=${value.id}`}>
-                  plus d&apos;info
-                </NavLink>
-              </p>
-            </article>
+            <PictureArtist key={value.id} value={value} />
           ))}
         </div>
       </section>

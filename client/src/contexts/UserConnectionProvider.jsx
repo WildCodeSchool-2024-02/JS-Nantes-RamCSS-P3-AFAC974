@@ -6,8 +6,8 @@ export const UserConnectionContext = createContext();
 // eslint-disable-next-line react/prop-types
 export function UserConnectionProvider({ children }) {
   const [responsevalue, setResponsevalue] = useState("");
-  const [connect, setConnect] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(null);
+  const [connect, setConnect] = useState(localStorage.getItem("connect"));
+  const [isAdmin, setIsAdmin] = useState(localStorage.getItem("is_admin"));
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -15,6 +15,7 @@ export function UserConnectionProvider({ children }) {
   const disconnect = () => {
     localStorage.clear();
     setConnect(false);
+    isAdmin("0");
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,10 +38,15 @@ export function UserConnectionProvider({ children }) {
         localStorage.setItem("is_admin", `${auth.user.is_admin}`);
         localStorage.setItem("lastname", `${auth.user.lastname}`);
         localStorage.setItem("firstname", `${auth.user.firstname}`);
-        setIsAdmin(localStorage.getItem("is_admin"));
+        localStorage.setItem("connect", true);
         setConnect(true);
+        setIsAdmin(`${auth.user.is_admin}`);
 
-        navigate("/admin");
+        if (auth.user.is_admin === 1) {
+          navigate("/admin");
+        } else {
+          navigate("./");
+        }
       } else {
         const contentType = response.headers.get("content-type");
         const errorMessage = "Votre mail ou votre mot de passe est invalide";
@@ -104,6 +110,7 @@ export function UserConnectionProvider({ children }) {
         disconnect,
         connect,
         isAdmin,
+        setConnect,
       }}
     >
       {children}

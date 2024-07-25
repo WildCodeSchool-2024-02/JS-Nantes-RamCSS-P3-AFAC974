@@ -50,6 +50,15 @@ class ArtworkRepository extends AbstractRepository {
     return rows;
   }
 
+  async readRandAll() {
+    // Execute the SQL SELECT query to retrieve all items from the "item" table
+    const [rows] = await this.database.query(
+      `SELECT artwork.id,artwork.title,artwork.description,artwork.image, artwork.alt_artwork,artwork.id_artist,artist.firstname,artist.lastname,artist.photo,artist.alt_artist FROM artwork LEFT JOIN artist ON artwork.id_artist = artist.id ORDER BY RAND()`
+    );
+    // Return the array of items
+    return rows;
+  }
+
   async readfourResult() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(

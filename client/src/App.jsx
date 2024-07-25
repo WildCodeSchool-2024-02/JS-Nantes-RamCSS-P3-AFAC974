@@ -10,9 +10,9 @@ function App() {
       <UserConnectionProvider>
         <Header />
         <Outlet />
-        </UserConnectionProvider>
+      </UserConnectionProvider>
       <Footer />
-</>
+    </>
   );
 }
 

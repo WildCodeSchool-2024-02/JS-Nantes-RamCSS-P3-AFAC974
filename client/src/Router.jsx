@@ -12,13 +12,10 @@ import Admin from "./pages/Admin";
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import AddArtist from "./pages/admin/AddArtist";
 import UpdateArtist from "./pages/admin/UpdateArtist";
-import RemoveArtist from "./pages/admin/RemoveArtist";
 import AddArtwork from "./pages/admin/AddArtwork";
 import UpdateArtwork from "./pages/admin/UpdateArtwork";
 import AddUser from "./pages/admin/AddUser";
 import UpdateUser from "./pages/admin/UpdateUser";
-import RemoveUser from "./pages/admin/RemoveUser";
-import UpdateStatusUser from "./pages/admin/UpdateStatusUser";
 
 // Fonction pour obtenir les paramètres de l'URL
 
@@ -37,7 +34,7 @@ export const userLoader = async () => {
 
 export const artistArtworkLoader = async () => {
   const [artwork, artist] = await Promise.all([
-    fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then((res) =>
+    fetch(`${import.meta.env.VITE_API_URL}/api/artworks/rand`).then((res) =>
       res.json()
     ),
     fetch(`${import.meta.env.VITE_API_URL}/api/artists/`).then((res) =>
@@ -61,10 +58,7 @@ const router = createBrowserRouter([
       {
         path: "gallery",
         element: <Gallery />,
-        loader: () =>
-          fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then(
-            (response) => response.json()
-          ),
+        loader: () => artistArtworkLoader(),
       },
       {
         path: "photo",
@@ -129,14 +123,10 @@ const router = createBrowserRouter([
               ),
           },
           {
-            path: "remove-artist",
-            element: <RemoveArtist />,
-          },
-          {
             path: "add-artwork",
             element: <AddArtwork />,
             loader: () =>
-              fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then(
+              fetch(`${import.meta.env.VITE_API_URL}/api/artists/`).then(
                 (response) => response.json()
               ),
           },
@@ -149,24 +139,16 @@ const router = createBrowserRouter([
               ),
           },
           {
-            path: "remove-artwork",
-            element: <RemoveArtist />,
-          },
-          {
             path: "add-user",
             element: <AddUser />,
           },
           {
             path: "update-user",
             element: <UpdateUser />,
-          },
-          {
-            path: "remove-user",
-            element: <RemoveUser />,
-          },
-          {
-            path: "update-status-user",
-            element: <UpdateStatusUser />,
+            loader: () =>
+              fetch(`${import.meta.env.VITE_API_URL}/api/users/`).then(
+                (response) => response.json()
+              ),
           },
         ],
       },

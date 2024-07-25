@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import "../style/drag-and-drop.css"
+import "../style/drag-and-drop.css";
 
 function DragAndDrop({ files, setFiles, handleDrop, photoRef }) {
   if (files.length)

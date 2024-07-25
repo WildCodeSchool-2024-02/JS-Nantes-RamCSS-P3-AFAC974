@@ -1,10 +1,17 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function AddUser() {
+import "../../style/register.css";
+
+function Register() {
   // Référence pour le champ email
   const emailRef = useRef();
+
+  // Référence pour le champ password et confirm-password
+  const confirmPasswordRef = useRef();
+  const passwordRef = useRef();
   // Référence pour le champ firstname
+
   const firstnameRef = useRef();
 
   // Référence pour le champ firstname
@@ -23,6 +30,28 @@ function AddUser() {
 
   // Hook pour la navigation
   const navigate = useNavigate();
+
+  const generatePassword = () => {
+    const characters =
+      "azertyupqsdfghjkmwxcvbn23456789AZERTYUPQSDFGHJKMWXCVBN&|@#§!_-€*$%£µ?:+=°";
+    let pass = "";
+    for (let i; pass.length < 16; i += i) {
+      const randCharacters = Math.round(Math.random() * characters.length);
+      pass += characters.substring(randCharacters, randCharacters + 1);
+    }
+
+    passwordRef.current.value = pass;
+    confirmPasswordRef.current.value = pass;
+  };
+
+  const show = () => {
+    const attribute = passwordRef.current.getAttribute("type");
+    if (attribute === "password") {
+      passwordRef.current.type = "text";
+    } else {
+      passwordRef.current.type = "password";
+    }
+  };
 
   // Gestionnaire de changement du mot de passe
   const handlePasswordChange = (event) => {
@@ -57,7 +86,7 @@ function AddUser() {
 
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
-        navigate("/admin");
+        navigate("/login");
       } else {
         const contentType = response.headers.get("content-type");
         setResponsevalue(errorMessage);
@@ -82,11 +111,11 @@ function AddUser() {
   return (
     <>
       <header>
-        <h1>Inscription :</h1>
+        <h1>Inscription d'un membre:</h1>
       </header>
       <form onSubmit={handleSubmit}>
         <div>
-          {/* Champ pour le prénom */}
+          {/* Champ pour le nom */}
           <label htmlFor="firstname">{}</label>
           <input
             ref={firstnameRef}
@@ -94,7 +123,7 @@ function AddUser() {
             id="firstname"
             name="firstname"
             required
-            placeholder="Prénom"
+            placeholder="Pr&eacute;nom"
           />
         </div>
         <div>
@@ -121,10 +150,11 @@ function AddUser() {
             placeholder="exemple@email.com"
           />
         </div>
-        <div>
+        <div className="column">
           {/* Champ pour le mot de passe */}
           <label htmlFor="password">{}</label>
           <input
+            ref={passwordRef}
             type="password"
             id="password"
             value={password}
@@ -133,6 +163,16 @@ function AddUser() {
             placeholder="Mot de passe"
             className={redColorPassword}
           />
+          <button className="button-form" type="button" onClick={show}>
+            show / hide
+          </button>
+          <button
+            className="button-form"
+            type="button"
+            onClick={generatePassword}
+          >
+            Genérer un mot de passe
+          </button>
         </div>
         {/* Indicateur de force du mot de passe */}
         <p>{}</p>
@@ -140,6 +180,7 @@ function AddUser() {
           {/* Champ pour la confirmation du mot de passe */}
           <label htmlFor="confirm-password">{}</label>
           <input
+            ref={confirmPasswordRef}
             type="password"
             id="confirm-password"
             value={confirmPassword}
@@ -152,7 +193,7 @@ function AddUser() {
         {/* Indicateur de correspondance avec le mot de passe */}
         {/* Bouton de soumission du formulaire */}
         <button className="button-form" type="submit">
-          S&apos;inscrire le membre
+          S&apos;inscrire
         </button>
         {responsevalue && <p className="errormessage">{responsevalue}</p>}
       </form>
@@ -160,4 +201,4 @@ function AddUser() {
   );
 }
 
-export default AddUser;
+export default Register;

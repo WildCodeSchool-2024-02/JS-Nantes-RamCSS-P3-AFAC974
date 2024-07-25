@@ -15,6 +15,20 @@ const browse = async (req, res, next) => {
   }
 };
 
+// The B of BREAD - Browse (Read All) operation
+const randBrowse = async (req, res, next) => {
+  try {
+    // Fetch all items from the database
+    const artworks = await tables.artwork.readRandAll();
+
+    // Respond with the items in JSON format
+    res.json(artworks);
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+};
+
 const homeBrowse = async (req, res, next) => {
   try {
     // Fetch all items from the database
@@ -116,6 +130,7 @@ const destroy = async (req, res, next) => {
 // Ready to export the controller functions
 module.exports = {
   browse,
+  randBrowse,
   homeBrowse,
   read,
   edit,

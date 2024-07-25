@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 
+import "../style/login.css";
+
 function Login() {
   const { responsevalue, emailRef, passwordRef, handleSubmit } = useContext(
     UserConnectionContext
@@ -9,7 +11,7 @@ function Login() {
   return (
     <>
       <h1>Connexion :</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="login">
         <div>
           <label htmlFor="email">{}</label>
           <input

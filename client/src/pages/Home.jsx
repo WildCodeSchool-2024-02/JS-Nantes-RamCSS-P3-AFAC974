@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { NavLink, useLoaderData } from "react-router-dom";
 import { UserConnectionContext } from "../contexts/UserConnectionProvider";
+import PictureGallery from "../components/PictureGallery";
 
 import "../style/home.css";
+import PictureArtist from "../components/PictureArtist";
 
 function Home() {
   const { connect } = useContext(UserConnectionContext);
@@ -18,12 +20,12 @@ function Home() {
       <figure className="logo">
         <img src="images/logos/logo.png" alt="" />
       </figure>
-      <header>
+      <header className="title">
         <h1>AFAC 974</h1>
       </header>
       <p className="user">bonjour {connect && `${firstname} ${lastname}`}</p>
 
-      <section>
+      <section className="photo">
         <h2>{photo[0].title}</h2>
         <h3>
           Nom de l&apos;auteur: {photo[0].firstname} {photo[0].lastname}.
@@ -35,41 +37,25 @@ function Home() {
             </NavLink>
           </figure>
           <article>
-            <p className="description-picture">{`${photo[0].description}`}</p>
-            <ul>
+            <p className="description-picture">
+              Présentation de la photographie
+              <br />
+              {`${photo[0].description}`}
+            </p>
+            <div className="gallery">
               {photo.map((value) => (
-                <li key={value.id_artist}>
-                  <NavLink to={`../photo?id=${value.id}`}>
-                    <img
-                      className="picture-artwork"
-                      src={value.image}
-                      alt={value.alt_artwork}
-                    />
-                  </NavLink>
-                </li>
+                <PictureGallery key={value.id} value={value} name={1} />
               ))}
-            </ul>
+            </div>
           </article>
         </div>
       </section>
-      <section className="picture-photograph">
+      <section className="artist">
         {photographer.map((value) => (
-          <article key={value.id_artist}>
-            <figure>
-              <NavLink to={`photographer?id=${value.id}`}>
-                <img src={`${value.photo}`} alt={value.alt_artist} />
-              </NavLink>
-            </figure>
-            <h3>
-              {value.firstname} {value.lastname}
-            </h3>
-            <p className="link-photo">
-              <NavLink to="photo">plus d&apos;info</NavLink>
-            </p>
-          </article>
+          <PictureArtist key={value.id} value={value} />
         ))}
       </section>
-      <main className="text-img text">
+      <main className="text-img text text-about">
         <section>
           <h2>
             Immersion dans les <strong>Fonds Marins</strong>

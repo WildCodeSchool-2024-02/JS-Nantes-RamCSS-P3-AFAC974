@@ -8,6 +8,10 @@
   height: auto;
 }
 
+.title {
+  margin: 4rem 0;
+}
+
 .text-img {
   width: 90%;
   margin: 0 auto 1rem auto;
@@ -28,30 +32,38 @@
 
 .home-artwork > a > img {
   width: 100%;
-  min-width: 256px;
+  min-width: 250px;
   height: auto;
 }
 
 .text-img > article {
-  min-width: 256px;
+  min-width: 250px;
   color: var(--light-color);
   border-radius: 10px;
 }
 
 .text-img > section {
-  width: 49%;
+  min-width: 250px;
+  width: 1fr;
 }
 
 .text > section {
-  width: 47%;
-  padding: 1%;
-  margin-bottom: 2rem;
+  min-width: 250px;
+  width: 45%;
+  padding: 20px;
+  border-radius: 20px;
 }
 
+.text-about > section > article > h3,
 .text-img > section > h2 {
-  width: 100%;
-  background: var(--dark-color);
-  margin: 0;
+  min-width: 200px;
+  width: 90%;
+  color: var(--dark-color);
+  padding: 20px;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
 }
 
 .text > section > article > h3 {
@@ -73,71 +85,7 @@
   border-radius: 20px;
 }
 
-.description-picture {
-  padding: 20px;
-  height: 256px;
-  /* width: 900px; */
-}
-
 .text-img > section > article > p,
 .text-img > article > p {
-  margin: 1rem auto 1rem 0;
-}
-
-.text-img > article > ul {
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2%;
-}
-
-.text-img > article > ul > li {
-  list-style: none;
-  margin: 1rem 0;
-}
-
-.picture-artwork {
-  width: 193px;
-  height: 144;
-}
-
-.picture-photograph {
-  width: 80%;
-  margin: 2rem auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  gap: 130px;
-}
-
-.picture-photograph > article > figure img {
-  width: 260px;
-  height: auto;
-  border-radius: 50%;
-}
-
-.link-photo {
-  width: 130px;
-  height: 40px;
-  margin: 2rem auto 0 auto;
-}
-
-.link-photo > a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: var(--light-color);
-  color: var(--dark-color);
-  text-align: center;
-  align-content: center;
-  border-radius: 50%;
-}
-
-.link-photo a:hover {
-  background: var(--dark-color);
-  color: var(--light-color);
-  border: 1px solid var(--light-color);
+  margin: 1rem auto 1rem auto;
 }

@@ -4,11 +4,14 @@
 }
 
 body {
-  background: #000;
+  background: var(--dark-color);
 }
 
 #root {
-  background: var(--dark-color);
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  height: 90%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -20,7 +23,7 @@ body {
 h1 {
   text-align: center;
   color: var(--light-color);
-  margin: 1rem 0;
+  margin: 5rem 0 5rem 0;
 }
 
 a {
@@ -38,8 +41,8 @@ h3 {
 }
 
 .errormessage {
-  position: fixed;
-  top: 50%;
+  /* position: fixed;
+  top: 50%; */
   margin: auto;
   color: #ff0000;
   width: 250px;
@@ -61,11 +64,11 @@ form {
   gap: 0.5rem;
   align-items: center;
 }
-
+select,
 input {
   width: 250px;
   padding: 0 15px;
-  height: 30px;
+  height: 30px !important;
   border-radius: 20px;
   text-align: center;
   color: var(--dark-color);
@@ -90,6 +93,7 @@ textarea {
   background: var(--light-color);
   color: var(--dark-color);
   font-weight: bold;
+  margin: 0.5rem auto 0 auto;
 }
 
 .button-form:hover {

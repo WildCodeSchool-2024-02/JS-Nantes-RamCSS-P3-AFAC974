@@ -34,8 +34,6 @@ function FormAddArtwork({ value }) {
       const fileResponse = await addFileFetch.json();
 
       // * Si tout s'est bien passé, on ajoute le chemin de l'image dans la base de données
-      // * (je prends le deuxième utilisateur pour l'exemple, en utilisant le chemin /api/user/avatar/2).
-      // * Dans le cas où on est connecté, on récupère notre propre id utilisateur !
 
       if (fileResponse) {
         const { filename } = fileResponse;
