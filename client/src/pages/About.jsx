@@ -5,9 +5,9 @@ function About() {
     <>
       <header>
         <h1>AFAC 974: L&apos;association</h1>
-        <h2>&Agrave; propos.</h2>
+        <h2 className="h2-about">&Agrave; propos :</h2>
       </header>
-      <main className="text-img text about">
+      <main className="text-img text text-about">
         <section>
           <article>
             <h3>QUI SOMMES NOUS</h3>

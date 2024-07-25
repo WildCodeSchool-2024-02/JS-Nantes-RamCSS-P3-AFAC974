@@ -42,7 +42,6 @@ function Photographer() {
           </article>
         </div>
       </section>
-      <p>Voici ses oeuvres</p>
       <div className="gallery">
         {filteredPhoto.map((value) => (
           <PictureGallery key={value.id} value={value} />

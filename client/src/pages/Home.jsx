@@ -44,7 +44,7 @@ function Home() {
             </p>
             <div className="gallery">
               {photo.map((value) => (
-                <PictureGallery key={value.id} value={value} />
+                <PictureGallery key={value.id} value={value} name={1} />
               ))}
             </div>
           </article>
@@ -55,7 +55,7 @@ function Home() {
           <PictureArtist key={value.id} value={value} />
         ))}
       </section>
-      <main className="text-img text">
+      <main className="text-img text text-about">
         <section>
           <h2>
             Immersion dans les <strong>Fonds Marins</strong>

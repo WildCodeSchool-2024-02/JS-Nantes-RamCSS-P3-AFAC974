@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function PictureGallery({ value }) {
+function PictureGallery({ value, name }) {
   return (
     <article key={value.id}>
       <NavLink to={`../photo?id=${value.id}`}>
@@ -12,7 +12,7 @@ function PictureGallery({ value }) {
       </NavLink>
       <p>
         <NavLink to={`../photographer?id=${value.id_artist}`}>
-          {value.firstname} {value.lastname}
+          {name && `${value.firstname} ${value.lastname}`}
         </NavLink>
       </p>
       <NavLink to={`../photo?id=${value.id}`} className="link-photo">
@@ -22,6 +22,7 @@ function PictureGallery({ value }) {
   );
 }
 PictureGallery.propTypes = {
+  name: PropTypes.number.isRequired,
   value: PropTypes.arrayOf(
     PropTypes.shape({
       firstname: PropTypes.string.isRequired,

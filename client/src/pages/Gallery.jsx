@@ -37,7 +37,7 @@ function Gallery() {
         <div className="gallery">
           {id === "0"
             ? photo.map((value) => (
-                <PictureGallery key={value.id} value={value} />
+                <PictureGallery key={value.id} value={value} name={1} />
               ))
             : filteredPhoto.map((value) => (
                 <PictureGallery key={value.id} value={value} />

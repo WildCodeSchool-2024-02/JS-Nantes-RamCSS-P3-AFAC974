@@ -41,7 +41,12 @@ export function UserConnectionProvider({ children }) {
         localStorage.setItem("connect", true);
         setConnect(true);
         setIsAdmin(`${auth.user.is_admin}`);
-        navigate("/admin");
+
+        if (auth.user.is_admin === 1) {
+          navigate("/admin");
+        } else {
+          navigate("./");
+        }
       } else {
         const contentType = response.headers.get("content-type");
         const errorMessage = "Votre mail ou votre mot de passe est invalide";

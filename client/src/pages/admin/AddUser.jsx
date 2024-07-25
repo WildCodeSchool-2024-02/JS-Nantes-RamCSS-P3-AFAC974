@@ -111,7 +111,7 @@ function Register() {
   return (
     <>
       <header>
-        <h1>Inscription :</h1>
+        <h1>Inscription d'un membre:</h1>
       </header>
       <form onSubmit={handleSubmit}>
         <div>

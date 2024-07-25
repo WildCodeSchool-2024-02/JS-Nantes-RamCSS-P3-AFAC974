@@ -18,7 +18,7 @@ function UpdateArtist() {
         <select ref={artistRef} onChange={showartist}>
           {dataPhotographer.map((value, index) => (
             <option key={value.id} value={index}>
-              {value.firstname} {value.firstname}
+              {value.firstname} {value.lastname}
             </option>
           ))}
         </select>

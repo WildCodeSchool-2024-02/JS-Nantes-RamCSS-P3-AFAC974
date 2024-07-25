@@ -34,7 +34,7 @@ export const userLoader = async () => {
 
 export const artistArtworkLoader = async () => {
   const [artwork, artist] = await Promise.all([
-    fetch(`${import.meta.env.VITE_API_URL}/api/artworks/`).then((res) =>
+    fetch(`${import.meta.env.VITE_API_URL}/api/artworks/rand`).then((res) =>
       res.json()
     ),
     fetch(`${import.meta.env.VITE_API_URL}/api/artists/`).then((res) =>
@@ -145,6 +145,10 @@ const router = createBrowserRouter([
           {
             path: "update-user",
             element: <UpdateUser />,
+            loader: () =>
+              fetch(`${import.meta.env.VITE_API_URL}/api/users/`).then(
+                (response) => response.json()
+              ),
           },
         ],
       },

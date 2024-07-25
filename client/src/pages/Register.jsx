@@ -113,7 +113,7 @@ function Register() {
       <header>
         <h1>Inscription :</h1>
       </header>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="register">
         <div>
           {/* Champ pour le nom */}
           <label htmlFor="firstname">{}</label>

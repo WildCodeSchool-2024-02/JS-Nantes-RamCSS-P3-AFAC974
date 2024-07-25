@@ -2,3 +2,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.register {
+  margin-top: 10.8%;
+  margin-bottom: 12.8%;
+}
