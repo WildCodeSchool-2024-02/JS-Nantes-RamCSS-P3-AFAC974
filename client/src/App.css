@@ -23,7 +23,7 @@ body {
 h1 {
   text-align: center;
   color: var(--light-color);
-  margin: 5rem 0 5rem 0;
+  margin: 4rem 0 4rem 0;
 }
 
 a {
@@ -64,6 +64,11 @@ form {
   gap: 0.5rem;
   align-items: center;
 }
+
+select {
+  margin-bottom: 160px;
+}
+
 select,
 input {
   width: 250px;

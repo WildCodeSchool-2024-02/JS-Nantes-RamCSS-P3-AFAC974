@@ -16,6 +16,10 @@ import AddArtwork from "./pages/admin/AddArtwork";
 import UpdateArtwork from "./pages/admin/UpdateArtwork";
 import AddUser from "./pages/admin/AddUser";
 import UpdateUser from "./pages/admin/UpdateUser";
+import User from "./pages/Users";
+import HomeUser from "./pages/user/HomeUser";
+import UserUpdateUser from "./pages/user/UserUpdateUser";
+
 
 // Fonction pour obtenir les paramètres de l'URL
 
@@ -149,6 +153,20 @@ const router = createBrowserRouter([
               fetch(`${import.meta.env.VITE_API_URL}/api/users/`).then(
                 (response) => response.json()
               ),
+          },
+        ],
+      },
+      {
+        path: "user/",
+        element: <User />,
+        children: [
+          {
+            path: "",
+            element: <HomeUser />,
+          },
+          {
+            path: "update-user",
+            element: <UserUpdateUser />,
           },
         ],
       },
