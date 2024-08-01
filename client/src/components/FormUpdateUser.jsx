@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import PropTypes from "prop-types";
 
-function FormUpdateArtwork({ value }) {
+function FormUpdateUser({ value,admin }) {
   // Référence pour le champ email
   const emailRef = useRef();
   // Référence pour le champ firstname
@@ -86,8 +86,7 @@ function FormUpdateArtwork({ value }) {
           type="text"
           id="firstname"
           name="firstname"
-          required
-          placeholder={value.firstname}
+                   placeholder={value.firstname}
         />
       </div>
       <div>
@@ -98,7 +97,7 @@ function FormUpdateArtwork({ value }) {
           type="text"
           id="lastname"
           name="lastname"
-          required
+       
           placeholder={value.lastname}
         />
       </div>
@@ -110,10 +109,11 @@ function FormUpdateArtwork({ value }) {
           ref={emailRef}
           type="email"
           id="email"
-          required
+         
           placeholder={value.email}
         />
       </div>
+{admin!==1&&(<>
       <div>
         {/* Champ pour le mot de passe */}
         <label htmlFor="password">{}</label>
@@ -122,7 +122,7 @@ function FormUpdateArtwork({ value }) {
           id="password"
           value={password}
           onChange={handlePasswordChange}
-          required
+          
           placeholder="Mot de passe"
           className={redColorPassword}
         />
@@ -137,22 +137,24 @@ function FormUpdateArtwork({ value }) {
           id="confirm-password"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
-          required
+    
           placeholder="Confirmation du mot de passe"
           className={confirmPasswordChange}
         />
       </div>
-      {/* Indicateur de correspondance avec le mot de passe */}
+      {/* Indicateur de correspondance avec le mot de passe */}</>
+     )}
       {/* Bouton de soumission du formulaire */}
       <button className="button-form" type="submit">
-        S&apos;inscrire le membre
+        Modifier
       </button>
       {responseValue && <p className="errormessage">{responseValue}</p>}
     </form>
   );
 }
 
-FormUpdateArtwork.propTypes = {
+FormUpdateUser.propTypes = {
+  admin: PropTypes.number.isRequired,
   value: PropTypes.arrayOf(
     PropTypes.shape({
       firstname: PropTypes.string.isRequired,
@@ -163,4 +165,4 @@ FormUpdateArtwork.propTypes = {
   ).isRequired,
 };
 
-export default FormUpdateArtwork;
+export default FormUpdateUser;

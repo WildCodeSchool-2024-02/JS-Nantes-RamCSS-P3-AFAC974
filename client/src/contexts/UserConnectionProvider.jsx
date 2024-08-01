@@ -8,6 +8,7 @@ export function UserConnectionProvider({ children }) {
   const [responsevalue, setResponsevalue] = useState("");
   const [connect, setConnect] = useState(localStorage.getItem("connect"));
   const [isAdmin, setIsAdmin] = useState(localStorage.getItem("is_admin"));
+  const [idUser, setIdUser] = useState(localStorage.getItem("id"));
   const emailRef = useRef();
   const passwordRef = useRef();
 
@@ -16,6 +17,8 @@ export function UserConnectionProvider({ children }) {
     localStorage.clear();
     setConnect(false);
     isAdmin("0");
+    // redirect("./login");
+    // navigate("./login");
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,18 +37,19 @@ export function UserConnectionProvider({ children }) {
 
       if (response.status === 200) {
         const auth = await response.json();
-        localStorage.setItem("token", `${auth.token}`);
+        localStorage.setItem("id", `${auth.user.id}`);
         localStorage.setItem("is_admin", `${auth.user.is_admin}`);
         localStorage.setItem("lastname", `${auth.user.lastname}`);
         localStorage.setItem("firstname", `${auth.user.firstname}`);
         localStorage.setItem("connect", true);
         setConnect(true);
         setIsAdmin(`${auth.user.is_admin}`);
+        setIdUser(auth.id);
 
         if (auth.user.is_admin === 1) {
           navigate("/admin");
         } else {
-          navigate("./");
+          navigate("./user");
         }
       } else {
         const contentType = response.headers.get("content-type");
@@ -86,12 +90,6 @@ export function UserConnectionProvider({ children }) {
           setIsAdmin(null);
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-
-        // if (!response.ok) {
-        //   localStorage.clear();
-        //   setConnect(false);
-        //   navigate("/login");
-        // }
       })
 
       .catch((error) => {
@@ -111,6 +109,7 @@ export function UserConnectionProvider({ children }) {
         connect,
         isAdmin,
         setConnect,
+        idUser,
       }}
     >
       {children}

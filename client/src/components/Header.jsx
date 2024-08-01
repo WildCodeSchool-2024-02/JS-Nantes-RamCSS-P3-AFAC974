@@ -72,32 +72,6 @@ function Header() {
               ARTISTE
             </NavLink>
           </li>
-          <li>
-            <NavLink to="about" onClick={openMenu}>
-              &Agrave;&nbsp;PROPOS
-            </NavLink>
-          </li>
-
-          {!connect ? (
-            <>
-              <li>
-                <NavLink to="login" onClick={openMenu}>
-                  CONNEXION
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="register" onClick={openMenu}>
-                  INSCRIPTION
-                </NavLink>
-              </li>
-            </>
-          ) : (
-            <li>
-              <NavLink to="login" onClick={disconnect}>
-                DÉCONNEXION
-              </NavLink>
-            </li>
-          )}
           {connect && isAdmin === "1" && (
             <li>
               <NavLink to="admin" onClick={openMenu}>
@@ -105,6 +79,38 @@ function Header() {
               </NavLink>
             </li>
           )}
+          {!connect ? (
+            <>
+              <li>
+                <NavLink to="register" onClick={openMenu}>
+                  INSCRIPTION
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="login" onClick={openMenu}>
+                  CONNEXION
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <NavLink to="user" onClick={disconnect}>
+                  UTILISATEUR
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="login" onClick={disconnect}>
+                  DÉCONNEXION
+                </NavLink>
+              </li>
+            </>
+          )}
+          <li>
+            <NavLink to="about" onClick={openMenu}>
+              &Agrave;&nbsp;PROPOS
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>
