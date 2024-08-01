@@ -95,7 +95,7 @@ function Header() {
           ) : (
             <>
               <li>
-                <NavLink to="user" onClick={disconnect}>
+                <NavLink to="user">
                   UTILISATEUR
                 </NavLink>
               </li>
