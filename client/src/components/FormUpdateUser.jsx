@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import PropTypes from "prop-types";
 
-function FormUpdateUser({ value,admin }) {
+function FormUpdateUser({ value, admin }) {
   // Référence pour le champ email
   const emailRef = useRef();
   // Référence pour le champ firstname
@@ -86,7 +86,7 @@ function FormUpdateUser({ value,admin }) {
           type="text"
           id="firstname"
           name="firstname"
-                   placeholder={value.firstname}
+          placeholder={value.firstname}
         />
       </div>
       <div>
@@ -97,7 +97,6 @@ function FormUpdateUser({ value,admin }) {
           type="text"
           id="lastname"
           name="lastname"
-       
           placeholder={value.lastname}
         />
       </div>
@@ -109,41 +108,40 @@ function FormUpdateUser({ value,admin }) {
           ref={emailRef}
           type="email"
           id="email"
-         
           placeholder={value.email}
         />
       </div>
-{admin!==1&&(<>
-      <div>
-        {/* Champ pour le mot de passe */}
-        <label htmlFor="password">{}</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-          
-          placeholder="Mot de passe"
-          className={redColorPassword}
-        />
-      </div>
-      {/* Indicateur de force du mot de passe */}
-      <p>{}</p>
-      <div>
-        {/* Champ pour la confirmation du mot de passe */}
-        <label htmlFor="confirm-password">{}</label>
-        <input
-          type="password"
-          id="confirm-password"
-          value={confirmPassword}
-          onChange={handleConfirmPasswordChange}
-    
-          placeholder="Confirmation du mot de passe"
-          className={confirmPasswordChange}
-        />
-      </div>
-      {/* Indicateur de correspondance avec le mot de passe */}</>
-     )}
+      {admin !== 1 && (
+        <>
+          <div>
+            {/* Champ pour le mot de passe */}
+            <label htmlFor="password">{}</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handlePasswordChange}
+              placeholder="Mot de passe"
+              className={redColorPassword}
+            />
+          </div>
+          {/* Indicateur de force du mot de passe */}
+          <p>{}</p>
+          <div>
+            {/* Champ pour la confirmation du mot de passe */}
+            <label htmlFor="confirm-password">{}</label>
+            <input
+              type="password"
+              id="confirm-password"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+              placeholder="Confirmation du mot de passe"
+              className={confirmPasswordChange}
+            />
+          </div>
+          {/* Indicateur de correspondance avec le mot de passe */}
+        </>
+      )}
       {/* Bouton de soumission du formulaire */}
       <button className="button-form" type="submit">
         Modifier

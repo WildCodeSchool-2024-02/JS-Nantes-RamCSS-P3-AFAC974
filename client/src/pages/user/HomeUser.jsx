@@ -13,9 +13,7 @@ function HomeUser() {
           <p>A partir ce panneau vous pourrez</p>
           <ol>
             <li>
-              <NavLink to="update-user">
-                Modifier vos inforamtaion :
-              </NavLink>
+              <NavLink to="update-user">Modifier vos inforamtaion :</NavLink>
             </li>
             <li>
               <NavLink to="favorite">

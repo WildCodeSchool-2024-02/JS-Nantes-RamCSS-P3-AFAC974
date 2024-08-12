@@ -10,7 +10,7 @@ function UserUpdateUser() {
     fetch(`${import.meta.env.VITE_API_URL}/api/users/${idUser}`)
       .then((response) => response.json())
       .then((data) => setUser(data));
-  },[idUser]);
+  }, [idUser]);
   if (!user) {
     return "Chargement...";
   }

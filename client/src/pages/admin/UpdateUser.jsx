@@ -17,14 +17,14 @@ function UpdateUser() {
         <h1>modifier un utilisateur :</h1>
       </header>
       <section className="alignment">
-      <select ref={artistRef} onChange={showUser}>
-      {dataUser.map((value, index) => (
+        <select ref={artistRef} onChange={showUser}>
+          {dataUser.map((value, index) => (
             <option key={value.id} value={index}>
               {value.firstname} {value.lastname}
             </option>
           ))}
-          </select>
-      <FormUpdateUser value={dataUser[id]} admin={1} />
+        </select>
+        <FormUpdateUser value={dataUser[id]} admin={1} />
       </section>
     </>
   );
