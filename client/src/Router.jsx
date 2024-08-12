@@ -20,7 +20,6 @@ import User from "./pages/Users";
 import HomeUser from "./pages/user/HomeUser";
 import UserUpdateUser from "./pages/user/UserUpdateUser";
 
-
 // Fonction pour obtenir les paramètres de l'URL
 
 export const userLoader = async () => {

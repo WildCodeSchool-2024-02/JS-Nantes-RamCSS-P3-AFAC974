@@ -16,9 +16,8 @@ export function UserConnectionProvider({ children }) {
   const disconnect = () => {
     localStorage.clear();
     setConnect(false);
-    isAdmin("0");
-    // redirect("./login");
-    // navigate("./login");
+    setIsAdmin("0");
+    navigate("./login");
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -37,6 +36,7 @@ export function UserConnectionProvider({ children }) {
 
       if (response.status === 200) {
         const auth = await response.json();
+        localStorage.setItem("token", `${auth.token}`);
         localStorage.setItem("id", `${auth.user.id}`);
         localStorage.setItem("is_admin", `${auth.user.is_admin}`);
         localStorage.setItem("lastname", `${auth.user.lastname}`);
@@ -88,6 +88,7 @@ export function UserConnectionProvider({ children }) {
           localStorage.clear();
           setConnect(false);
           setIsAdmin(null);
+          navigate("./login");
           throw new Error(`HTTP error! status: ${response.status}`);
         }
       })
