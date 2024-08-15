@@ -17,8 +17,6 @@ function Header() {
   };
 
   useEffect(() => {
-    // revalidator.revalidate();
-    // Measure height whenever the content of the menu changes
     measureHeight();
   }, [connect]);
 
@@ -98,7 +96,7 @@ function Header() {
                 <NavLink to="user">UTILISATEUR</NavLink>
               </li>
               <li>
-                <NavLink to="login" onClick={disconnect}>
+                <NavLink to="../" onClick={disconnect}>
                   DÉCONNEXION
                 </NavLink>
               </li>

@@ -13,11 +13,12 @@ export function UserConnectionProvider({ children }) {
   const passwordRef = useRef();
 
   const navigate = useNavigate();
-  const disconnect = () => {
+  const disconnect = (veriftoken) => {
     localStorage.clear();
     setConnect(false);
     setIsAdmin("0");
-    navigate("./login");
+    if(veriftoken!==1){
+    navigate("../");}
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -71,9 +72,8 @@ export function UserConnectionProvider({ children }) {
   };
 
   const token = localStorage.getItem("token");
-
-  if (token !== null) {
-    /* const response = */ fetch(
+if(token!==null){
+  fetch(
       `${import.meta.env.VITE_API_URL}/api/users/auth`,
       {
         method: "post",
@@ -85,10 +85,7 @@ export function UserConnectionProvider({ children }) {
     )
       .then((response) => {
         if (!response.ok) {
-          localStorage.clear();
-          setConnect(false);
-          setIsAdmin(null);
-          navigate("./login");
+          disconnect(1);
           throw new Error(`HTTP error! status: ${response.status}`);
         }
       })
@@ -97,7 +94,8 @@ export function UserConnectionProvider({ children }) {
         console.error("There was a problem with the fetch operation: ", error);
         throw error;
       });
-  }
+
+    }
   return (
     <UserConnectionContext.Provider
       /* eslint-disable-next-line react/jsx-no-constructed-context-values */
