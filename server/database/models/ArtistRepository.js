@@ -3,7 +3,7 @@ const AbstractRepository = require("./AbstractRepository");
 class ArtistRepository extends AbstractRepository {
   constructor() {
     // Call the constructor of the parent class (AbstractRepository)
-    // and pass the table name "item" as configuration
+    // and pass the table name "artist" as configuration
     super({ table: "artist" });
   }
 
@@ -11,7 +11,7 @@ class ArtistRepository extends AbstractRepository {
 
   async create(artist) {
     const photo = `images/photos/${artist.filename}`;
-    // Execute the SQL INSERT query to add a new item to the "item" table
+    // Execute the SQL INSERT query to add a new artist to the "artist" table
     const [result] = await this.database.query(
       `insert into ${this.table} (firstname, lastname, description, photo, alt_artist) values (?, ?, ?, ?, ?)`,
       [
@@ -38,6 +38,8 @@ class ArtistRepository extends AbstractRepository {
     // Return the first row of the result, which represents the item
     return rows[0].Auto_increment + 1;
   }
+
+  // The Rs of CRUD - Read operations
 
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID

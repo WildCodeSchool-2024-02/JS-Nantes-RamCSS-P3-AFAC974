@@ -4,10 +4,9 @@ import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 import "../style/login.css";
 
 function Login() {
-  const { responsevalue, emailRef, passwordRef, handleSubmit } = useContext(
-    UserConnectionContext
-  );
-
+  const { responsevalue, emailRef, passwordRef, handleSubmit, connect } =
+    useContext(UserConnectionContext);
+  if (connect) return <>Vous êtes déjà connecté</>;
   return (
     <>
       <h1>Connexion :</h1>

@@ -17,8 +17,9 @@ export function UserConnectionProvider({ children }) {
     localStorage.clear();
     setConnect(false);
     setIsAdmin("0");
-    if(veriftoken!==1){
-    navigate("../");}
+    if (veriftoken !== 1) {
+      navigate("../");
+    }
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -72,17 +73,14 @@ export function UserConnectionProvider({ children }) {
   };
 
   const token = localStorage.getItem("token");
-if(token!==null){
-  fetch(
-      `${import.meta.env.VITE_API_URL}/api/users/auth`,
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Inclusion du jeton JWT
-        },
-      }
-    )
+  if (token !== null) {
+    fetch(`${import.meta.env.VITE_API_URL}/api/users/auth`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // Inclusion du jeton JWT
+      },
+    })
       .then((response) => {
         if (!response.ok) {
           disconnect(1);
@@ -94,8 +92,7 @@ if(token!==null){
         console.error("There was a problem with the fetch operation: ", error);
         throw error;
       });
-
-    }
+  }
   return (
     <UserConnectionContext.Provider
       /* eslint-disable-next-line react/jsx-no-constructed-context-values */

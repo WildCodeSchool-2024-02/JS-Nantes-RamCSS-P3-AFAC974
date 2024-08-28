@@ -1,11 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from "react";
-import { UserConnectionContext } from "../contexts/UserConnectionProvider";
+import { UserConnectionContext } from "./contexts/UserConnectionProvider";
 
 function User() {
   const { connect } = useContext(UserConnectionContext);
 
-  if (!connect) return <h1>ERROR 401 FORDIBEN</h1>;
+  if (!connect) {
+    return <h1>ERROR 403 FORDIBEN</h1>;
+  }
 
   return (
     <>

@@ -17,24 +17,25 @@ const {
   edit,
 } = require("../../../controllers/artworksActions");
 
-// Route to get a list of items
+// Route to get a list of artworks
 router.get("/", browse);
 
-// Route to get a list of items
+// Route to get a list of artworks
 router.get("/rand", randBrowse);
 
-// Route to get a list of items
+// Route to get a list of artworks
 router.get("/home", homeBrowse);
 
-// Route to get a specific item by ID
+// Route to get a specific artwork by ID
 router.get("/:id", read);
 
-// Route to add a new item
+// Route to add a new artwork
 router.post("/", add);
 
-// Route to add a new item
+// Route to delete artwork
 router.delete("/delete/:id", destroy);
 
+// Route to update artwork
 router.put("/update/:id", edit);
 
 /* ************************************************************************* */

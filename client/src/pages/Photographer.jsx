@@ -4,7 +4,7 @@ import PictureGallery from "../components/PictureGallery";
 import "../style/photographer.css";
 
 function Photographer() {
-  const dataArtist = [useLoaderData([])];
+  const dataArtist = useLoaderData([]);
   const artist = dataArtist[0];
   const [photo, setPhoto] = useState([]);
 

@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { UserConnectionContext } from "../contexts/UserConnectionProvider";
 import "../style/register.css";
 
 function Register() {
@@ -108,6 +108,8 @@ function Register() {
   }
   // "✅" : "❌"
   // Rendu du composant formulaire
+  const { connect } = useContext(UserConnectionContext);
+  if (connect) return <>Vous avez déjà un compte</>;
   return (
     <>
       <header>
@@ -144,7 +146,6 @@ function Register() {
           <label htmlFor="email">{}</label>
           <input
             ref={emailRef}
-            type="email"
             id="email"
             required
             placeholder="exemple@email.com"
