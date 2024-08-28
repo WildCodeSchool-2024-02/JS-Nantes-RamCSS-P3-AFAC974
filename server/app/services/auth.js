@@ -22,7 +22,7 @@ const hashPassword = async (req, res, next) => {
     req.body.hashedPassword = hashedPassword;
 
     // Suppression du mot de passe non haché de la requête par mesure de sécurité
-    // delete req.body.password;
+    delete req.body.password;
 
     next();
   } catch (err) {
@@ -56,7 +56,7 @@ const verifyToken = (req, res, next) => {
   } catch (err) {
     console.error(err);
 
-    res.sendStatus(401);
+    res.sendStatus(403);
   }
 };
 

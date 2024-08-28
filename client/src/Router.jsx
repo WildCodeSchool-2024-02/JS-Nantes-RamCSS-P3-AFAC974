@@ -8,7 +8,7 @@ import Photographer from "./pages/Photographer";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Admin from "./pages/Admin";
+import Admin from "./Admin";
 import HomeAdmin from "./pages/admin/HomeAdmin";
 import AddArtist from "./pages/admin/AddArtist";
 import UpdateArtist from "./pages/admin/UpdateArtist";
@@ -16,7 +16,7 @@ import AddArtwork from "./pages/admin/AddArtwork";
 import UpdateArtwork from "./pages/admin/UpdateArtwork";
 import AddUser from "./pages/admin/AddUser";
 import UpdateUser from "./pages/admin/UpdateUser";
-import User from "./pages/Users";
+import User from "./User";
 import HomeUser from "./pages/user/HomeUser";
 import UserUpdateUser from "./pages/user/UserUpdateUser";
 

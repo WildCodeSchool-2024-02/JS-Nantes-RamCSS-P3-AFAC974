@@ -6,7 +6,7 @@ import "../style/header.css";
 function Header() {
   const isAdmin = localStorage.getItem("is_admin");
   const { disconnect, connect } = useContext(UserConnectionContext);
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
   const [image, Setimage] = useState("../images/images/menu-burger.png");
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -22,13 +22,13 @@ function Header() {
 
   const openMenu = () => {
     const menu = document.querySelector(".open-menu");
-    if (value === 1) {
-      setValue(0);
+    if (value === 0) {
+      setValue(1);
       Setimage("../images/images/menu-burger1.png");
       menu.style.visibility = "visible";
       menu.style.height = `${height}px`;
     } else {
-      setValue(1);
+      setValue(0);
       Setimage("../images/images/menu-burger.png");
       menu.style.height = "0px";
       setTimeout(() => {
