@@ -16,12 +16,14 @@ const login = async (req, res, next) => {
 
     const verified = await argon2.verify(
       user.hashed_password,
-      req.body.password
+      req.body.password 
     );
 
     if (verified) {
       // Respond with the user and a signed token in JSON format (but without the hashed password)
       delete user.hashed_password;
+          // Suppression du mot de passe non haché de la requête par mesure de sécurité
+    delete req.body.password;
 
       const token = await jwt.sign(
         { sub: user.id, isAdmin: user.is_admin },
