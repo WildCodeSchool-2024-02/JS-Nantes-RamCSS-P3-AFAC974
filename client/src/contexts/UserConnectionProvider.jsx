@@ -23,6 +23,7 @@ export function UserConnectionProvider({ children }) {
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/users/login`,
