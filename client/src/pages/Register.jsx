@@ -42,6 +42,8 @@ function Register() {
 
     passwordRef.current.value = pass;
     confirmPasswordRef.current.value = pass;
+    setPassword(pass);
+    setConfirmPassword(pass);
   };
 
   const show = () => {
@@ -191,7 +193,13 @@ function Register() {
             className={ConfirmPasswordChange}
           />
         </div>
-        {/* Indicateur de correspondance avec le mot de passe */}
+        <label htmlFor="privacy-statement">
+          En cochant cette case vous acceptez que vos données soit conservé
+          pendant un maximum de 2 ans après votre dernière connexion, vos
+          données ne seront jamais transmise à des tiers, sauf décision de
+          justice
+          <input id="privacy-statement" type="checkbox" required />
+        </label>
         {/* Bouton de soumission du formulaire */}
         <button className="button-form" type="submit">
           S&apos;inscrire

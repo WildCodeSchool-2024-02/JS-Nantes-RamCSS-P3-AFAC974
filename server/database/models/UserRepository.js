@@ -26,7 +26,7 @@ class UserRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select id, firstname, lastname, is_admin from ${this.table} where id = ?`,
+      `select id, firstname, lastname, email, is_admin from ${this.table} where id = ?`,
       [id]
     );
 
@@ -37,7 +37,7 @@ class UserRepository extends AbstractRepository {
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
     const [rows] = await this.database.query(
-      `select id, firstname, lastname, is_admin from ${this.table}`
+      `select id, firstname, lastname, email, is_admin from ${this.table}`
     );
 
     // Return the array of items
@@ -68,7 +68,8 @@ class UserRepository extends AbstractRepository {
 
     // Return the array of items
     return rows;
-  }
+
+}
 
   // The D of CRUD - Delete operation
 

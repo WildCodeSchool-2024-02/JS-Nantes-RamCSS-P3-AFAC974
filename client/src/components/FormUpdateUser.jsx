@@ -37,11 +37,16 @@ function FormUpdateUser({ value, admin }) {
 
     try {
       // Appel à l'API pour créer un nouvel utilisateur
+      const token = localStorage.getItem("token");
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/users`,
+        `${import.meta.env.VITE_API_URL}/api/users/update/${value.id}`,
+     
         {
-          method: "post",
-          headers: { "Content-Type": "application/json" },
+          method: "put",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // Inclusion du jeton JWT
+            },
           body: JSON.stringify({
             firstname: firstnameRef.current.value,
             lastname: lastnameRef.current.value,
@@ -76,6 +81,7 @@ function FormUpdateUser({ value, admin }) {
   }
   // "✅" : "❌"
   // Rendu du composant formulaire
+  
   return (
     <form onSubmit={handleSubmit}>
       <div>

@@ -15,13 +15,14 @@ const hashPassword = async (req, res, next) => {
     // Extraction du mot de passe de la requête
   
     const { password } = req.body;
+    if(password==="") {req.body.hashedPassword = "";}else{
 
     // Hachage du mot de passe avec les options spécifiées
     const hashedPassword = await argon2.hash(password, hashingOptions);
 
     // Remplacement du mot de passe non haché par le mot de passe haché dans la requête
     req.body.hashedPassword = hashedPassword;
-
+}
 
     next();
   } catch (err) {

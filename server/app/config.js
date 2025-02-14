@@ -28,10 +28,12 @@ const app = express();
 
 const cors = require("cors");
 
+console.info("CLIENT_URL:", process.env.CLIENT_URL);
+console.info("CLIENT_URL1:", process.env.CLIENT_URL1);
 app.use(
   cors({
     origin: [
-      process.env.CLIENT_URL, // keep this one, after checking the value in `server/.env`
+      process.env.CLIENT_URL1, process.env.CLIENT_URL,// keep this one, after checking the value in `server/.env`
     ],
   })
 );

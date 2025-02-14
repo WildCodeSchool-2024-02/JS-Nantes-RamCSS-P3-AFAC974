@@ -52,26 +52,55 @@ const readToken = async (req, res, next) => {
   }
 };
 
-// The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
+  
   // Extract the item data from the request body
   const { id } = req.params;
   const user = req.body;
+  user.password='';
 
   Object.entries(user).forEach(([key]) => {
     if (user[key] === "") {
       delete user[key];
     }
   });
-
+  
   const keys = Object.keys(user);
+  keys.map((value, index) => {
+    if (value === "hashedPassword") {
+      keys[index] = "hashed_password"; // Modification directe
+      
+    }return keys[index]
+  });
   const values = Object.values(user);
-
+   
   try {
     // Insert the item into the database
-    const editId = await tables.artist.update(id, keys, values);
+    const editId = await tables.user.update(id, keys, values);
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ editId });
+  } catch (err) {
+    // Pass any errors to the error-handling middleware
+    next(err);
+  }
+}
+
+// The A of BREAD - Add (Create) operation
+const add = async (req, res, next) => {
+  // Extract the user data from the request body
+  const favorite = req.body;
+  // const regex = /^[a-z][a-z1-9\-_.]{4,50}@[a-z1-9\-_]{5,50}\.[a-z]{2,4}$/;
+
+  try {
+    // if (!regex.test(user.email)) {
+     // res.status(400).json("vous avez entré des carractères invalides");
+    // } else {
+      // Insert the user into the database
+      const insertId = await tables.favorite.createFavorite(favorite);
+
+      // Respond with HTTP 201 (Created) and the ID of the newly inserted user
+      res.status(201).json({ insertId });
+    // }
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -79,21 +108,17 @@ const edit = async (req, res, next) => {
 };
 
 // The A of BREAD - Add (Create) operation
-const add = async (req, res, next) => {
+const addFavorite = async (req, res, next) => {
   // Extract the user data from the request body
   const user = req.body;
-  const regex = /^[a-z][a-z1-9\-_.]{4,50}@[a-z1-9\-_]{5,50}\.[a-z]{2,4}$/;
+  
 
   try {
-    if (!regex.test(user.email)) {
-      res.status(400).json("vous avez entré des carractères invalides");
-    } else {
-      // Insert the user into the database
       const insertId = await tables.user.create(user);
 
       // Respond with HTTP 201 (Created) and the ID of the newly inserted user
       res.status(201).json({ insertId });
-    }
+    // }
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
@@ -125,5 +150,6 @@ module.exports = {
   readToken,
   edit,
   add,
+  addFavorite,
   destroy,
 };

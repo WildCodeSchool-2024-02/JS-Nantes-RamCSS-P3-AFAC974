@@ -5,7 +5,7 @@ import "../style/photographer.css";
 
 function Photographer() {
   const dataArtist = useLoaderData([]);
-  const artist = dataArtist[0];
+  const artist = dataArtist;
   const [photo, setPhoto] = useState([]);
 
   useEffect(() => {

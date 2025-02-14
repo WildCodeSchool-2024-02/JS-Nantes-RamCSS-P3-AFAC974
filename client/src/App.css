@@ -42,7 +42,7 @@ h3 {
 
 .errormessage {
   /* position: fixed;
-  top: 50%; */
+	top: 50%; */
   margin: auto;
   color: #ff0000;
   width: 250px;
@@ -78,6 +78,11 @@ input {
   text-align: center;
   color: var(--dark-color);
   font-weight: bold;
+}
+
+label {
+  width: 250px;
+  color: var(--light-color);
 }
 
 textarea {

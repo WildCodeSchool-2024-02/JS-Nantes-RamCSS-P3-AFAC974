@@ -38,8 +38,8 @@ nav > ul {
   right: 0;
   list-style: none;
   width: 250px;
-  padding: 0 1rem 0 1rem;
-  background: #d6d3fa;
+  /* padding: 0 1rem 0 1rem; */
+  background: #7c799c;
   border-radius: 0 0 0 1rem;
 }
 
@@ -48,11 +48,10 @@ nav > ul > li {
   font-weight: bold;
   height: 30px;
   width: 100%;
-  margin: 2rem 0 2rem 0;
+  margin: 2rem 0;
 }
 
 header > nav > ul > li > a {
-  background: var(--dark-color);
   color: var(--light-color);
   text-decoration: none;
   font-weight: bold;
@@ -62,14 +61,22 @@ header > nav > ul > li > a {
   text-align: center;
   align-content: center;
   text-align: center;
-  border-radius: 50%;
-  padding: 0.5rem;
-  margin: auto 7.5%;
+  padding: 0 0.5rem;
+  margin: auto;
 }
 
 header > nav > ul > li > a:hover {
   background: var(--light-color);
-  color: var(--dark-color);
-  border: 1px solid var(--dark-color);
-  border-radius: 50%;
+  color: #7c799c;
+}
+
+.cookies {
+  position: fixed;
+  top: calc(50vh - 125px);
+  left: calc(50vw - 125px);
+  width: 300px;
+  height: 300px;
+  background: var(--light-color);
+  text-align: center;
+  align-content: center;
 }
