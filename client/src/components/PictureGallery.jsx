@@ -21,13 +21,18 @@ function PictureGallery({ value, name }) {
     </article>
   );
 }
+
+PictureGallery.defaultProps = {
+  name: "", // Valeur par défaut si `name` n'est pas fourni
+};
+
 PictureGallery.propTypes = {
-  name: PropTypes.number.isRequired,
+  name: PropTypes.string,
   value: PropTypes.arrayOf(
     PropTypes.shape({
       firstname: PropTypes.string.isRequired,
-      lastname: PropTypes.number.isRequired,
-      photo: PropTypes.number.isRequired,
+      lastname: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
       alt_artist: PropTypes.string.isRequired,
     })
   ).isRequired,

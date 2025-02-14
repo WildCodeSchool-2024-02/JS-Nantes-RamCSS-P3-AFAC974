@@ -4,20 +4,20 @@ import FormUpdateUser from "../../components/FormUpdateUser";
 
 function UpdateUser() {
   const dataUser = useLoaderData();
-  const artistRef = useRef();
+  const userRef = useRef();
   const [id, setId] = useState(0);
 
   const showUser = () => {
-    setId(artistRef.current.value);
+    setId(userRef.current.value);
   };
-
+ 
   return (
     <>
       <header>
         <h1>modifier un utilisateur :</h1>
       </header>
       <section className="alignment">
-        <select ref={artistRef} onChange={showUser}>
+        <select ref={userRef} onChange={showUser}>
           {dataUser.map((value, index) => (
             <option key={value.id} value={index}>
               {value.firstname} {value.lastname}
