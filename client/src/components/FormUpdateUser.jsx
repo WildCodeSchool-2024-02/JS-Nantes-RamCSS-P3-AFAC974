@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import PropTypes from "prop-types";
+import FormDelete from "./FormDelete";
 
-function FormUpdateUser({ value, admin }) {
+function FormUpdateUser({ value, admin, responseValue, setResponseValue }) {
   // Référence pour le champ email
   const emailRef = useRef();
   // Référence pour le champ firstname
@@ -13,9 +14,6 @@ function FormUpdateUser({ value, admin }) {
   // États pour le mot de passe et la confirmation du mot de passe
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
-  //  États pour l'affichage de l&apos;erreur
-  const [responseValue, setResponseValue] = useState("");
 
   // Messsage d'erreur
   const errorMessage =
@@ -60,6 +58,8 @@ function FormUpdateUser({ value, admin }) {
       // Redirection vers la page de connexion si la création réussit
       if (response.status === 201) {
         setResponseValue("Le membre à bien été modifier");
+      } else if(response.status === 301) {
+        setResponseValue("aucune modification n'a été effectué");
       } else {
         const contentType = response.headers.get("content-type");
         setResponseValue(errorMessage);
@@ -82,7 +82,7 @@ function FormUpdateUser({ value, admin }) {
   // "✅" : "❌"
   // Rendu du composant formulaire
   
-  return (
+  return (<>
     <form onSubmit={handleSubmit}>
       <div>
         {/* Champ pour le Prénom */}
@@ -131,7 +131,7 @@ function FormUpdateUser({ value, admin }) {
               className={redColorPassword}
             />
           </div>
-          {/* Indicateur de force du mot de passe */}
+          {/* Indicateur de force du mot de passe */}Lucas Dubois
           <p>{}</p>
           <div>
             {/* Champ pour la confirmation du mot de passe */}
@@ -152,18 +152,26 @@ function FormUpdateUser({ value, admin }) {
       <button className="button-form" type="submit">
         Modifier
       </button>
-      {responseValue && <p className="errormessage">{responseValue}</p>}
     </form>
+            <FormDelete
+              item="user"
+              id={value.id}
+              setMessageRequest={setResponseValue}
+            />
+                  {responseValue && <p className="errormessage">{responseValue}</p>}
+            </>
   );
 }
 
 FormUpdateUser.propTypes = {
   admin: PropTypes.number.isRequired,
+  responseValue: PropTypes.string.isRequired,
+  setResponseValue: PropTypes.string.isRequired,
   value: PropTypes.arrayOf(
     PropTypes.shape({
       firstname: PropTypes.string.isRequired,
-      lastname: PropTypes.number.isRequired,
-      photo: PropTypes.number.isRequired,
+      lastname: PropTypes.string.isRequired,
+      photo: PropTypes.string.isRequired,
       alt_artist: PropTypes.string.isRequired,
     })
   ).isRequired,

@@ -5,6 +5,7 @@ import FormUpdateUser from "../../components/FormUpdateUser";
 function UserUpdateUser() {
   const [user, setUser] = useState(false);
   const { idUser } = useContext(UserConnectionContext);
+  const [responseValue, setResponseValue] = useState("");
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/users/${idUser}`)
@@ -20,7 +21,7 @@ function UserUpdateUser() {
       <header>
         <h1>modifier vos informations :</h1>
       </header>
-      <FormUpdateUser value={user} />
+      <FormUpdateUser value={user}  responseValue={responseValue} setResponseValue={setResponseValue} />
     </>
   );
 }

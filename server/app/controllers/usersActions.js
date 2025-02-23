@@ -73,20 +73,22 @@ const edit = async (req, res, next) => {
     }return keys[index]
   });
   const values = Object.values(user);
+  
    
   try {
+    if(keys.length===0){res.status(301).json({ response:"error" });}else{
     // Insert the item into the database
     const editId = await tables.user.update(id, keys, values);
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ editId });
-  } catch (err) {
+  }} catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
   }
 }
 
 // The A of BREAD - Add (Create) operation
-const add = async (req, res, next) => {
+const addFavorite = async (req, res, next) => {
   // Extract the user data from the request body
   const favorite = req.body;
   // const regex = /^[a-z][a-z1-9\-_.]{4,50}@[a-z1-9\-_]{5,50}\.[a-z]{2,4}$/;
@@ -108,7 +110,7 @@ const add = async (req, res, next) => {
 };
 
 // The A of BREAD - Add (Create) operation
-const addFavorite = async (req, res, next) => {
+const add = async (req, res, next) => {
   // Extract the user data from the request body
   const user = req.body;
   
@@ -134,10 +136,12 @@ const destroy = async (req, res, next) => {
 
     // Insert the item into the database
     const deleteId = await tables.user.delete(id);
-
+if(deleteId.affectedRows===0) {
+  res.status(301).json({ response:"can't delete" });
+}else{
     // Respond with HTTP 201 (Created) and the ID of the newly inserted item
     res.status(201).json({ deleteId });
-  } catch (err) {
+  }} catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
   }

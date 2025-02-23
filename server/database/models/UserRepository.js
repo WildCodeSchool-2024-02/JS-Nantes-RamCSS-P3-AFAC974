@@ -75,10 +75,10 @@ class UserRepository extends AbstractRepository {
 
   async delete(id) {
     const [rows] = await this.database.query(
-      `DELETE from ${this.table} WHERE id=? AND isadmin!=1`,
+      `DELETE from ${this.table} WHERE id=? AND id!=1`,
       [id]
     );
-
+    
     // Return the array of items
     return rows;
   }

@@ -6,9 +6,11 @@ function UpdateUser() {
   const dataUser = useLoaderData();
   const userRef = useRef();
   const [id, setId] = useState(0);
-
+  //  États pour l'affichage de l&apos;erreur
+  const [responseValue, setResponseValue] = useState("");
   const showUser = () => {
     setId(userRef.current.value);
+    setResponseValue("");
   };
  
   return (
@@ -24,7 +26,7 @@ function UpdateUser() {
             </option>
           ))}
         </select>
-        <FormUpdateUser value={dataUser[id]} admin={1} />
+        <FormUpdateUser value={dataUser[id]} admin={1} responseValue={responseValue} setResponseValue={setResponseValue} />
       </section>
     </>
   );
