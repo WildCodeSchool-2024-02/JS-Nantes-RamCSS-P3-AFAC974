@@ -17,6 +17,7 @@ router.get("/", userActions.browse);
 router.get("/:id", userActions.read);
 router.post("/", hashPassword, userActions.add);
 router.put("/update/:id", verifyToken, hashPassword, userActions.edit);
+router.delete("/delete/:id", verifyToken, userActions.destroy);
 
 
 // Import authActions module for handling auth-related operations
@@ -26,7 +27,7 @@ router.post("/login", hashPassword, authActions.login);
 
 router.post("/auth", verifyToken, authActions.readToken);
 
-router.post("/favorite", /* verifyToken, */ userActions.addFavorite);
+/* router.post("/favorite", verifyToken, userActions.addFavorite); */
 // Authentication wall
 router.use(verifyToken);
 /* ************************************************************************* */

@@ -13,14 +13,13 @@ export function UserConnectionProvider({ children }) {
   const passwordRef = useRef();
 
   const navigate = useNavigate();
-  const disconnect = (veriftoken) => {
+  const disconnect = () => {
     localStorage.clear();
     setConnect(false);
     setIsAdmin("0");
-    if (veriftoken !== 1) {
-      navigate("../");
-    }
-  };
+    navigate("../");
+      };
+      
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -84,7 +83,7 @@ export function UserConnectionProvider({ children }) {
     })
       .then((response) => {
         if (!response.ok) {
-          disconnect(1);
+          disconnect();
           throw new Error(`HTTP error! status: ${response.status}`);
         }
       })
